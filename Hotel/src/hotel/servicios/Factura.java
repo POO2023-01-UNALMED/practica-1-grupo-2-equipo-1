@@ -1,4 +1,4 @@
-package hotel;
+package hotel.servicios;
 
 import personas.Encargado;
 

@@ -1,6 +1,6 @@
 package personas;
 
-import hotel.Factura;
+import hotel.servicios.Factura;
 
 public class Encargado extends Huesped {
 
