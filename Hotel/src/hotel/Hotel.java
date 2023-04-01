@@ -1,10 +1,26 @@
 package hotel;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+import hotel.habitaciones.*;
+
+public class Hotel {
+
+    ArrayList<Habitacion> listaHabitaciones = new ArrayList<Habitacion>();
+
+    public void mostarHabitaciones(){
+        for (Habitacion habitacion : listaHabitaciones) {
+            System.out.println(habitacion + "\n");
+        }
+    }
 
     public static void main(String[] args) {
+
+        Hotel miHotel = new Hotel();
+        miHotel.listaHabitaciones.add(new HabitacionEconomica(2, 50000, false, false, "A101"));
+        miHotel.listaHabitaciones.add(new HabitacionVIP(6, 100000, false, true, "P800"));
+
         Scanner inputOpcion = new Scanner(System.in);
         System.out.println("Administrador de hotel");
 
@@ -15,6 +31,8 @@ public class Main {
             System.out.println("3. Modificar habitacion de huesped");
             System.out.println("4. Ver habitaciones"); // ocupadas y desocupadas
             System.out.println("5. Parqueadero");
+            System.out.println("0. Parqueadero");
+
 
             System.out.println("Opcion: ");
             int opcion = inputOpcion.nextInt();
@@ -29,11 +47,15 @@ public class Main {
                 //modificarHabitacionHuesped()
                     break;
                 case 4:
-                //verHabitaciones
+                miHotel.mostarHabitaciones();
                     break;
                 case 5:
-                    break;
                 //verParqueadero
+                    break;
+                case 0:
+                    //*salir
+                estado = false;
+                System.out.println("Saliendo");
                 default:
                     System.out.println("Opcion no valida");
                     break;

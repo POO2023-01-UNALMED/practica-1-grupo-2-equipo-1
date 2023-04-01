@@ -1,7 +1,7 @@
 package hotel.habitaciones;
 
 public abstract class Habitacion {
-    protected int capacidad, precioXnoche; // precio PORNOche jajajja
+    protected int capacidad, precioXnoche;
     protected boolean ocupado, estaLimpia;
     protected String IdHabitacion;
 

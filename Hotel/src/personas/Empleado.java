@@ -12,6 +12,4 @@ public class Empleado extends Persona {
     public String toString() {
         return "Empleado ...";
     }
-
-    
 }
