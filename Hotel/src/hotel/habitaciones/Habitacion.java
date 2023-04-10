@@ -1,16 +1,18 @@
 package hotel.habitaciones;
 
-public abstract class Habitacion {
-    protected int capacidad, precioXnoche;
-    protected boolean ocupado, estaLimpia;
-    protected String IdHabitacion;
+import java.io.Serializable;
 
-    protected Habitacion(int capacidad, int precioXnoche, boolean ocupado, boolean estaLimpia, String idHabitacion) {
+public abstract class Habitacion implements Serializable{
+    public int capacidad, precioXnoche;
+    public boolean ocupado, estaLimpia;
+    public int IdHabitacion = 1;
+
+    protected Habitacion(int capacidad, int precioXnoche) {
         this.capacidad = capacidad;
         this.precioXnoche = precioXnoche;
-        this.ocupado = ocupado;
-        this.estaLimpia = estaLimpia;
-        IdHabitacion = idHabitacion;
+        this.ocupado = false;
+        this.estaLimpia = true;
+        IdHabitacion++;
     }
 
     @Override

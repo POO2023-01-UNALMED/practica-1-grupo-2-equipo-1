@@ -1,6 +1,8 @@
 package personas;
 
-public abstract class Persona {
+import java.io.Serializable;
+
+public abstract class Persona implements Serializable{
     protected String nombre, apellido;
     protected int edad;
     protected Persona(String nombre, String apellido, int edad) {

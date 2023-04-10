@@ -2,9 +2,8 @@ package hotel.habitaciones;
 
 public class HabitacionEconomica extends Habitacion {
 
-    public HabitacionEconomica(int capacidad, int precioXnoche, boolean ocupado, boolean estaLimpia,
-            String idHabitacion) {
-        super(capacidad, precioXnoche, ocupado, estaLimpia, idHabitacion);
+    public HabitacionEconomica(int capacidad, int precioXnoche) {
+        super(capacidad, precioXnoche);
     }
 
     @Override
