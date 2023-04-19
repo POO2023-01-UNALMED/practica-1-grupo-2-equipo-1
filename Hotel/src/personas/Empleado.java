@@ -4,8 +4,8 @@ public class Empleado extends Persona {
 
     //atributos
 
-    public Empleado(String nombre, String apellido, int edad) {
-        super(nombre, apellido, edad);
+    public Empleado(String nombre, int edad) {
+        super(nombre, edad);
     }
 
     @Override

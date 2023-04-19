@@ -1,16 +1,29 @@
 package personas;
 
+import hotel.habitaciones.Habitacion;
+
 public class Huesped extends Persona {
+    private Habitacion habitacion;
 
-    boolean tieneCarro;
+    public Huesped(String nombreCompleto, int edad, Habitacion habitacion) {
+        super(nombreCompleto, edad);
+        this.habitacion = habitacion;
+    }
 
-    public Huesped(String nombre, String apellido, int edad) {
-        super(nombre, apellido, edad);
+    public Huesped(String nombre, int edad) {
+        super(nombre, edad);
     }
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "" + apellido + "Edad: " + edad;
+        return "Nombre: " + nombreCompleto + ", Edad: " + edad + ", Habitacion: " + habitacion;
     }
 
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
 }

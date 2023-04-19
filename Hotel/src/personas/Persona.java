@@ -3,11 +3,10 @@ package personas;
 import java.io.Serializable;
 
 public abstract class Persona implements Serializable{
-    protected String nombre, apellido;
+    protected String nombreCompleto;
     protected int edad;
-    protected Persona(String nombre, String apellido, int edad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    protected Persona(String nombreCompleto, int edad) {
+        this.nombreCompleto = nombreCompleto;
         this.edad = edad;
     }
 

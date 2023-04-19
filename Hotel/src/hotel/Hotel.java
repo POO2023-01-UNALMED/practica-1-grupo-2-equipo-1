@@ -57,10 +57,10 @@ public class Hotel {
 
                 // operador ternario: true si la respuesta es "si"
                 Boolean tieneCarro = (respuesta.equals("si") ? true : false);
-                Encargado encargado = new Encargado(nombre, apellido, edad, tieneCarro);
+                Encargado encargado = new Encargado(nombre, edad, tieneCarro);
                 grupo[0] = encargado;
             } else {
-                Huesped huesped = new Huesped(nombre, apellido, edad);
+                Huesped huesped = new Huesped(nombre, edad);
                 // lo agregamos a la ultima posicion disponible en el array.
                 for (int j = 0; j < grupo.length; j++) {
                     if (grupo[j] == null) {
@@ -123,7 +123,7 @@ public class Hotel {
         // serializar habitacion
         try {
             ObjectOutputStream escribiendoHabitaciones = new ObjectOutputStream(
-                    new FileOutputStream("Hotel\\src\\basedatos\\habitaciones.txt"));
+                    new FileOutputStream("Hotel\\src\\basedatos\\temp\\grupos_huespedes.txt"));
             escribiendoHabitaciones.writeObject(listaHabitaciones);
             escribiendoHabitaciones.close();
         } catch (Exception e) {
@@ -136,7 +136,7 @@ public class Hotel {
         try {
 
             ObjectInputStream leerHabitaciones = new ObjectInputStream(
-                    new FileInputStream("Hotel\\src\\basedatos\\habitaciones.txt"));
+                    new FileInputStream("Hotel\\src\\basedatos\\temp\\grupos_huespedes.txt"));
             listaHabitaciones = (Habitacion[]) leerHabitaciones.readObject();
             leerHabitaciones.close();
 

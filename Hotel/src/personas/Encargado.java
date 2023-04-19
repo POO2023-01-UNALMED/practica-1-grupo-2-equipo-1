@@ -5,8 +5,8 @@ import hotel.servicios.Factura;
 public class Encargado extends Huesped {
     boolean tieneCarro;
 
-    public Encargado(String nombre, String apellido, int edad, boolean tieneCarro) {
-        super(nombre, apellido, edad);
+    public Encargado(String nombreCompleto, int edad, boolean tieneCarro) {
+        super(nombreCompleto, edad);
         this.tieneCarro = tieneCarro;
     }
 
