@@ -18,7 +18,7 @@ public class HabitacionEstandar extends Habitacion {
     public String toString() {
         if (grupo != null){
             return "Habitacion estandar [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-            + ", grupo=" + grupo.toString() + "]";
+            + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
         }
         return "Habitacion estandar [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
                 + "]";

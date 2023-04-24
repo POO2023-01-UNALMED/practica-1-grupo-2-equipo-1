@@ -11,6 +11,7 @@ public abstract class Habitacion implements Serializable {
     protected int precioXdia;
     protected int ID_Habitacion;
     protected GrupoHuespedes grupo;
+    protected boolean estaOcupado;
 
     public Habitacion(int capacidad, int precioXdia, int iD_Habitacion) {
         this.capacidad = capacidad;
@@ -30,7 +31,7 @@ public abstract class Habitacion implements Serializable {
     public String toString() {
         if (grupo != null){
             return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-            + ", grupo=" + grupo.toString() + "]";
+            + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
         }
         return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
                 + "]";
