@@ -35,7 +35,7 @@ public class Interfaz {
         int opcion;
         do {
             System.out.println("Que operacion desea realizar");
-            System.out.println("1. Agregar huespedes");
+            System.out.println("1. Registar huespedes");
             System.out.println("2. Desalojar huespedes");
             System.out.println("3. Ver habitaciones");
             System.out.println("5. Ver huespedes");
@@ -57,9 +57,16 @@ public class Interfaz {
 
     static void agregarHuesped(Hotel hotel){
         mostrarListaHabitaciones(hotel);
-        System.out.println("Id de la habitacion");
+        System.out.print("Id de la habitacion: ");
         int idHab = readInt();
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+
+        while(hab.getEstaOcupado() == true){
+            System.out.println("Esta habitacion esta ocupada, seleccione otra");
+            System.out.print("Id de la habitacion: ");
+            idHab = readInt();
+            hab = hotel.seleccionarHabitacionPorId(idHab);
+        }
 
         /* Definimos el grupo que ocupara la habitacion 
          * dias que se quedan:
