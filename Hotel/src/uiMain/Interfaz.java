@@ -20,6 +20,7 @@ import gestorAplicacion.hoteles.Hotel;
 public class Interfaz {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+
         Hotel hotel = new Hotel();
         int opcion;
         do {
@@ -46,6 +47,7 @@ public class Interfaz {
         System.out.println("Vuelva pronto");
         serializador.serializar(hotel);
         System.exit(0);
+
     }
     
 }
