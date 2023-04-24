@@ -77,6 +77,11 @@ public class Interfaz {
         System.out.println("Cuantas personas");
         int numeroPersonas = readInt();
 
+        while (numeroPersonas > hab.getCapacidad()){
+            System.out.println("El numero sobrepasa la capacidad");
+            numeroPersonas = readInt();
+        }
+
         for (int i = 0; i < numeroPersonas; i++) {
             System.out.print("Nombre: ");
             String nombre = readString();

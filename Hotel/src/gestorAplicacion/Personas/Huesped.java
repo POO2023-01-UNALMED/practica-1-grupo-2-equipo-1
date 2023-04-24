@@ -30,6 +30,6 @@ public class Huesped implements Serializable{
 
     @Override
     public String toString() {
-        return nombre + " " + ID;
+        return nombre + "-" + ID;
     }
 }
