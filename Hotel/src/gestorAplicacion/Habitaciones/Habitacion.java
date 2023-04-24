@@ -10,12 +10,14 @@ public abstract class Habitacion implements Serializable {
     protected int capacidad;
     protected int precioXdia;
     protected int ID_Habitacion;
-    protected GrupoHuespedes grupo = new GrupoHuespedes();
+    protected GrupoHuespedes grupo;
+    protected boolean estaOcupado;
 
     public Habitacion(int capacidad, int precioXdia, int iD_Habitacion) {
         this.capacidad = capacidad;
         this.precioXdia = precioXdia;
         ID_Habitacion = iD_Habitacion;
+        this.estaOcupado = false;
     }
 
     public Habitacion(int capacidad, int precioXdia){
@@ -23,6 +25,10 @@ public abstract class Habitacion implements Serializable {
         id++;
     }
 
+    public void borrarGrupo(){
+        this.setGrupo(null);
+        this.estaOcupado = false;
+    }
 
 
     //*setters y getters */
@@ -31,7 +37,7 @@ public abstract class Habitacion implements Serializable {
     public String toString() {
         if (grupo != null){
             return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-            + ", grupo=" + grupo.toString() + "]";
+            + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
         }
         return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
                 + "]";
@@ -75,6 +81,15 @@ public abstract class Habitacion implements Serializable {
 
     public void setGrupo(GrupoHuespedes grupo) {
         this.grupo = grupo;
+        this.estaOcupado = true;
+    }
+
+    public boolean getEstaOcupado() {
+        return estaOcupado;
+    }
+
+    public void setEstaOcupado(boolean estaOcupado) {
+        this.estaOcupado = estaOcupado;
     }
 
     

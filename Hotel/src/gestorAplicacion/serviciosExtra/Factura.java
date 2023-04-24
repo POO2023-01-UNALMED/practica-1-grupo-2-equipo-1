@@ -1,6 +1,8 @@
 package gestorAplicacion.serviciosExtra;
 
-public class Factura {
+import java.io.Serializable;
+
+public class Factura implements Serializable{
     private int FacturaHospedaje;
     private int FacturaServiciosExtra;
 
@@ -26,7 +28,7 @@ public class Factura {
     @Override
     public String toString() {
         return String.format("""
-            Factura por hospedaje: %d\n
+            Factura por hospedaje: %d
             Factura por servicios extra: %d
             """,FacturaHospedaje, FacturaServiciosExtra);
     }

@@ -26,6 +26,17 @@ public class Hotel implements Serializable {
         return s;
     }
 
+    //*Devuelve una habitaciones por ID */
+    public Habitacion seleccionarHabitacionPorId(int id){
+        // Habitacion hab;
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.getID_Habitacion() == id){
+                return habitacion;
+            }
+        }
+        return null;
+    }
+
     /* getters y setters */
 
     public List<Habitacion> getHabitaciones() {

@@ -14,8 +14,11 @@ package uiMain;
 import java.util.Scanner;
 
 import baseDatos.serializador;
-import gestorAplicacion.Habitaciones.HabitacionEstandar;
+import gestorAplicacion.Habitaciones.Habitacion;
+import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
 import gestorAplicacion.Habitaciones.HabitacionVIP;
+import gestorAplicacion.Personas.GrupoHuespedes;
+import gestorAplicacion.Personas.Huesped;
 import gestorAplicacion.hoteles.Hotel;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -32,7 +35,7 @@ public class Interfaz {
         int opcion;
         do {
             System.out.println("Que operacion desea realizar");
-            System.out.println("1. Agregar huespedes");
+            System.out.println("1. Registar huespedes");
             System.out.println("2. Desalojar huespedes");
             System.out.println("3. Ver habitaciones");
             System.out.println("5. Ver huespedes");
@@ -41,8 +44,10 @@ public class Interfaz {
             opcion = readInt();
 
             switch (opcion) {
-                case 1: break;
-                case 3: System.out.println(hotel.mostrarHabitaciones()); break;
+                case 1: 
+                    agregarHuesped(hotel);
+                    break;
+                case 3: mostrarListaHabitaciones(hotel); break;
                 case 7: salirDelSistema(hotel); break;
                 default: salirDelSistema(hotel); break;
             }
@@ -50,8 +55,68 @@ public class Interfaz {
         } while (opcion != 7);
     }
 
+    static void agregarHuesped(Hotel hotel){
+        mostrarListaHabitaciones(hotel);
+        System.out.print("Id de la habitacion: ");
+        int idHab = readInt();
+        Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+
+        while(hab.getEstaOcupado() == true){
+            System.out.println("Esta habitacion esta ocupada, seleccione otra");
+            System.out.print("Id de la habitacion: ");
+            idHab = readInt();
+            hab = hotel.seleccionarHabitacionPorId(idHab);
+        }
+
+        /* Definimos el grupo que ocupara la habitacion 
+         * dias que se quedan:
+         * cuantas personas:
+         *      nombre:
+         *      identificacion: 
+        */
+        GrupoHuespedes grupoHuespedes = new GrupoHuespedes();
+        grupoHuespedes.setHabitacion(hab);
+
+        System.out.println("Dias: ");
+        int dias = readInt();
+        grupoHuespedes.setDiasEnHotel(dias);
+
+        System.out.println("Cuantas personas");
+        int numeroPersonas = readInt();
+
+        while (numeroPersonas > hab.getCapacidad()){
+            System.out.println("El numero sobrepasa la capacidad");
+            numeroPersonas = readInt();
+        }
+
+        for (int i = 0; i < numeroPersonas; i++) {
+            System.out.print("Nombre: ");
+            String nombre = readString();
+            System.out.print("Identificacion: ");
+            int identificacion = readInt();
+            grupoHuespedes.agregarHuesped(new Huesped(nombre, identificacion));
+        }
+
+        grupoHuespedes.inicializarFactura();
+        // el precio es igual a = dias * precio
+        System.out.println("precio: " + grupoHuespedes.getFactura());
+
+        //* Fin definicion del grupo */
+
+        hab.setGrupo(grupoHuespedes);
+    }
+
     static int readInt(){
         return sc.nextInt();
+    }
+
+    static String readString(){
+        sc.nextLine();
+        return sc.nextLine();
+    }
+
+    static void mostrarListaHabitaciones(Hotel hotel){
+        System.out.println(hotel.mostrarHabitaciones());
     }
 
     private static void salirDelSistema(Hotel hotel){
