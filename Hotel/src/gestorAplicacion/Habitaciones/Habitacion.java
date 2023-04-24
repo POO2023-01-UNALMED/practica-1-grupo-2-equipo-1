@@ -17,11 +17,17 @@ public abstract class Habitacion implements Serializable {
         this.capacidad = capacidad;
         this.precioXdia = precioXdia;
         ID_Habitacion = iD_Habitacion;
+        this.estaOcupado = false;
     }
 
     public Habitacion(int capacidad, int precioXdia){
         this(capacidad, precioXdia, id);
         id++;
+    }
+
+    public void borrarGrupo(){
+        this.setGrupo(null);
+        this.estaOcupado = false;
     }
 
 
@@ -75,6 +81,15 @@ public abstract class Habitacion implements Serializable {
 
     public void setGrupo(GrupoHuespedes grupo) {
         this.grupo = grupo;
+        this.estaOcupado = true;
+    }
+
+    public boolean getEstaOcupado() {
+        return estaOcupado;
+    }
+
+    public void setEstaOcupado(boolean estaOcupado) {
+        this.estaOcupado = estaOcupado;
     }
 
     

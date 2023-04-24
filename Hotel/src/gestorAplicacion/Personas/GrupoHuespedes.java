@@ -1,6 +1,7 @@
 package gestorAplicacion.Personas;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import gestorAplicacion.Habitaciones.Habitacion;
@@ -28,7 +29,7 @@ public class GrupoHuespedes implements Serializable{
     }
 
     public GrupoHuespedes(){
-
+        this.listaHuespedes = new ArrayList<Huesped>();
     }
 
     public void agregarHuesped(Huesped huesped){
@@ -47,7 +48,7 @@ public class GrupoHuespedes implements Serializable{
         if (listaHuespedes != null){
             for (Huesped huesped : listaHuespedes) {
                 if (huesped != null){
-                    lista += huesped.toString() + "\n";
+                    lista += huesped.toString() + ", ";
                 }
             }
         }

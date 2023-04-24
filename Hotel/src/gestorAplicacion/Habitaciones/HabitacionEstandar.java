@@ -21,7 +21,7 @@ public class HabitacionEstandar extends Habitacion {
             + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
         }
         return "Habitacion estandar [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-                + "]";
+                + ", Ocupado=" + estaOcupado +"]";
     }
 
     

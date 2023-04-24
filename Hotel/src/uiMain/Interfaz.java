@@ -18,6 +18,7 @@ import gestorAplicacion.Habitaciones.Habitacion;
 import gestorAplicacion.Habitaciones.HabitacionEstandar;
 import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
+import gestorAplicacion.Personas.Huesped;
 import gestorAplicacion.hoteles.Hotel;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -44,9 +45,9 @@ public class Interfaz {
 
             switch (opcion) {
                 case 1: 
-                    
+                    agregarHuesped(hotel);
                     break;
-                case 3: mostrarHabitaciones(hotel); break;
+                case 3: mostrarListaHabitaciones(hotel); break;
                 case 7: salirDelSistema(hotel); break;
                 default: salirDelSistema(hotel); break;
             }
@@ -55,14 +56,16 @@ public class Interfaz {
     }
 
     static void agregarHuesped(Hotel hotel){
-        mostrarHabitaciones(hotel);
+        mostrarListaHabitaciones(hotel);
         System.out.println("Id de la habitacion");
-        int opcion = readInt();
-        Habitacion hab = hotel.seleccionarHabitacionPorId(opcion);
+        int idHab = readInt();
+        Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
 
         /* Definimos el grupo que ocupara la habitacion 
          * dias que se quedan:
-         * registro de personas:
+         * cuantas personas:
+         *      nombre:
+         *      identificacion: 
         */
         GrupoHuespedes grupoHuespedes = new GrupoHuespedes();
         grupoHuespedes.setHabitacion(hab);
@@ -71,8 +74,21 @@ public class Interfaz {
         int dias = readInt();
         grupoHuespedes.setDiasEnHotel(dias);
 
-        
-        // grupoHuespedes.setListaHuespedes();
+        System.out.println("Cuantas personas");
+        int numeroPersonas = readInt();
+
+        for (int i = 0; i < numeroPersonas; i++) {
+            System.out.print("Nombre: ");
+            String nombre = readString();
+            System.out.print("Identificacion: ");
+            int identificacion = readInt();
+            grupoHuespedes.agregarHuesped(new Huesped(nombre, identificacion));
+        }
+
+        grupoHuespedes.inicializarFactura();
+        // el precio es igual a = dias * precio
+        System.out.println("precio: " + grupoHuespedes.getFactura());
+
         //* Fin definicion del grupo */
 
         hab.setGrupo(grupoHuespedes);
@@ -82,7 +98,12 @@ public class Interfaz {
         return sc.nextInt();
     }
 
-    static void mostrarHabitaciones(Hotel hotel){
+    static String readString(){
+        sc.nextLine();
+        return sc.nextLine();
+    }
+
+    static void mostrarListaHabitaciones(Hotel hotel){
         System.out.println(hotel.mostrarHabitaciones());
     }
 

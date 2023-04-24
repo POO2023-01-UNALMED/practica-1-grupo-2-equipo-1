@@ -21,7 +21,7 @@ public class HabitacionVIP extends Habitacion {
             + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
         }
         return "Habitacion VIP [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-                + "]";
+                + ", Ocupado=" + estaOcupado +"]";
     }
 
     
