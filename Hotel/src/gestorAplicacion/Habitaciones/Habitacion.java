@@ -1,8 +1,10 @@
 package gestorAplicacion.Habitaciones;
 
+import java.io.Serializable;
+
 import gestorAplicacion.Personas.GrupoHuespedes;
 
-public abstract class Habitacion {
+public abstract class Habitacion implements Serializable {
     protected static int id = 1;
     protected int capacidad;
     protected int precioXdia;

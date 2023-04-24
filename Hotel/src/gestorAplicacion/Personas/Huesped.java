@@ -1,6 +1,6 @@
 package gestorAplicacion.Personas;
 
-public class Huesped {
+public class Huesped{
     String nombre;
     Integer ID;
 }
