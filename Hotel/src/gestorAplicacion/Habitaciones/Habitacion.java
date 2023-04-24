@@ -10,7 +10,7 @@ public abstract class Habitacion implements Serializable {
     protected int capacidad;
     protected int precioXdia;
     protected int ID_Habitacion;
-    protected GrupoHuespedes grupo = new GrupoHuespedes();
+    protected GrupoHuespedes grupo;
 
     public Habitacion(int capacidad, int precioXdia, int iD_Habitacion) {
         this.capacidad = capacidad;
@@ -22,7 +22,6 @@ public abstract class Habitacion implements Serializable {
         this(capacidad, precioXdia, id);
         id++;
     }
-
 
 
     //*setters y getters */

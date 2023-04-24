@@ -14,8 +14,10 @@ package uiMain;
 import java.util.Scanner;
 
 import baseDatos.serializador;
+import gestorAplicacion.Habitaciones.Habitacion;
 import gestorAplicacion.Habitaciones.HabitacionEstandar;
 import gestorAplicacion.Habitaciones.HabitacionVIP;
+import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.hoteles.Hotel;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -41,8 +43,10 @@ public class Interfaz {
             opcion = readInt();
 
             switch (opcion) {
-                case 1: break;
-                case 3: System.out.println(hotel.mostrarHabitaciones()); break;
+                case 1: 
+                    
+                    break;
+                case 3: mostrarHabitaciones(hotel); break;
                 case 7: salirDelSistema(hotel); break;
                 default: salirDelSistema(hotel); break;
             }
@@ -50,8 +54,36 @@ public class Interfaz {
         } while (opcion != 7);
     }
 
+    static void agregarHuesped(Hotel hotel){
+        mostrarHabitaciones(hotel);
+        System.out.println("Id de la habitacion");
+        int opcion = readInt();
+        Habitacion hab = hotel.seleccionarHabitacionPorId(opcion);
+
+        /* Definimos el grupo que ocupara la habitacion 
+         * dias que se quedan:
+         * registro de personas:
+        */
+        GrupoHuespedes grupoHuespedes = new GrupoHuespedes();
+        grupoHuespedes.setHabitacion(hab);
+
+        System.out.println("Dias: ");
+        int dias = readInt();
+        grupoHuespedes.setDiasEnHotel(dias);
+
+        
+        // grupoHuespedes.setListaHuespedes();
+        //* Fin definicion del grupo */
+
+        hab.setGrupo(grupoHuespedes);
+    }
+
     static int readInt(){
         return sc.nextInt();
+    }
+
+    static void mostrarHabitaciones(Hotel hotel){
+        System.out.println(hotel.mostrarHabitaciones());
     }
 
     private static void salirDelSistema(Hotel hotel){
