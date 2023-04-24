@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 import baseDatos.serializador;
 import gestorAplicacion.Habitaciones.Habitacion;
-import gestorAplicacion.Habitaciones.HabitacionEstandar;
+import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
 import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
