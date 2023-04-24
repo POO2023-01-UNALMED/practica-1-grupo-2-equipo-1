@@ -8,7 +8,7 @@ import gestorAplicacion.hoteles.Hotel;
 
 //* Se debe llamar en el constructor del objecto */
 public class Deserializador {
-    private static File rutaTemp = new File("src\\baseDatos\\temp");
+    private static File rutaTemp = new File("Hotel\\src\\baseDatos\\temp");
 
     public static void deserializar(Hotel hotel){
         File[] docs = rutaTemp.listFiles();

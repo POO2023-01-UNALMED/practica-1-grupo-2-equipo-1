@@ -16,6 +16,7 @@ public class Hotel implements Serializable {
 
     public void agragarHabitacion(Habitacion habitacion){
         habitaciones.add(habitacion);
+        habitaciones.add(habitacion);
     }
 
     public String mostrarHabitaciones(){
