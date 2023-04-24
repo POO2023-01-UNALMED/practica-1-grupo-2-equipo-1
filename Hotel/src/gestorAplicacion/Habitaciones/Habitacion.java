@@ -10,18 +10,16 @@ public abstract class Habitacion implements Serializable {
     protected int capacidad;
     protected int precioXdia;
     protected int ID_Habitacion;
-    protected GrupoHuespedes grupo;
+    protected GrupoHuespedes grupo = new GrupoHuespedes();
 
     public Habitacion(int capacidad, int precioXdia, int iD_Habitacion) {
         this.capacidad = capacidad;
         this.precioXdia = precioXdia;
         ID_Habitacion = iD_Habitacion;
-        this.grupo = null;
     }
 
     public Habitacion(int capacidad, int precioXdia){
         this(capacidad, precioXdia, id);
-        this.grupo = null;
         id++;
     }
 
@@ -31,8 +29,12 @@ public abstract class Habitacion implements Serializable {
 
     @Override
     public String toString() {
+        if (grupo != null){
+            return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
+            + ", grupo=" + grupo.toString() + "]";
+        }
         return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-                + ", grupo=" + grupo.toString() + "]";
+                + "]";
     }
 
     public static int getId() {

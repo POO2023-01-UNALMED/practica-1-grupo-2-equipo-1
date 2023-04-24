@@ -27,9 +27,14 @@ public class GrupoHuespedes implements Serializable{
         this.listaHuespedes = listaHuespedes;
     }
 
+    public GrupoHuespedes(){
+
+    }
+
     public void agregarHuesped(Huesped huesped){
         listaHuespedes.add(huesped);
     }
+
 
     public void inicializarFactura(){
         factura = new Factura();
@@ -39,8 +44,12 @@ public class GrupoHuespedes implements Serializable{
     @Override
     public String toString() {
         String lista = "";
-        for (Huesped huesped : listaHuespedes) {
-            lista += huesped.toString() + "\n";
+        if (listaHuespedes != null){
+            for (Huesped huesped : listaHuespedes) {
+                if (huesped != null){
+                    lista += huesped.toString() + "\n";
+                }
+            }
         }
         return lista;
     }

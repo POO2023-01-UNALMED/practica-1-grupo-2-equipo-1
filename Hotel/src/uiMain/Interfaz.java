@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 import baseDatos.serializador;
 import gestorAplicacion.Habitaciones.HabitacionEstandar;
+import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.hoteles.Hotel;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -23,20 +24,27 @@ public class Interfaz {
     public static void main(String[] args) {
         Hotel hotel = new Hotel();
 
-        hotel.agragarHabitacion(new HabitacionEstandar());
+        //* Base de datos inicial. Solo se ejecuto una vez */
+        // hotel.agragarHabitacion(new HabitacionEstandar());
+        // hotel.agragarHabitacion(new HabitacionEstandar());
+        // hotel.agragarHabitacion(new HabitacionVIP());
 
         int opcion;
         do {
             System.out.println("Que operacion desea realizar");
+            System.out.println("1. Agregar huespedes");
+            System.out.println("2. Desalojar huespedes");
+            System.out.println("3. Ver habitaciones");
+            System.out.println("5. Ver huespedes");
+            System.out.println("6. Servicios extra");
+            System.out.println("7. Salir");
             opcion = readInt();
 
             switch (opcion) {
-                case 7:
-                    salirDelSistema(hotel);
-                    break;
-            
-                default:
-                    break;
+                case 1: break;
+                case 3: System.out.println(hotel.mostrarHabitaciones()); break;
+                case 7: salirDelSistema(hotel); break;
+                default: salirDelSistema(hotel); break;
             }
 
         } while (opcion != 7);
