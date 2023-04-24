@@ -1,11 +1,13 @@
 package gestorAplicacion.hoteles;
 
 import gestorAplicacion.Habitaciones.*;
+
+import java.io.Serializable;
 import java.util.*;
 
 import baseDatos.Deserializador;
 
-public class Hotel {
+public class Hotel implements Serializable {
     private List<Habitacion> habitaciones = new ArrayList<>();
 
     public Hotel(){
