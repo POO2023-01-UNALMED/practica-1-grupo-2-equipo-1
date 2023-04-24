@@ -14,4 +14,16 @@ public class HabitacionEstandar extends Habitacion {
         this(2, 350000);
     }
 
+    @Override
+    public String toString() {
+        if (grupo != null){
+            return "Habitacion estandar [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
+            + ", grupo=" + grupo.toString() + "]";
+        }
+        return "Habitacion estandar [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
+                + "]";
+    }
+
+    
+
 }
