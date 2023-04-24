@@ -14,14 +14,17 @@ package uiMain;
 import java.util.Scanner;
 
 import baseDatos.serializador;
+import gestorAplicacion.Habitaciones.HabitacionEstandar;
 import gestorAplicacion.hoteles.Hotel;
 
 //Muestra las opciones e invoca las funcionalidades
 public class Interfaz {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-
         Hotel hotel = new Hotel();
+
+        hotel.agragarHabitacion(new HabitacionEstandar());
+
         int opcion;
         do {
             System.out.println("Que operacion desea realizar");
