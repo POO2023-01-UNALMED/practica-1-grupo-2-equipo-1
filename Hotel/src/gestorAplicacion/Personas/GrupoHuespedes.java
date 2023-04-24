@@ -1,11 +1,12 @@
 package gestorAplicacion.Personas;
 
+import java.io.Serializable;
 import java.util.List;
 
 import gestorAplicacion.Habitaciones.Habitacion;
 import gestorAplicacion.serviciosExtra.Factura;
 
-public class GrupoHuespedes {
+public class GrupoHuespedes implements Serializable{
     private int diasEnHotel;
     private List<Huesped> listaHuespedes;
     private Factura factura;

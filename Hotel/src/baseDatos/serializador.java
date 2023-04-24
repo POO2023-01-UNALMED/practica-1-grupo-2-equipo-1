@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
+import gestorAplicacion.hoteles.Hotel;
+
 public class serializador {
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
-    public static void serializar(Object algo){
+    public static void serializar(Hotel hotel){
         FileOutputStream fos;
         ObjectOutputStream oos;
         File[] docs = rutaTemp.listFiles();
@@ -21,25 +23,23 @@ public class serializador {
             try {
                 //*Borra lo que haya en ellos automaticamente */
                 pw = new PrintWriter(file);
-            } catch (Exception e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
         for (File file: docs){
-            if (file.getAbsolutePath().contains("habitacion")){
+            if (file.getAbsolutePath().contains("habitaciones")){
                 try {
                     fos = new FileOutputStream(file);
                     oos = new ObjectOutputStream(fos);
-                    oos.writeObject(algo);   //?habitacion
+                    oos.writeObject(hotel.getHabitaciones());
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e){
                     e.printStackTrace();
                 }
-            } else if (file.getAbsolutePath().contains("huesped")){
-                //!sin terminar
             }
         }
 

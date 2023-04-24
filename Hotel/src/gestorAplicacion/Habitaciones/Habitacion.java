@@ -1,9 +1,12 @@
 package gestorAplicacion.Habitaciones;
 
+import java.io.Serializable;
+
 import gestorAplicacion.Personas.GrupoHuespedes;
 
-public abstract class Habitacion {
+public abstract class Habitacion implements Serializable {
     protected static int id = 1;
+
     protected int capacidad;
     protected int precioXdia;
     protected int ID_Habitacion;
@@ -13,11 +16,23 @@ public abstract class Habitacion {
         this.capacidad = capacidad;
         this.precioXdia = precioXdia;
         ID_Habitacion = iD_Habitacion;
+        this.grupo = null;
     }
 
     public Habitacion(int capacidad, int precioXdia){
         this(capacidad, precioXdia, id);
+        this.grupo = null;
         id++;
+    }
+
+
+
+    //*setters y getters */
+
+    @Override
+    public String toString() {
+        return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
+                + ", grupo=" + grupo.toString() + "]";
     }
 
     public static int getId() {
