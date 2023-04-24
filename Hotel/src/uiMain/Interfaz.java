@@ -11,10 +11,41 @@
 
 package uiMain;
 
+import java.util.Scanner;
+
+import baseDatos.serializador;
+import gestorAplicacion.hoteles.Hotel;
+
 //Muestra las opciones e invoca las funcionalidades
 public class Interfaz {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Te amo Aleandro Feria");
+        Hotel hotel = new Hotel();
+        int opcion;
+        do {
+            System.out.println("Que operacion desea realizar");
+            opcion = readInt();
+
+            switch (opcion) {
+                case 7:
+                    salirDelSistema(hotel);
+                    break;
+            
+                default:
+                    break;
+            }
+
+        } while (opcion != 7);
+    }
+
+    static int readInt(){
+        return sc.nextInt();
+    }
+
+    private static void salirDelSistema(Hotel hotel){
+        System.out.println("Vuelva pronto");
+        serializador.serializar(hotel);
+        System.exit(0);
     }
     
 }

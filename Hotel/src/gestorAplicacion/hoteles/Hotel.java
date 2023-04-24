@@ -3,11 +3,13 @@ package gestorAplicacion.hoteles;
 import gestorAplicacion.Habitaciones.*;
 import java.util.*;
 
+import baseDatos.Deserializador;
+
 public class Hotel {
     private List<Habitacion> habitaciones = new ArrayList<>();
 
     public Hotel(){
-        
+        Deserializador.deserializar(this);
     }
 
     public void agragarHabitacion(Habitacion habitacion){
@@ -21,4 +23,16 @@ public class Hotel {
         }
         return s;
     }
+
+    /* getters y setters */
+
+    public List<Habitacion> getHabitaciones() {
+        return habitaciones;
+    }
+
+    public void setHabitaciones(List<Habitacion> habitaciones) {
+        this.habitaciones = habitaciones;
+    }
+
+    
 }
