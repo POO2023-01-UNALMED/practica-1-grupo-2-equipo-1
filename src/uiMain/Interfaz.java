@@ -15,8 +15,8 @@ import java.util.Scanner;
 
 import baseDatos.serializador;
 import gestorAplicacion.Habitaciones.Habitacion;
-import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
-import gestorAplicacion.Habitaciones.HabitacionVIP;
+// import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
+// import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
 import gestorAplicacion.hoteles.Hotel;
@@ -59,6 +59,7 @@ public class Interfaz {
         System.out.print("Id de la habitacion: ");
         int idHab = readInt();
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+        hab = verificarHabitaciaNoSeaNull(hotel, hab);
 
         while(hab.getEstaOcupado() == true){
             System.out.println("Esta habitacion esta ocupada, seleccione otra");
@@ -105,16 +106,37 @@ public class Interfaz {
         hab.setGrupo(grupoHuespedes);
     }
 
-    static void desalojarGrupo(Hotel hotel){
+    static int desalojarGrupo(Hotel hotel){
         System.out.print("Id de la habitacion: ");
         int idHab = readInt();
+        String exit;
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+        
+        hab = verificarHabitaciaNoSeaNull(hotel, hab);
+
+        while(hab.getEstaOcupado() == false){
+            System.out.println("La habitacion ya esta desocupada");
+            return 1;
+        }
+
         GrupoHuespedes grup = hab.getGrupo();
 
         System.out.println(grup.getFactura().toString());
         System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
 
         hab.borrarGrupo();
+        return 0;
+    }
+
+    private static Habitacion verificarHabitaciaNoSeaNull(Hotel hotel, Habitacion hab) {
+        int idHab;
+        while (hab == null){
+            System.out.println("No existe esa habitacion seleccione otra");
+            System.out.print("Id de la habitacion: ");
+            idHab = readInt();
+            hab = hotel.seleccionarHabitacionPorId(idHab);
+        }
+        return hab;
     }
 
     static int readInt(){
