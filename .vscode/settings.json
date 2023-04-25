@@ -1,8 +1,5 @@
 {
-    "java.project.sourcePaths": [
-        "Hotel/src",
-        "src/uiMain"
-    ],
+    "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
