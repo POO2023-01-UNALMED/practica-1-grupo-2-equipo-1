@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import gestorAplicacion.hoteles.Hotel;
 
 public class serializador {
-    private static File rutaTemp = new File("Hotel\\src\\baseDatos\\temp");
+    private static File rutaTemp = new File("src\\baseDatos\\temp");
 
     public static void serializar(Hotel hotel){
         FileOutputStream fos;
