@@ -59,6 +59,7 @@ public class Interfaz {
         System.out.print("Id de la habitacion: ");
         int idHab = readInt();
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+        hab = verificarHabitaciaNoSeaNull(hotel, hab);
 
         while(hab.getEstaOcupado() == true){
             System.out.println("Esta habitacion esta ocupada, seleccione otra");
@@ -110,18 +111,12 @@ public class Interfaz {
         int idHab = readInt();
         String exit;
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+        
+        hab = verificarHabitaciaNoSeaNull(hotel, hab);
 
         while(hab.getEstaOcupado() == false){
             System.out.println("La habitacion ya esta desocupada");
-            System.out.println("Selecciones otra o escriba \"salir\" ");
-            exit = readString();
-            if (exit.equalsIgnoreCase("salir")){
-                return 1;
-            }
-
-            System.out.print("Id de la habitacion: ");
-            idHab = readInt();
-            hab = hotel.seleccionarHabitacionPorId(idHab);
+            return 1;
         }
 
         GrupoHuespedes grup = hab.getGrupo();
@@ -131,6 +126,17 @@ public class Interfaz {
 
         hab.borrarGrupo();
         return 0;
+    }
+
+    private static Habitacion verificarHabitaciaNoSeaNull(Hotel hotel, Habitacion hab) {
+        int idHab;
+        while (hab == null){
+            System.out.println("No existe esa habitacion seleccione otra");
+            System.out.print("Id de la habitacion: ");
+            idHab = readInt();
+            hab = hotel.seleccionarHabitacionPorId(idHab);
+        }
+        return hab;
     }
 
     static int readInt(){
