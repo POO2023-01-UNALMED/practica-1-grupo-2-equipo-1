@@ -44,9 +44,8 @@ public class Interfaz {
             opcion = readInt();
 
             switch (opcion) {
-                case 1: 
-                    agregarHuesped(hotel);
-                    break;
+                case 1: agregarHuesped(hotel); break;
+                case 2: desalojarGrupo(hotel); break;
                 case 3: mostrarListaHabitaciones(hotel); break;
                 case 7: salirDelSistema(hotel); break;
                 default: salirDelSistema(hotel); break;
@@ -104,6 +103,18 @@ public class Interfaz {
         //* Fin definicion del grupo */
 
         hab.setGrupo(grupoHuespedes);
+    }
+
+    static void desalojarGrupo(Hotel hotel){
+        System.out.print("Id de la habitacion: ");
+        int idHab = readInt();
+        Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+        GrupoHuespedes grup = hab.getGrupo();
+
+        System.out.println(grup.getFactura().toString());
+        System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
+
+        hab.borrarGrupo();
     }
 
     static int readInt(){
