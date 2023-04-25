@@ -15,8 +15,8 @@ import java.util.Scanner;
 
 import baseDatos.serializador;
 import gestorAplicacion.Habitaciones.Habitacion;
-import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
-import gestorAplicacion.Habitaciones.HabitacionVIP;
+// import gestorAplicacion.Habitaciones.HabitacionEstandar; //no quitar
+// import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
 import gestorAplicacion.hoteles.Hotel;
@@ -105,16 +105,32 @@ public class Interfaz {
         hab.setGrupo(grupoHuespedes);
     }
 
-    static void desalojarGrupo(Hotel hotel){
+    static int desalojarGrupo(Hotel hotel){
         System.out.print("Id de la habitacion: ");
         int idHab = readInt();
+        String exit;
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+
+        while(hab.getEstaOcupado() == false){
+            System.out.println("La habitacion ya esta desocupada");
+            System.out.println("Selecciones otra o escriba \"salir\" ");
+            exit = readString();
+            if (exit.equalsIgnoreCase("salir")){
+                return 1;
+            }
+
+            System.out.print("Id de la habitacion: ");
+            idHab = readInt();
+            hab = hotel.seleccionarHabitacionPorId(idHab);
+        }
+
         GrupoHuespedes grup = hab.getGrupo();
 
         System.out.println(grup.getFactura().toString());
         System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
 
         hab.borrarGrupo();
+        return 0;
     }
 
     static int readInt(){
