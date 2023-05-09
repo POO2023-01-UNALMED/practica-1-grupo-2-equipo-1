@@ -109,7 +109,6 @@ public class Interfaz {
     static int desalojarGrupo(Hotel hotel){
         System.out.print("Id de la habitacion: ");
         int idHab = readInt();
-        String exit;
         Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
         
         hab = verificarHabitaciaNoSeaNull(hotel, hab);
