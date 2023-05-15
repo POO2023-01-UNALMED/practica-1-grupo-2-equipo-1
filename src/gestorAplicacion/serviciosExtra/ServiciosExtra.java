@@ -31,17 +31,20 @@ public enum ServiciosExtra {
     }
     
     // Método para actualizar precios
-    public void actualizarPrecio(final int nuevoPrecio) {
-        this.precioServicio = nuevoPrecio;
-    }
+    //! No sirve si la variables es final
+    // public void actualizarPrecio(final int nuevoPrecio) {
+    //     this.precioServicio = nuevoPrecio;
+    // }
     
+    //
+
     // Método para agregar nuevos servicios
-    public static void agregarServicioExtra(final String nombre, final int precio) {
-        ServiciosExtra[] nuevosServicios = new ServiciosExtra[ServiciosExtra.values().length + 1];
-        System.arraycopy(ServiciosExtra.values(), 0, nuevosServicios, 0, ServiciosExtra.values().length);
-        nuevosServicios[nuevosServicios.length - 1] = new ServiciosExtra(nuevosServicios.length, precio);
-        ServiciosExtra.values(nuevosServicios);
-    }
+    // public static void agregarServicioExtra(final String nombre, final int precio) {
+    //     ServiciosExtra[] nuevosServicios = new ServiciosExtra[ServiciosExtra.values().length + 1];
+    //     System.arraycopy(ServiciosExtra.values(), 0, nuevosServicios, 0, ServiciosExtra.values().length);
+    //     nuevosServicios[nuevosServicios.length - 1] = new ServiciosExtra(nuevosServicios.length, precio);
+    //     ServiciosExtra.values(nuevosServicios);
+    // }
     
     public static int calcularPrecioServiciosExtras(int[] idsServicios) {
         int precioTotal = 0;

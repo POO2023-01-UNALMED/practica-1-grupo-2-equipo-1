@@ -55,63 +55,8 @@ public class Interfaz {
         case 3:
           mostrarListaHabitaciones(hotel);
           break;
-        case 6:
-          int opcionServicios;
-          int[] idsServicios = new int[3];
-          int numServiciosSeleccionados = 0;
+        case 6:serviciosExtra(); break;
 
-          do {
-            System.out.println("Seleccione una opción:");
-            System.out.println("1. Agregar servicio extra");
-            System.out.println("2. Calcular precio total");
-            System.out.println("0. Salir");
-            opcionServicios = sc.nextInt();
-
-            switch (opcionServicios) {
-              case 1:
-                if (numServiciosSeleccionados < 3) {
-                  System.out.println("Seleccione un servicio extra:");
-                  System.out.println("1. Gimnasio");
-                  System.out.println("2. Bar");
-                  System.out.println("3. Parqueadero");
-                  int idServicio = sc.nextInt();
-                  ServiciosExtra servicio = ServiciosExtra.buscarPorId(
-                    idServicio
-                  );
-                  if (servicio != null) {
-                    idsServicios[numServiciosSeleccionados] = idServicio;
-                    numServiciosSeleccionados++;
-                    System.out.println("Servicio extra agregado.");
-                  } else {
-                    System.out.println("El servicio seleccionado no existe.");
-                  }
-                } else {
-                  System.out.println(
-                    "Ya ha seleccionado el máximo de servicios extras permitidos."
-                  );
-                }
-                break;
-              case 2:
-                int precioTotal = ServiciosExtra.calcularPrecioServiciosExtras(
-                  idsServicios
-                );
-                System.out.println(
-                  "Precio total de los servicios extras seleccionados: $" +
-                  precioTotal
-                );
-                break;
-              case 0:
-                System.out.println("Saliendo...");
-                break;
-              default:
-                System.out.println("Opción inválida.");
-                break;
-            }
-
-            System.out.println();
-          } while (opcionServicios != 0);
-
-          break;
         case 0:
           System.out.println("Saliendo...");
           break;
@@ -123,6 +68,63 @@ public class Interfaz {
           break;
       }
     } while (opcion != 7);
+  }
+
+  private static void serviciosExtra() {
+    int opcionServicios;
+    int[] idsServicios = new int[3];
+    int numServiciosSeleccionados = 0;
+
+    do {
+      System.out.println("Seleccione una opción:");
+      System.out.println("1. Agregar servicio extra");
+      System.out.println("2. Calcular precio total");
+      System.out.println("0. Salir");
+      opcionServicios = sc.nextInt();
+
+      switch (opcionServicios) {
+        case 1:
+          if (numServiciosSeleccionados < 3) {
+            System.out.println("Seleccione un servicio extra:");
+            System.out.println("1. Gimnasio");
+            System.out.println("2. Bar");
+            System.out.println("3. Parqueadero");
+            int idServicio = sc.nextInt();
+            ServiciosExtra servicio = ServiciosExtra.buscarPorId(
+              idServicio
+            );
+            if (servicio != null) {
+              idsServicios[numServiciosSeleccionados] = idServicio;
+              numServiciosSeleccionados++;
+              System.out.println("Servicio extra agregado.");
+            } else {
+              System.out.println("El servicio seleccionado no existe.");
+            }
+          } else {
+            System.out.println(
+              "Ya ha seleccionado el máximo de servicios extras permitidos."
+            );
+          }
+          break;
+        case 2:
+          int precioTotal = ServiciosExtra.calcularPrecioServiciosExtras(
+            idsServicios
+          );
+          System.out.println(
+            "Precio total de los servicios extras seleccionados: $" +
+            precioTotal
+          );
+          break;
+        case 0:
+          System.out.println("Saliendo...");
+          break;
+        default:
+          System.out.println("Opción inválida.");
+          break;
+      }
+
+      System.out.println();
+    } while (opcionServicios != 0);
   }
 
   static void agregarHuesped(Hotel hotel) {

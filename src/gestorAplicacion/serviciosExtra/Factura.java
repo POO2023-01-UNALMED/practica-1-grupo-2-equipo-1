@@ -6,7 +6,6 @@ public class Factura implements Serializable{
     private int FacturaHospedaje;
     private int FacturaServiciosExtra;
 
-
     public String mostrarListaServiciosExtra(){
         return """
             ========Servicios disponible tiene valor extra en la factura==========\n
@@ -17,7 +16,7 @@ public class Factura implements Serializable{
     }
 
     public void seleccionarServicio(int id){
-        ServiciosExtra servicio = ServiciosExtra.buscarPorid(id);
+        ServiciosExtra servicio = ServiciosExtra.buscarPorId(id);
         FacturaServiciosExtra += servicio.getPrecio();
     }
 
