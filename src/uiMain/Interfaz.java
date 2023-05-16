@@ -39,13 +39,17 @@ public class Interfaz {
 
     int opcion;
     do {
+      System.out.println("----------------------------------------");
       System.out.println("Bienvenidos al hotel The Debug Inn");
       System.out.println("1. Registar huespedes");
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
-      System.out.println("5. Ver huespedes");
-      System.out.println("6. Servicios extra");
-      System.out.println("7. Salir");
+      System.out.println("4. Ver huespedes");
+      System.out.println("5. Servicios extra");
+      System.out.println("0. Salir");
+      System.out.println("----------------------------------------");
+
+      System.out.print("Opcion: ");
       opcion = readInt();
 
       switch (opcion) {
@@ -58,12 +62,10 @@ public class Interfaz {
         case 3:
           mostrarListaHabitaciones(hotel);
           break;
-        case 6:serviciosExtra(hotel); break;
+        case 4:serviciosExtra(hotel); break;
 
         case 0:
           System.out.println("Saliendo...");
-          break;
-        case 7:
           salirDelSistema(hotel);
           break;
         default:
@@ -152,8 +154,14 @@ public class Interfaz {
     return 0;
   }
 
-  static void agregarHuesped(Hotel hotel) {
-    mostrarListaHabitaciones(hotel);
+  static int agregarHuesped(Hotel hotel) {
+    
+    if (hotel.mostrarHabitacionesDisponibles().isEmpty()){
+      System.out.println("El hotel esta lleno!");
+      return 1;
+    }
+
+    System.out.println(hotel.mostrarHabitacionesDisponibles());
     System.out.print("Id de la habitacion: ");
     int idHab;
     Habitacion hab = seleccionarHabitacion(hotel);
@@ -201,6 +209,7 @@ public class Interfaz {
     //* Fin definicion del grupo */
 
     hab.setGrupo(grupoHuespedes);
+    return 0;
   }
 
 

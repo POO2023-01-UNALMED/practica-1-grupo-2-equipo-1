@@ -48,9 +48,13 @@ public class GrupoHuespedes implements Serializable{
         if (listaHuespedes != null){
             for (Huesped huesped : listaHuespedes) {
                 if (huesped != null){
-                    lista += huesped.toString() + ", ";
+                    lista += huesped.toString() + ",";
                 }
             }
+        }
+        //quita coma (,) al final
+        if (lista != null && lista.length() > 0 && lista.charAt(lista.length() - 1) == ',') {
+            lista = lista.substring(0, lista.length() - 1);
         }
         return lista;
     }
