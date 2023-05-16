@@ -26,6 +26,15 @@ public class Hotel implements Serializable {
         return s;
     }
 
+    public String mostrarHabitacionesDisponibles(){
+        String s = "";
+        for (Habitacion habitacion : habitaciones) {
+            if(habitacion.getEstaOcupado() == true){continue;}
+            s += habitacion.toString() + System.lineSeparator();
+        }
+        return s;
+    }
+
     //*Devuelve una habitaciones por ID */
     public Habitacion seleccionarHabitacionPorId(int id){
         // Habitacion hab;
