@@ -18,7 +18,10 @@ import gestorAplicacion.Habitaciones.Habitacion;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
 import gestorAplicacion.hoteles.Hotel;
+import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -55,7 +58,7 @@ public class Interfaz {
         case 3:
           mostrarListaHabitaciones(hotel);
           break;
-        case 6:serviciosExtra(); break;
+        case 6:serviciosExtra(hotel); break;
 
         case 0:
           System.out.println("Saliendo...");
@@ -70,35 +73,58 @@ public class Interfaz {
     } while (opcion != 7);
   }
 
-  private static void serviciosExtra() {
+  private static int serviciosExtra(Hotel hotel) {
+    /*Seleccionar habitacion, para saber a que grupo ponerle la factura 
+     * despues se selleciona el servicio
+    */
+
     int opcionServicios;
-    int[] idsServicios = new int[3];
     int numServiciosSeleccionados = 0;
+
+    System.out.print("Seleccion el Id de su habitacion: ");
+    Habitacion hab = seleccionarHabitacion(hotel);
+
+    //verifica que no esta vacia la habitacion, si esta vacia vuelve a menu
+    if (hab.getEstaOcupado() == false) {
+      System.out.println("No hay huespedes aqui");
+      return 1;//esto es para regrasar a menu, nunca se le asigna a nada
+    }
+
+    //aqui seleccionamos la factura del grupo
+    Factura factura = hab.getGrupo().getFactura();
+    System.out.println(Arrays.toString(factura.getIdsServicios()));
+
 
     do {
       System.out.println("Seleccione una opción:");
       System.out.println("1. Agregar servicio extra");
       System.out.println("2. Calcular precio total");
       System.out.println("0. Salir");
-      opcionServicios = sc.nextInt();
+      opcionServicios = readInt();
+
 
       switch (opcionServicios) {
-        case 1:
+        case 1: //agregar servicio extra
           if (numServiciosSeleccionados < 3) {
             System.out.println("Seleccione un servicio extra:");
             System.out.println("1. Gimnasio");
             System.out.println("2. Bar");
             System.out.println("3. Parqueadero");
-            int idServicio = sc.nextInt();
-            ServiciosExtra servicio = ServiciosExtra.buscarPorId(
-              idServicio
-            );
-            if (servicio != null) {
-              idsServicios[numServiciosSeleccionados] = idServicio;
+            int idServicio = readInt();
+            ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
+
+            System.out.println(servicio != null);
+            System.out.println(!factura.contains(factura.getIdsServicios(), idServicio));
+            System.out.println(Arrays.toString(factura.getIdsServicios()));
+            // verifica si el servicio ya fue comprado
+            if (servicio != null && !factura.contains(factura.getIdsServicios(), idServicio)) {
+              // idsServicios[numServiciosSeleccionados] = idServicio;
+              factura.seleccionarServicio(idServicio);
+              factura.getIdsServicios()[numServiciosSeleccionados] = idServicio;
               numServiciosSeleccionados++;
               System.out.println("Servicio extra agregado.");
             } else {
-              System.out.println("El servicio seleccionado no existe.");
+              System.out.println("El servicio seleccionado no existe o ya fue comprado.");
             }
           } else {
             System.out.println(
@@ -106,13 +132,11 @@ public class Interfaz {
             );
           }
           break;
-        case 2:
-          int precioTotal = ServiciosExtra.calcularPrecioServiciosExtras(
-            idsServicios
-          );
+        case 2: //Calcular Precio total
+          // int precioTotal = ServiciosExtra.calcularPrecioServiciosExtras(factura.getIdsServicios());
           System.out.println(
             "Precio total de los servicios extras seleccionados: $" +
-            precioTotal
+            factura.getFacturaServiciosExtra()
           );
           break;
         case 0:
@@ -125,14 +149,14 @@ public class Interfaz {
 
       System.out.println();
     } while (opcionServicios != 0);
+    return 0;
   }
 
   static void agregarHuesped(Hotel hotel) {
     mostrarListaHabitaciones(hotel);
     System.out.print("Id de la habitacion: ");
-    int idHab = readInt();
-    Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
-    hab = verificarHabitaciaNoSeaNull(hotel, hab);
+    int idHab;
+    Habitacion hab = seleccionarHabitacion(hotel);
 
     while (hab.getEstaOcupado() == true) {
       System.out.println("Esta habitacion esta ocupada, seleccione otra");
@@ -179,12 +203,10 @@ public class Interfaz {
     hab.setGrupo(grupoHuespedes);
   }
 
+
   static int desalojarGrupo(Hotel hotel) {
     System.out.print("Id de la habitacion: ");
-    int idHab = readInt();
-    Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
-
-    hab = verificarHabitaciaNoSeaNull(hotel, hab);
+    Habitacion hab = seleccionarHabitacion(hotel);
 
     while (hab.getEstaOcupado() == false) {
       System.out.println("La habitacion ya esta desocupada");
@@ -225,6 +247,13 @@ public class Interfaz {
 
   static void mostrarListaHabitaciones(Hotel hotel) {
     System.out.println(hotel.mostrarHabitaciones());
+  }
+
+  private static Habitacion seleccionarHabitacion(Hotel hotel) {
+    int idHab = readInt();
+    Habitacion hab = hotel.seleccionarHabitacionPorId(idHab);
+    hab = verificarHabitaciaNoSeaNull(hotel, hab);
+    return hab;
   }
 
   private static void salirDelSistema(Hotel hotel) {
