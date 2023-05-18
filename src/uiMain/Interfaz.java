@@ -44,8 +44,8 @@ public class Interfaz {
       System.out.println("1. Registar huespedes");
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
-      System.out.println("4. Ver huespedes");
-      System.out.println("5. Servicios extra");
+      System.out.println("4. Servicios extra");
+      System.out.println("5. Ver huespedes");
       System.out.println("0. Salir");
       System.out.println("----------------------------------------");
 
