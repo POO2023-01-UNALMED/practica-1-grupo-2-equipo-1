@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gestorAplicacion.Habitaciones.Habitacion;
+import gestorAplicacion.Restaurantes.Mesa;
 import gestorAplicacion.serviciosExtra.Factura;
 
 public class GrupoHuespedes implements Serializable{
@@ -12,6 +13,10 @@ public class GrupoHuespedes implements Serializable{
     private List<Huesped> listaHuespedes;
     private Factura factura;
     private Habitacion habitacion;
+
+    //mesa que reservaron
+    //null si no tiene ninguna reserva
+    private Mesa mesaReservada = null;
 
     public GrupoHuespedes(int diasEnHotel, List<Huesped> listaHuespedes, Habitacion habitacion) {
         this.diasEnHotel = diasEnHotel;
@@ -90,6 +95,14 @@ public class GrupoHuespedes implements Serializable{
 
     public void setHabitacion(Habitacion habitacion) {
         this.habitacion = habitacion;
+    }
+
+    public Mesa getMesaReservada() {
+        return mesaReservada;
+    }
+
+    public void setMesaReservada(Mesa reservaRestaurante) {
+        this.mesaReservada = reservaRestaurante;
     }
     
 }
