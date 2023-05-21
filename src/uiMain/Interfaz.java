@@ -17,6 +17,8 @@ import gestorAplicacion.Habitaciones.Habitacion;
 // import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
+import gestorAplicacion.Restaurantes.Mesa;
+import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
@@ -37,6 +39,8 @@ public class Interfaz {
     // hotel.agragarHabitacion(new HabitacionEstandar());
     // hotel.agragarHabitacion(new HabitacionVIP());
 
+    // hotel.agregarRestaurante(new Restaurante("Restaurante uno"));
+
     int opcion;
     do {
       System.out.println("----------------------------------------");
@@ -44,7 +48,7 @@ public class Interfaz {
       System.out.println("1. Registar huespedes");
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
-      System.out.println("4. Ver huespedes");
+      System.out.println("4. Reserva Restaurate");
       System.out.println("5. Servicios extra");
       System.out.println("0. Salir");
       System.out.println("----------------------------------------");
@@ -62,7 +66,10 @@ public class Interfaz {
         case 3:
           mostrarListaHabitaciones(hotel);
           break;
-        case 4:serviciosExtra(hotel); break;
+        case 4:
+          reservarMesaRestaurante(hotel);
+          break;
+        case 5:serviciosExtra(hotel); break;
 
         case 0:
           System.out.println("Saliendo...");
@@ -154,6 +161,43 @@ public class Interfaz {
     return 0;
   }
 
+  private static int reservarMesaRestaurante(Hotel hotel){
+    System.out.print("Id de la habitacion: ");
+    Habitacion hab = seleccionarHabitacion(hotel);
+  
+    if (hab.getEstaOcupado() == false){
+      System.out.println("No hay personas en esta habitacion");
+      return 1; //sale del programa
+    }
+    
+    //verificar que no tengan ya una mesa reservada
+    if (hab.getGrupo().getMesaReservada() != null){
+      System.out.println("Ya tienen una mesa reservada");
+      return 1;
+    }
+
+    //--------------
+    Restaurante restaurante;
+    //* Mostrar los restaurantes disponibles */
+    int i = 1;
+    for (Restaurante res : hotel.getRestaurantes()) {
+      System.out.println(i + ": " + res.toString() + System.lineSeparator());
+    }
+    //* Seleccionar restaurante */
+    System.out.print("Opcion: ");
+    int numRestaurante = readInt();
+    restaurante = hotel.getRestaurantes().get(numRestaurante-1);
+    //* Mostrar mesas restaurante */
+    int numMesa = 1;
+    for (Mesa mesa : restaurante.getMesas()) {
+      System.out.println(numMesa++ + ": " + mesa.toString());
+    }
+    System.out.print("Seleccione mesa: ");
+    int mesaSeleccionada = readInt();
+    restaurante.getMesas().get(mesaSeleccionada-1).asignarDueños(hab.getGrupo());
+    return 0;
+  }
+
   static int agregarHuesped(Hotel hotel) {
     
     if (hotel.mostrarHabitacionesDisponibles().isEmpty()){
@@ -226,6 +270,13 @@ public class Interfaz {
 
     System.out.println(grup.getFactura().toString());
     System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
+
+    //borrar reserva
+    if (hab.getGrupo().getMesaReservada() != null){
+      hab.getGrupo().getMesaReservada().vaciarMesa();
+      hab.getGrupo().setMesaReservada(null);
+      System.out.println("Reserva restaurante eliminada");
+    }
 
     hab.borrarGrupo();
     return 0;

@@ -40,6 +40,17 @@ public class serializador {
                 } catch (IOException e){
                     e.printStackTrace();
                 }
+            } else if (file.getAbsolutePath().contains("restaurantes")){
+                try {
+                    fos = new FileOutputStream(file);
+                    oos = new ObjectOutputStream(fos);
+                    oos.writeObject(hotel.getRestaurantes());
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
 
