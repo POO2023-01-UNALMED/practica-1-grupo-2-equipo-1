@@ -22,6 +22,7 @@ public class Mesa implements Serializable {
     public void vaciarMesa() {
         dueños.setMesaReservada(null);
         this.dueños = null;
+        this.ocupado = false;
     }
 
 
