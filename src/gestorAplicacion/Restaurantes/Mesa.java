@@ -5,6 +5,7 @@ import java.io.Serializable;
 import gestorAplicacion.Personas.GrupoHuespedes;
 
 public class Mesa implements Serializable {
+    
     private boolean ocupado;
     private GrupoHuespedes dueños; // quienes tienen reservada esta mesa
     private int id;

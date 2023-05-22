@@ -1,6 +1,7 @@
 package gestorAplicacion.serviciosExtra;
 
 public enum ServiciosExtra {
+
     GIMNASIO(1, 50000),
     BAR(2, 20000),
     PARQUEADERO(3, 30000);

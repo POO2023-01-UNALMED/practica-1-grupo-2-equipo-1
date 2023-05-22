@@ -9,6 +9,7 @@ import java.util.*;
 import baseDatos.Deserializador;
 
 public class Hotel implements Serializable {
+    
     private List<Habitacion> habitaciones = new ArrayList<>();
     private List<Restaurante> restaurantes = new ArrayList<Restaurante>();
 
