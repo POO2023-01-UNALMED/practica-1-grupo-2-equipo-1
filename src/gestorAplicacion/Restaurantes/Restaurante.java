@@ -5,17 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurante implements Serializable{
-    protected String nombre;
-    protected List<Mesa> mesas = new ArrayList<>();
+
+    private String nombre;
+    private List<Mesa> mesas = new ArrayList<>();
+    private int precio;
 
 
-    public Restaurante(String nombre, List<Mesa> mesas) {
+    public Restaurante(String nombre, List<Mesa> mesas, int precio) {
+
         this.nombre = nombre;
         this.mesas = mesas;
+        this.precio = precio;
     }
 
-    public Restaurante(String nombre){
+    public Restaurante(String nombre, int precio){
+
         this.nombre = nombre;
+        this.precio = precio;
         inicilizar();
     }
 
@@ -23,6 +29,7 @@ public class Restaurante implements Serializable{
     public void reservarMesa(){};
 
     public void añadirMesa(Mesa mesa){
+        
         mesas.add(mesa);
     }
 
@@ -37,7 +44,7 @@ public class Restaurante implements Serializable{
     @Override
     public String toString() {
         //*para mostrar en la interfaz opcion 4 */
-        return nombre;
+        return nombre + " ,precio: " + precio;
     }
 
     public void inicilizar(){
@@ -48,6 +55,7 @@ public class Restaurante implements Serializable{
     }
 
     //*Getters y setters */
+    
     public List<Mesa> getMesas() {
         return mesas;
     }
@@ -64,4 +72,13 @@ public class Restaurante implements Serializable{
         this.nombre = nombre;
     }
 
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    
 }

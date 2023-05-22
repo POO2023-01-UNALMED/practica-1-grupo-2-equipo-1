@@ -28,9 +28,9 @@ public class Interfaz {
     // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
     // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
 
-    // hotel.agregarRestaurante(new Restaurante("dsa uno"));
-    // hotel.agregarRestaurante(new Restaurante("das dos"));
-    // hotel.agregarRestaurante(new Restaurante("das tres"));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000));
 
 
 
