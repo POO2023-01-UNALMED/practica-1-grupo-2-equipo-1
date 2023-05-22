@@ -39,7 +39,8 @@ public class Factura implements Serializable{
         return String.format("""
             Factura por hospedaje: %d
             Factura por servicios extra: %d
-            """,FacturaHospedaje, FacturaServiciosExtra);
+            Factura por restaurante: %d
+            """,FacturaHospedaje, FacturaServiciosExtra, FacturaRestaurante);
     }
 
     //* Getters y setteres */

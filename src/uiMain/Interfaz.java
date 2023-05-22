@@ -28,9 +28,9 @@ public class Interfaz {
     // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
     // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
 
-    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
 
 
 
@@ -220,6 +220,21 @@ public class Interfaz {
     System.out.print("Seleccione mesa: ");
     int mesaSeleccionada = readInt();
     restaurante.getMesas().get(mesaSeleccionada-1).asignarDueños(hab.getGrupo());
+
+    // Se añade el precio del restaurante a la factura del grupo de huespedes //
+
+    hab.getGrupo().getFactura().setFacturaRestaurante(restaurante.getPrecio());
+
+    System.out.println("");
+
+    System.out.println(
+      "Agregado el costo del " + restaurante.getNombre() + " a la factura: " + restaurante.getPrecio()
+      );
+    
+    System.out.println("");
+
+
+
     return 0;
 
 
