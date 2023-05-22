@@ -24,11 +24,15 @@ public class Interfaz {
     Hotel hotel = new Hotel();
 
     //* Base de datos inicial. Solo se ejecuto una vez */
-    // hotel.agragarHabitacion(new HabitacionEstandar());
-    // hotel.agragarHabitacion(new HabitacionEstandar());
-    // hotel.agragarHabitacion(new HabitacionVIP());
+    // hotel.agragarHabitacion(new Habitacion(4, 64000, 1));
+    // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
+    // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
 
-    // hotel.agregarRestaurante(new Restaurante("Restaurante uno"));
+    // hotel.agregarRestaurante(new Restaurante("dsa uno"));
+    // hotel.agregarRestaurante(new Restaurante("das dos"));
+    // hotel.agregarRestaurante(new Restaurante("das tres"));
+
+
 
     int opcion;
 

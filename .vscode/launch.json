@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Interfaz",
+            "request": "launch",
+            "mainClass": "uiMain.Interfaz",
+            "projectName": "practica-1-grupo-2-equipo-1_fc7e328a"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
