@@ -13,7 +13,7 @@ import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
 import gestorAplicacion.transporte.Vehiculo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Muestra las opciones e invoca las funcionalidades
@@ -33,9 +33,9 @@ public class Interfaz {
     //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
     //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
 
-    hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
-    hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
-    hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
+    //hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
+    //hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
+    //hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
 
 
     int opcion;

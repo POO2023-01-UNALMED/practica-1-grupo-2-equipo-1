@@ -54,7 +54,7 @@ public class serializador {
                     e.printStackTrace();
                 }
             }
- 
+
             else if (file.getAbsolutePath().contains("vehiculos")){
                 try {
                     fos = new FileOutputStream(file);
@@ -67,6 +67,8 @@ public class serializador {
                     e.printStackTrace();
                 }
             }
+ 
+ 
         }
 
     }
