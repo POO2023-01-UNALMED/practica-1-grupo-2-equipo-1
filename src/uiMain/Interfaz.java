@@ -29,9 +29,9 @@ public class Interfaz {
     // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
     // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
-    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
-    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
 
 
 
@@ -43,7 +43,7 @@ public class Interfaz {
       System.out.println("1. Registar huespedes");
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
-      System.out.println("4. Reserva Restaurate");
+      System.out.println("4. Reserva Restaurante");
       System.out.println("5. Reserva Transporte");
       System.out.println("6. Servicios extra");
       System.out.println("0. Salir");
@@ -78,6 +78,7 @@ public class Interfaz {
           break;
           
         case 5: 
+          // La opcion 5 llama al metodo reservar Transporte
         	reservarTransporte(hotel);
         	break;
 
@@ -252,11 +253,13 @@ public class Interfaz {
     //Se verifica que hayan habitaciones disponibles//
     if (hotel.mostrarHabitacionesDisponibles().isEmpty()){
       //Si la lista de habitaciones disponibles esta vacia te menciona que el hotel ya esta lleno//
+      System.out.println("");
       System.out.println("El hotel esta lleno!");
       return 1;
     }
 
     //Se muestra la lista de las habitaciones disponibles//
+    System.out.println("");
     System.out.println(hotel.mostrarHabitacionesDisponibles());
     System.out.print("Id de la habitacion: ");
     int idHab;
@@ -265,7 +268,9 @@ public class Interfaz {
 
     // Si la habitacion elegida ya esta ocupada te vuelve a pedir el ID// 
     while (hab.getEstaOcupado() == true) {
+      System.out.println("");
       System.out.println("Esta habitacion esta ocupada, seleccione otra");
+      System.out.println("");
       System.out.print("Id de la habitacion: ");
       idHab = readInt();
       hab = hotel.seleccionarHabitacionPorId(idHab);
@@ -286,20 +291,23 @@ public class Interfaz {
     grupoHuespedes.setDiasEnHotel(dias);
 
     // Se pide el numero de integrantes del grupo//
-    System.out.println("Cuantas personas");
+    System.out.println("");
+    System.out.println("Cuantas personas: ");
     int numeroPersonas = readInt();
 
     // Se verifica que el numero de personas del grupo sea menor al numero de personas disponibles por habitacion//
     while (numeroPersonas > hab.getCapacidad()) {
+      System.out.println("");
       System.out.println("El numero sobrepasa la capacidad");
       numeroPersonas = readInt();
     }
 
     // Por persona se van a pedir los datos de nombre e identificacion //
     for (int i = 0; i < numeroPersonas; i++) {
-      System.out.print("Nombre: ");
+      System.out.println("");
+      System.out.print("Nombre de la persona " + (i+1) + ": ");
       String nombre = readString();
-      System.out.print("Identificacion: ");
+      System.out.print("Identificacion de la persona " + (i+1) + ": ");
       int identificacion = readInt();
       // Se crea una instancia de huesped con los datos //
       grupoHuespedes.agregarHuesped(new Huesped(nombre, identificacion));
@@ -308,7 +316,9 @@ public class Interfaz {
     // Se crea la factura del registro //
     grupoHuespedes.inicializarFactura();
     // el precio es igual a = dias * precio
-    System.out.println("precio: " + grupoHuespedes.getFactura());
+    System.out.println("");
+    System.out.println("Factura:");
+    System.out.println(grupoHuespedes.getFactura());
 
     //* Fin definicion del grupo */
 
@@ -357,6 +367,7 @@ public class Interfaz {
 
   // 
   private static Habitacion verificarHabitaciaNoSeaNull(
+
     Hotel hotel,
     Habitacion hab
   ) {
@@ -402,39 +413,56 @@ public class Interfaz {
 
   }
   
+  //Reservar trasnporte
+
   private static int reservarTransporte(Hotel hotel) {
+  // Con el ID se selecciona la habitacion
 	System.out.print("Id de la habitacion: ");
 	Habitacion hab = seleccionarHabitacion(hotel);
 	
+
+  // Se verifica que la habitacion si tenga huespedes
 	if (hab.getEstaOcupado() == false){
 	      System.out.println("No hay personas en esta habitacion");
 	      return 1; 
 	      
 	}
 	
+   // Se verifica que la habitacion no tenga vehiculo reservado
 	 if (hab.getGrupo().getVehiculoReservado() != null){
 	      System.out.println("Ya tienen un vehiculo reservado");
 	      return 1;
 	 }
 	 
+   //
 	 Vehiculo vehiculo;
 	 int i = 1;
+
 	 for (Vehiculo veh : hotel.getVehiculos()) {
 		 System.out.println(i++ + ": " + veh.toString() + System.lineSeparator()); 
 	 }
 	 
+   // Se elige el vehiculo
 	 System.out.print("Opcion: ");
 	 int numVehiculo = readInt();
 	 vehiculo = hotel.getVehiculos().get(numVehiculo-1);
 
+   // Se verifica que en el vehiculo quepan los huespedes
 	if (vehiculo.getCapacidad()<(hab.getGrupo().getListaHuespedes().size())) {
+    System.out.println("");
 		System.out.println("La capacidad del vehiculo no es suficiente para todos los huespedes");
+
 		return 1;
+
+
 	}
 	
-	
+	// Se verifica que el vehiculo no este ocupado 
+
 	if (vehiculo.isOcupado()) {
+    System.out.println("");
 		System.out.println("El vehiculo ya esta ocupado");
+
 		return 1;
 	}
 	
