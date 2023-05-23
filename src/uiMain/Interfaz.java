@@ -260,7 +260,7 @@ public class Interfaz {
 
     //Se muestra la lista de las habitaciones disponibles//
     System.out.println("");
-    System.out.println(hotel.mostrarHabitacionesDisponibles());
+    System.out.print(hotel.mostrarHabitacionesDisponibles());
     System.out.print("Id de la habitacion: ");
     int idHab;
     // Se te pide el id de la habitacion que piensas elegir//
@@ -286,25 +286,25 @@ public class Interfaz {
     grupoHuespedes.setHabitacion(hab);
 
     // Piden los dias y los asigna al grupo de huespedes //
-    System.out.println("Dias: ");
+    System.out.print("Dias: ");
     int dias = readInt();
     grupoHuespedes.setDiasEnHotel(dias);
 
     // Se pide el numero de integrantes del grupo//
-    System.out.println("");
-    System.out.println("Cuantas personas: ");
+    System.out.print("");
+    System.out.print("Cuantas personas: ");
     int numeroPersonas = readInt();
 
     // Se verifica que el numero de personas del grupo sea menor al numero de personas disponibles por habitacion//
     while (numeroPersonas > hab.getCapacidad()) {
       System.out.println("");
-      System.out.println("El numero sobrepasa la capacidad");
+      System.out.print("El numero sobrepasa la capacidad");
       numeroPersonas = readInt();
     }
 
     // Por persona se van a pedir los datos de nombre e identificacion //
     for (int i = 0; i < numeroPersonas; i++) {
-      System.out.println("");
+      System.out.print("");
       System.out.print("Nombre de la persona " + (i+1) + ": ");
       String nombre = readString();
       System.out.print("Identificacion de la persona " + (i+1) + ": ");

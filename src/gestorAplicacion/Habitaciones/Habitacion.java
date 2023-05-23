@@ -36,11 +36,21 @@ public class Habitacion implements Serializable {
     @Override
     public String toString() {
         if (grupo != null){
-            return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-            + ", grupo=" + grupo.toString() + ", Ocupado=" + estaOcupado + "]";
+            return String.format("""
+            Habitacion:
+            Capacidad = %d personas 
+            Precio/Dia = $%d 
+            ID_Habitacion = %d
+            Grupo = %d 
+            Ocupado = %d
+            """, capacidad,precioXdia,ID_Habitacion,grupo.toString(),estaOcupado);
         }
-        return "Habitacion [capacidad=" + capacidad + ", precioXdia=" + precioXdia + ", ID_Habitacion=" + ID_Habitacion
-                + "]";
+        return String.format("""
+            Habitacion:
+            Capacidad = %d personas 
+            Precio/Dia = $%d 
+            ID_Habitacion = %d
+            """, capacidad,precioXdia,ID_Habitacion);
     }
 
     public static int getId() {
