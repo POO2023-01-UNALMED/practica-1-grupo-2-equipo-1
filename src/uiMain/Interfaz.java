@@ -25,9 +25,9 @@ public class Interfaz {
     Hotel hotel = new Hotel();
 
     //* Base de datos inicial. Solo se ejecuto una vez */
-    // hotel.agragarHabitacion(new Habitacion(4, 64000, 1));
-    // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
-    // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
+    //hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    //hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    //hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
 
     //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
     //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
@@ -444,6 +444,9 @@ public class Interfaz {
 	 int numVehiculo = readInt();
 	 vehiculo = hotel.getVehiculos().get(numVehiculo-1);
 
+  // Se añade el precio del restaurante a la factura del grupo de huespedes //
+   hab.getGrupo().getFactura().setFacturaVehiculo(vehiculo.getPrecio());
+
    // Se verifica que en el vehiculo quepan los huespedes
 	if (vehiculo.getCapacidad()<(hab.getGrupo().getListaHuespedes().size())) {
     System.out.println("");
@@ -468,4 +471,5 @@ public class Interfaz {
   	return 0;
 	
   }
+  
 }

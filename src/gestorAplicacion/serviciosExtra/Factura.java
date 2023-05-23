@@ -9,6 +9,7 @@ public class Factura implements Serializable{
     private int FacturaHospedaje;
     private int FacturaServiciosExtra;
     private int FacturaRestaurante;
+    private int FacturaVehiculo;
     private int[] idsServicios = new int[3];
 
     public String mostrarListaServiciosExtra(){
@@ -27,7 +28,7 @@ public class Factura implements Serializable{
     }
 
     public int CalcularPrecioFactura(){
-        return FacturaHospedaje + FacturaServiciosExtra + FacturaRestaurante;
+        return FacturaHospedaje + FacturaServiciosExtra + FacturaRestaurante + FacturaVehiculo;
     }
 
     public boolean contains(final int[] arr, final int key) {
@@ -40,7 +41,8 @@ public class Factura implements Serializable{
             Factura por hospedaje: %d
             Factura por servicios extra: %d
             Factura por restaurante: %d
-            """,FacturaHospedaje, FacturaServiciosExtra, FacturaRestaurante);
+            Factura por alquiler de vehiculo: %d
+            """,FacturaHospedaje, FacturaServiciosExtra, FacturaRestaurante, FacturaVehiculo);
     }
 
     //* Getters y setteres */
@@ -75,6 +77,15 @@ public class Factura implements Serializable{
     public void setFacturaRestaurante(int facturaRestaurante) {
         FacturaRestaurante = facturaRestaurante;
     }
+
+    public int getFacturaVehiculo() {
+        return FacturaVehiculo;
+    }
+
+    public void setFacturaVehiculo(int facturaVehiculo) {
+        FacturaVehiculo = facturaVehiculo;
+    }
+    
 
     
 }
