@@ -1,5 +1,7 @@
 package gestorAplicacion.transporte;
 
+import gestorAplicacion.Personas.GrupoHuespedes;
+
 public class Mototaxi extends Vehiculo {
 	private int cilindraje;
 
@@ -30,6 +32,11 @@ public class Mototaxi extends Vehiculo {
 	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
+
+	public void asignarDueños(GrupoHuespedes grupo) {
+		super.asignarDueños(grupo);
+	}
+	
 	
 	
 
