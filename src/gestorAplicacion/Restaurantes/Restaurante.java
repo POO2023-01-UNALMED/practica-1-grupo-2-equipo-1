@@ -40,7 +40,7 @@ public class Restaurante implements Serializable{
     public String mostrarMesas() {
         StringBuilder s = new StringBuilder();
         for (Mesa mesa : mesas) {
-            s.append(mesa.toString() + System.lineSeparator());
+            s.append(mesa.toString());
         }
         return s.toString();
     }
@@ -48,7 +48,7 @@ public class Restaurante implements Serializable{
     @Override
     public String toString() {
         //*para mostrar en la interfaz opcion 4 */
-        return nombre + " ,precio: " + precio;
+        return nombre + ", precio: " + precio;
     }
 
     public void inicilizar(){

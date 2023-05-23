@@ -33,6 +33,9 @@ public class Interfaz {
     //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
     //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
 
+    hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
+    hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
+    hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
 
 
     int opcion;
@@ -121,7 +124,7 @@ public class Interfaz {
 
     //aqui seleccionamos la factura del grupo
     Factura factura = hab.getGrupo().getFactura();
-    System.out.println(Arrays.toString(factura.getIdsServicios()));
+    
 
 
     do {
@@ -142,9 +145,6 @@ public class Interfaz {
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
 
-            System.out.println(servicio != null);
-            System.out.println(!factura.contains(factura.getIdsServicios(), idServicio));
-            System.out.println(Arrays.toString(factura.getIdsServicios()));
             // verifica si el servicio ya fue comprado
             if (servicio != null && !factura.contains(factura.getIdsServicios(), idServicio)) {
               // idsServicios[numServiciosSeleccionados] = idServicio;
@@ -185,7 +185,7 @@ public class Interfaz {
   private static int reservarMesaRestaurante(Hotel hotel){
 
     //Se pide el Id de la habitacion para poder relacionar la mesa con un grupo de huespedes//
-    System.out.print("Id de la habitacion: ");
+    System.out.println("Id de la habitacion: ");
     Habitacion hab = seleccionarHabitacion(hotel);
   
     //Se verifica si la habitacion tiene un registro para continuar con la reserva//
@@ -212,7 +212,7 @@ public class Interfaz {
     }
 
     //* Seleccionar restaurante */
-    System.out.print("Opcion: ");
+    System.out.println("Opcion: ");
     int numRestaurante = readInt();
     restaurante = hotel.getRestaurantes().get(numRestaurante-1);
 
@@ -316,9 +316,6 @@ public class Interfaz {
     // Se crea la factura del registro //
     grupoHuespedes.inicializarFactura();
     // el precio es igual a = dias * precio
-    System.out.println("");
-    System.out.println("Factura:");
-    System.out.println(grupoHuespedes.getFactura());
 
     //* Fin definicion del grupo */
 

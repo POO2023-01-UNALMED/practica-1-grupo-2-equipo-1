@@ -1,8 +1,10 @@
 package gestorAplicacion.transporte;
 
+import java.io.Serializable;
+
 import gestorAplicacion.Personas.GrupoHuespedes;
 
-public class Vehiculo {
+public class Vehiculo implements Serializable {
 	private String modelo; 
 	private String placa;
 	private String conductor;
@@ -13,7 +15,6 @@ public class Vehiculo {
 	private GrupoHuespedes dueños;
 
 	public Vehiculo(String modelo, String placa, String conductor, int capacidad, boolean ocupado, int precio) {
-		super();
 		this.modelo = modelo;
 		this.placa = placa;
 		this.conductor = conductor;
