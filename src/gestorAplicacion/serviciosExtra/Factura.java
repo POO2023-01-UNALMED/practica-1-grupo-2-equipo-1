@@ -3,9 +3,12 @@ package gestorAplicacion.serviciosExtra;
 import java.io.Serializable;
 import java.util.Arrays; //static import
 
+
 public class Factura implements Serializable{
+
     private int FacturaHospedaje;
     private int FacturaServiciosExtra;
+    private int FacturaRestaurante;
     private int[] idsServicios = new int[3];
 
     public String mostrarListaServiciosExtra(){
@@ -24,7 +27,7 @@ public class Factura implements Serializable{
     }
 
     public int CalcularPrecioFactura(){
-        return FacturaHospedaje + FacturaServiciosExtra;
+        return FacturaHospedaje + FacturaServiciosExtra + FacturaRestaurante;
     }
 
     public boolean contains(final int[] arr, final int key) {
@@ -36,7 +39,8 @@ public class Factura implements Serializable{
         return String.format("""
             Factura por hospedaje: %d
             Factura por servicios extra: %d
-            """,FacturaHospedaje, FacturaServiciosExtra);
+            Factura por restaurante: %d
+            """,FacturaHospedaje, FacturaServiciosExtra, FacturaRestaurante);
     }
 
     //* Getters y setteres */
@@ -63,4 +67,14 @@ public class Factura implements Serializable{
     public void setIdsServicios(int[] idsServicios) {
         this.idsServicios = idsServicios;
     }
+
+    public int getFacturaRestaurante() {
+        return FacturaRestaurante;
+    }
+
+    public void setFacturaRestaurante(int facturaRestaurante) {
+        FacturaRestaurante = facturaRestaurante;
+    }
+
+    
 }

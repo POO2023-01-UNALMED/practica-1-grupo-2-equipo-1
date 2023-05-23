@@ -29,9 +29,9 @@ public class Interfaz {
     // hotel.agragarHabitacion(new Habitacion(2, 64000, 2));
     // hotel.agragarHabitacion(new Habitacion(6, 64000, 3));
 
-    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000));
+    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 30000,2));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
 
 
 
@@ -109,7 +109,7 @@ public class Interfaz {
     int opcionServicios;
     int numServiciosSeleccionados = 0;
 
-    System.out.print("Seleccion el Id de su habitacion: ");
+    System.out.print("Seleccione el Id de su habitacion: ");
     Habitacion hab = seleccionarHabitacion(hotel);
 
     //verifica que no esta vacia la habitacion, si esta vacia vuelve a menu
@@ -205,7 +205,9 @@ public class Interfaz {
     //* Mostrar los restaurantes disponibles *//
     int i = 1;
     for (Restaurante res : hotel.getRestaurantes()) {
-      System.out.println(i + ": " + res.toString() + System.lineSeparator());
+
+      System.out.println(i++ + ": " + res.toString() + System.lineSeparator());
+
     }
 
     //* Seleccionar restaurante */
@@ -216,13 +218,32 @@ public class Interfaz {
     //* Mostrar mesas restaurante */
     int numMesa = 1;
     for (Mesa mesa : restaurante.getMesas()) {
+
       System.out.println(numMesa++ + ": " + mesa.toString());
+
     }
     // Se elige la mesa que se desea asignar//
     System.out.print("Seleccione mesa: ");
     int mesaSeleccionada = readInt();
     restaurante.getMesas().get(mesaSeleccionada-1).asignarDueños(hab.getGrupo());
+
+    // Se añade el precio del restaurante a la factura del grupo de huespedes //
+
+    hab.getGrupo().getFactura().setFacturaRestaurante(restaurante.getPrecio());
+
+    System.out.println("");
+
+    System.out.println(
+      "Agregado el costo del " + restaurante.getNombre() + " a la factura: " + restaurante.getPrecio()
+      );
+    
+    System.out.println("");
+
+
+
     return 0;
+
+
 
   }
 
