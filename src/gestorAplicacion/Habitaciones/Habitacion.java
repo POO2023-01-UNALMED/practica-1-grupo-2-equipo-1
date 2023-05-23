@@ -30,9 +30,6 @@ public class Habitacion implements Serializable {
         this.estaOcupado = false;
     }
 
-
-    //*setters y getters */
-
     @Override
     public String toString() {
         if (grupo != null) {
@@ -52,7 +49,8 @@ public class Habitacion implements Serializable {
             ID_Habitacion = %d
             """, capacidad, precioXdia, ID_Habitacion);
     }
-    
+
+    //*setters y getters *//
     public static int getId() {
         return id;
     }

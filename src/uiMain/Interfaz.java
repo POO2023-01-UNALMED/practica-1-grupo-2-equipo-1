@@ -339,6 +339,8 @@ public class Interfaz {
     GrupoHuespedes grup = hab.getGrupo();
 
     // Se calcula y se muestra la factura del grupo que va a ser desalojado //
+    System.out.println("\n----Hotel Debug Inn----\n");
+    System.out.println("A quien se realiza la facturacion: " + grup.toString() + "\n");
     System.out.println(grup.getFactura().toString());
     System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
 
