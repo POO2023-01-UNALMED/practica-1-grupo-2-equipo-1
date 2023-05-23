@@ -27,16 +27,30 @@ public class Vehiculo implements Serializable {
 	//metodo toString para mostrar la info del vehiculo
 
 	  @Override
-	    public String toString() {
-	        return "Vehiculo{" +
-	                "modelo='" + modelo + '\'' +
-	                ", placa='" + placa + '\'' +
-	                ", conductor='" + conductor + '\'' +
-	                ", capacidad=" + capacidad +
-	                ", ocupado=" + ocupado +
-	                ", precio=" + precio +
-	                '}';
-	    }
+	  public String toString() {
+		if (dueños != null) {
+			return String.format("""
+			Vehiculo:
+			Modelo = %s
+			Placa = %s
+			Conductor = %s
+			Capacidad = %d
+			Ocupado = %b
+			Dueños = %s
+			Precio = $%d
+			""", modelo, placa, conductor, capacidad, ocupado, dueños.toString(), precio);
+		}
+		return String.format("""
+			Vehiculo:
+			Modelo = %s
+			Placa = %s
+			Conductor = %s
+			Capacidad = %d
+			Ocupado = %b
+			Precio = $%d
+			""", modelo, placa, conductor, capacidad, ocupado, precio);
+	}
+	
 
 
 	public String getModelo() {
