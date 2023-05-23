@@ -1,5 +1,7 @@
 package gestorAplicacion.transporte;
 
+import gestorAplicacion.Personas.GrupoHuespedes;
+
 public class Vehiculo {
 	private String modelo; 
 	private String placa;
@@ -8,6 +10,7 @@ public class Vehiculo {
 	private boolean ocupado;
 	private int precio;
 	
+	private GrupoHuespedes dueños;
 
 	public Vehiculo(String modelo, String placa, String conductor, int capacidad, boolean ocupado, int precio) {
 		super();
@@ -94,5 +97,16 @@ public class Vehiculo {
 		this.precio = precio;
 	}
 	  
-	  
+	public void asignarDueños(GrupoHuespedes grupo) {
+		this.dueños = grupo;
+		dueños.setVehiculoReservado(this);
+		ocupado = true;
+	}
+	
+    public void DesocuparVehiculo() {
+        dueños.setVehiculoReservado(null);
+        this.dueños = null;
+        this.ocupado = false;
+    }
+
 }

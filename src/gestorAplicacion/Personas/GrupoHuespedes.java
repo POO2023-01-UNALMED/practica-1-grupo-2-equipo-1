@@ -7,6 +7,7 @@ import java.util.List;
 import gestorAplicacion.Habitaciones.Habitacion;
 import gestorAplicacion.Restaurantes.Mesa;
 import gestorAplicacion.serviciosExtra.Factura;
+import gestorAplicacion.transporte.Vehiculo;
 
 public class GrupoHuespedes implements Serializable{
     private int diasEnHotel;
@@ -17,8 +18,9 @@ public class GrupoHuespedes implements Serializable{
     //mesa que reservaron
     //null si no tiene ninguna reserva
     private Mesa mesaReservada = null;
+    private Vehiculo vehiculoReservado = null;
 
-    public GrupoHuespedes(int diasEnHotel, List<Huesped> listaHuespedes, Habitacion habitacion) {
+	public GrupoHuespedes(int diasEnHotel, List<Huesped> listaHuespedes, Habitacion habitacion) {
         this.diasEnHotel = diasEnHotel;
         this.listaHuespedes = listaHuespedes;
         this.habitacion = habitacion;
@@ -104,5 +106,13 @@ public class GrupoHuespedes implements Serializable{
     public void setMesaReservada(Mesa reservaRestaurante) {
         this.mesaReservada = reservaRestaurante;
     }
+    
+    public Vehiculo getVehiculoReservado() {
+ 		return vehiculoReservado;
+ 	}
+
+ 	public void setVehiculoReservado(Vehiculo vehiculoReservado) {
+ 		this.vehiculoReservado = vehiculoReservado;
+ 	}
     
 }

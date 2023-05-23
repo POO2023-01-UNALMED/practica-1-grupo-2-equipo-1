@@ -11,6 +11,7 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
+import gestorAplicacion.transporte.Vehiculo;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -43,7 +44,8 @@ public class Interfaz {
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
       System.out.println("4. Reserva Restaurate");
-      System.out.println("5. Servicios extra");
+      System.out.println("5. Reserva Transporte");
+      System.out.println("6. Servicios extra");
       System.out.println("0. Salir");
       System.out.println("----------------------------------------");
 
@@ -74,8 +76,12 @@ public class Interfaz {
           //La opcion 4 llama al metodo reservarMesaRestaurante//
           reservarMesaRestaurante(hotel);
           break;
+          
+        case 5: 
+        	reservarTransporte(hotel);
+        	break;
 
-        case 5:serviciosExtra(hotel); break;
+        case 6:serviciosExtra(hotel); break;
 
         case 0:
           //La opcion 0 es para Salir del sistema y terminar la ejecucion//
@@ -315,6 +321,13 @@ public class Interfaz {
       hab.getGrupo().setMesaReservada(null);
       System.out.println("Reserva restaurante eliminada");
     }
+    
+    if(hab.getGrupo().getVehiculoReservado() != null){
+    	hab.getGrupo().getVehiculoReservado().DesocuparVehiculo();
+    	hab.getGrupo().setVehiculoReservado(null);
+    	System.out.println("Reserva de vehiculo eliminada");
+    }
+    
 
     // Se borra el grupo //
     hab.borrarGrupo();
@@ -368,4 +381,45 @@ public class Interfaz {
 
   }
   
+  private static int reservarTransporte(Hotel hotel) {
+	System.out.print("Id de la habitacion: ");
+	Habitacion hab = seleccionarHabitacion(hotel);
+	
+	if (hab.getEstaOcupado() == false){
+	      System.out.println("No hay personas en esta habitacion");
+	      return 1; 
+	      
+	}
+	
+	 if (hab.getGrupo().getVehiculoReservado() != null){
+	      System.out.println("Ya tienen un vehiculo reservado");
+	      return 1;
+	 }
+	 
+	 Vehiculo vehiculo;
+	 int i = 1;
+	 for (Vehiculo veh : hotel.getVehiculos()) {
+		 System.out.println(i++ + ": " + veh.toString() + System.lineSeparator()); 
+	 }
+	 
+	 System.out.print("Opcion: ");
+	 int numVehiculo = readInt();
+	 vehiculo = hotel.getVehiculos().get(numVehiculo-1);
+
+	if (vehiculo.getCapacidad()<(hab.getGrupo().getListaHuespedes().size())) {
+		System.out.println("La capacidad del vehiculo no es suficiente para todos los huespedes");
+		return 1;
+	}
+	
+	
+	if (vehiculo.isOcupado()) {
+		System.out.println("El vehiculo ya esta ocupado");
+		return 1;
+	}
+	
+	
+	vehiculo.asignarDueños(hab.getGrupo());
+  	return 0;
+	
+  }
 }

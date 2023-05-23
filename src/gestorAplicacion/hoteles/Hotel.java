@@ -2,6 +2,7 @@ package gestorAplicacion.hoteles;
 
 import gestorAplicacion.Habitaciones.*;
 import gestorAplicacion.Restaurantes.Restaurante;
+import gestorAplicacion.transporte.Vehiculo;
 
 import java.io.Serializable;
 import java.util.*;
@@ -11,12 +12,13 @@ import baseDatos.Deserializador;
 public class Hotel implements Serializable {
     private List<Habitacion> habitaciones = new ArrayList<>();
     private List<Restaurante> restaurantes = new ArrayList<Restaurante>();
-
+    private List<Vehiculo> vehiculos = new ArrayList<>();
+    
     public Hotel(){
         Deserializador.deserializar(this);
     }
 
-    public void agragarHabitacion(Habitacion habitacion){
+    public void agregarHabitacion(Habitacion habitacion){
         habitaciones.add(habitacion);
     }
 
@@ -24,6 +26,9 @@ public class Hotel implements Serializable {
         restaurantes.add(restaurante);
     }
 
+    public void agregarVehiculo(Vehiculo vehiculo){
+        vehiculos.add(vehiculo);
+    }
     public String mostrarHabitaciones(){
         String s = "";
         for (Habitacion habitacion : habitaciones) {
@@ -31,6 +36,15 @@ public class Hotel implements Serializable {
         }
         return s;
     }
+    
+    public String mostrarVehiculos(){
+        String x = "";
+        for (Vehiculo vehiculo : vehiculos) {
+            x += vehiculo.toString() + System.lineSeparator();
+        }
+        return x;
+    }
+
 
     public String mostrarHabitacionesDisponibles(){
         String s = "";
@@ -69,6 +83,14 @@ public class Hotel implements Serializable {
     public void setRestaurantes(List<Restaurante> restaurantes) {
         this.restaurantes = restaurantes;
     }
+
+	public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
 
     
 }
