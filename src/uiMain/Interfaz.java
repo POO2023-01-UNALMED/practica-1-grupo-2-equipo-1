@@ -29,30 +29,30 @@ public class Interfaz {
 
     // Habitaciones //
 
-    //hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
-    //hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
-    //hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
-    //hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
-    //hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
-    //hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
-    //hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
-    //hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
-    //hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
-    //hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
-    //hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
-    //hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
-
+ /*    hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
+    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+ */
     // Restaurantes //
-
-    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
-    //hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4));
+/* 
+    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+    hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4)); */
 
     // Vehiculos //
-    //hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
-    //hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
-    //hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
+    /* hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
+    hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
+    hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000)); */
 
 
     int opcion;
@@ -60,13 +60,13 @@ public class Interfaz {
     do {
       System.out.println("----------------------------------------");
       System.out.println("Bienvenidos al hotel The Debug Inn");
-      System.out.println("1. Registar huespedes");
+      System.out.println("1. Registrar huespedes");
       System.out.println("2. Desalojar huespedes");
       System.out.println("3. Ver habitaciones");
       System.out.println("4. Reserva Restaurante");
       System.out.println("5. Reserva Transporte");
       System.out.println("6. Servicios extra");
-      System.out.println("7. Salir");
+      System.out.println("0. Salir");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
@@ -118,7 +118,7 @@ public class Interfaz {
 
       }
 
-    } while (opcion != 7);
+    } while (opcion != 0);
 
   }
 
@@ -165,10 +165,13 @@ public class Interfaz {
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
             System.out.println("1. Gimnasio");
+            System.out.println("Precio: $"+ServiciosExtra.GIMNASIO.getPrecio());
             System.out.println("");
             System.out.println("2. Bar");
+            System.out.println("Precio: $"+ServiciosExtra.BAR.getPrecio());
             System.out.println("");
             System.out.println("3. Parqueadero");
+            System.out.println("Precio: $"+ServiciosExtra.PARQUEADERO.getPrecio());
             System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
@@ -198,7 +201,7 @@ public class Interfaz {
           );
           break;
         case 0:
-          System.out.println("Saliendo...");
+          System.out.println("Volviendo al menú...");
           break;
         default:
           System.out.println("Opción inválida.");
@@ -214,7 +217,7 @@ public class Interfaz {
   private static int reservarMesaRestaurante(Hotel hotel){
 
     //Se pide el Id de la habitacion para poder relacionar la mesa con un grupo de huespedes//
-    System.out.println("Id de la habitacion: ");
+    System.out.print("Id de la habitacion: ");
     Habitacion hab = seleccionarHabitacion(hotel);
   
     //Se verifica si la habitacion tiene un registro para continuar con la reserva//
@@ -234,24 +237,30 @@ public class Interfaz {
     Restaurante restaurante;
     //* Mostrar los restaurantes disponibles *//
     int i = 1;
+    System.out.println("----------------------------------------");
     for (Restaurante res : hotel.getRestaurantes()) {
 
       System.out.println(i++ + ": " + res.toString() + System.lineSeparator());
 
     }
+    System.out.println("----------------------------------------");
 
     //* Seleccionar restaurante */
-    System.out.println("Opcion: ");
+    System.out.print("Opcion: ");
     int numRestaurante = readInt();
+    System.out.println("");
     restaurante = hotel.getRestaurantes().get(numRestaurante-1);
 
     //* Mostrar mesas restaurante */
     int numMesa = 1;
+    System.out.println("----------------------------------------");
     for (Mesa mesa : restaurante.getMesas()) {
 
       System.out.println(numMesa++ + ": " + mesa.toString());
 
     }
+    System.out.println("----------------------------------------");
+
     // Se elige la mesa que se desea asignar//
     System.out.print("Seleccione mesa: ");
     int mesaSeleccionada = readInt();
@@ -328,7 +337,8 @@ public class Interfaz {
     while (numeroPersonas > hab.getCapacidad()) {
       System.out.println("");
       System.out.print("El numero sobrepasa la capacidad");
-      numeroPersonas = readInt();
+      System.out.println("");
+      return 1;
     }
 
     // Por persona se van a pedir los datos de nombre e identificacion //
@@ -445,8 +455,9 @@ public class Interfaz {
 
   private static int reservarTransporte(Hotel hotel) {
   // Con el ID se selecciona la habitacion
-	System.out.print("Id de la habitacion: ");
+	System.out.print("Id de la habitacion: "+System.lineSeparator());
 	Habitacion hab = seleccionarHabitacion(hotel);
+
 	
 
   // Se verifica que la habitacion si tenga huespedes
