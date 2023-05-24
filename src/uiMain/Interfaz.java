@@ -35,35 +35,35 @@ public class Interfaz {
 
     //hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
     
-    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    //hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
 
-    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    //hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
 
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    //hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
 
-    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    //hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
 
-    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    //hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
 
-    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    //hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
 
-    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    //hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
 
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    //hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
 
-    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+    //hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
 
 
     // Restaurantes //
 
-    
-    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4));
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+
+    //hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4));
 
 
     // Vehiculos //
@@ -162,27 +162,39 @@ public class Interfaz {
     //aqui seleccionamos la factura del grupo
     Factura factura = hab.getGrupo().getFactura();
     
-
-
     do {
+
+      System.out.println("----------------------------------------");
       System.out.println("Seleccione una opción:");
+      System.out.println("");
       System.out.println("1. Agregar servicio extra");
+      System.out.println("");
       System.out.println("2. Calcular precio total");
+      System.out.println("");
       System.out.println("0. Salir");
+      System.out.println("----------------------------------------");
       opcionServicios = readInt();
 
 
       switch (opcionServicios) {
         case 1: //agregar servicio extra
+
           if (numServiciosSeleccionados < 3) {
+
+            System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");
+            System.out.println("");
             System.out.println("1. Gimnasio");
+            System.out.println("");
             System.out.println("2. Bar");
+            System.out.println("");
             System.out.println("3. Parqueadero");
+            System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
 
             // verifica si el servicio ya fue comprado
+
             if (servicio != null && !factura.contains(factura.getIdsServicios(), idServicio)) {
               // idsServicios[numServiciosSeleccionados] = idServicio;
               factura.seleccionarServicio(idServicio);
