@@ -1,19 +1,12 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/UhcYLOEZ)
-## Getting Started
+# Administrador de hotel
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Con esta aplicación puedes llevar el registro de las personas que están en tu hotel.
+ 
+1. Registrar huéspedes: Registrar nuevos clientes
+2. Desalojar huéspedes: Desalojar clientes
+3. Ver habitaciones: Ver el estado general de todas las habitaciones
+4. Reserva Restaurante: Asignarle un puesto en el restaurante.
+5. Reserva Transporte: Registro de los vehículos disponibles
+6. Servicios extra: Servicios extra comprados por el cliente
+7. Ver factura
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
