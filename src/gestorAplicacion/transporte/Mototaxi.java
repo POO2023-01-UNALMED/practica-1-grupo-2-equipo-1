@@ -1,3 +1,6 @@
+/*Clase mototaxi, hereda de la clase Vehiculo y tiene un método toString en el cual se presenta ligadura dinámica
+ * a la hora de ejecutar el programa
+ */
 package gestorAplicacion.transporte;
 
 import gestorAplicacion.Personas.GrupoHuespedes;
