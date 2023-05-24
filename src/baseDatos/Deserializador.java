@@ -8,7 +8,16 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.transporte.Vehiculo;
 
+// La clase Deserializador se encarga de deserializar (reconstruir un objeto a partir de
+// una secuencia de bytes previamente serializada) los datos guardados en archivos
+//  y restaurar el estado de los objetos en el sistema.
+
+// Deserializa los datos de habitaciones, restaurantes y vehículos y los asigna a la clase "Hotel".
+
 //* Se debe llamar en el constructor del objecto */
+
+//@param hotel La instancia de la clase "Hotel" al que se asignarán los datos deserializados.
+
 public class Deserializador {
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
