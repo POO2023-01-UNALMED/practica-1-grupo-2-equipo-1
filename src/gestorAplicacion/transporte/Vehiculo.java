@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import gestorAplicacion.Personas.GrupoHuespedes;
 
-public class Vehiculo implements Serializable {
+public class Vehiculo implements Serializable , Transporte{
 	private String modelo; 
 	private String placa;
 	private String conductor;
@@ -111,13 +111,15 @@ public class Vehiculo implements Serializable {
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
-	  
+	
+	@Override
 	public void asignarDueños(GrupoHuespedes grupo) {
 		this.dueños = grupo;
 		dueños.setVehiculoReservado(this);
 		ocupado = true;
 	}
 	
+	@Override
     public void DesocuparVehiculo() {
         dueños.setVehiculoReservado(null);
         this.dueños = null;
