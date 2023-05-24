@@ -54,8 +54,7 @@ public class Interfaz {
     // hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
     // hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
     // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
-    // hotel.agregarVehiculo(new Taxi("audi", "smjsk", "Fabio", 4, false, 100000, "taxitaxi"));
-    // hotel.agregarVehiculo(new Mototaxi("Yamaha", "jkkd", "jose", 2, false, 3000, 125));
+ 
 
 
     int opcion;
