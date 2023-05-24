@@ -59,5 +59,11 @@ public enum ServiciosExtra {
         }
         return precioTotal;
     }
+
+
+    public int getPrecioServicio() {
+        return precioServicio;
+    }
+    
     
 }

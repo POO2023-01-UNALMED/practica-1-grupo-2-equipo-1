@@ -126,4 +126,15 @@ public class Vehiculo implements Serializable , Transporte{
         this.ocupado = false;
     }
 
+
+	public GrupoHuespedes getDueños() {
+		return dueños;
+	}
+
+
+	public void setDueños(GrupoHuespedes dueños) {
+		this.dueños = dueños;
+	}
+
+	
 }

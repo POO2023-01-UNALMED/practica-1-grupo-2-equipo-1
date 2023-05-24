@@ -55,4 +55,15 @@ public class Taxi extends Vehiculo {
 	public void asignarDueños(GrupoHuespedes grupo) {
 		super.asignarDueños(grupo);
 	}
+
+	public GrupoHuespedes getDueños() {
+		return dueños;
+	}
+
+	public void setDueños(GrupoHuespedes dueños) {
+		this.dueños = dueños;
+	}
+
+	
+	
 }

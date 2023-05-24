@@ -38,5 +38,15 @@ public class Bus extends Vehiculo{
 		super.asignarDueños(grupo);
 	}
 
+
+	public GrupoHuespedes getDueños() {
+		return dueños;
+	}
+
+	public void setDueños(GrupoHuespedes dueños) {
+		this.dueños = dueños;
+	}
+
     
+	
 }

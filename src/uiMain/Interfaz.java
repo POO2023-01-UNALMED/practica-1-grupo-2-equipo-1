@@ -251,19 +251,19 @@ public class Interfaz {
             System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
-            System.out.println("1. Gimnasio");
+            System.out.println("1. Gimnasio.");
             System.out.println("Precio: $" + ServiciosExtra.GIMNASIO.getPrecio());
             System.out.println("");
-            System.out.println("2. Bar");
+            System.out.println("2. Bar.");
             System.out.println("Precio: $" + ServiciosExtra.BAR.getPrecio());
             System.out.println("");
-            System.out.println("3. Parqueadero");
+            System.out.println("3. Parqueadero.");
             System.out.println("Precio: $" + ServiciosExtra.PARQUEADERO.getPrecio());
             System.out.println("");
-            System.out.println("4. Excursion");
+            System.out.println("4. Excursion.");
             System.out.println("Precio: $" + ServiciosExtra.EXCURSION.getPrecio());
             System.out.println("");
-            System.out.println("5. Chiva");
+            System.out.println("5. Chiva.");
             System.out.println("Precio: $" + ServiciosExtra.CHIVA.getPrecio());
             System.out.println("----------------------------------------");
             int idServicio = readInt();
@@ -308,14 +308,19 @@ public class Interfaz {
   
   private static int verFactura(Hotel hotel) {
 
+    //Se pide el Id de la habitacion la cual se deseaver la factura //
+    
     System.out.println("Selecione el Id de su habitacion: ");
     Habitacion hab = seleccionarHabitacion(hotel);
 
+    // Se verifica que la habitacion dada tenga huespedes //
+
     if (hab.getEstaOcupado() == false) {
-      System.out.println("No hay huespedes aqui");
+      System.out.println("No hay huespedes aqui.");
       return 1;
     }
 
+    // Sedan los datos de los servicios comprados durante la estancia en el hotel //
 
     System.out.println("\n----Hotel Debug Inn----\n");
     System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
