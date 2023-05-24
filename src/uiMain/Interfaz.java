@@ -86,7 +86,7 @@ public class Interfaz {
       System.out.println("4. Reserva Restaurante");
       System.out.println("5. Reserva Transporte");
       System.out.println("6. Servicios extra");
-      System.out.println("0. Salir");
+      System.out.println("7. Salir");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
