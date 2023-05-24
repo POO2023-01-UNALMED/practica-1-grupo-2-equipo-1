@@ -188,13 +188,14 @@ public class Interfaz {
     do {
       System.out.println("----------------------------------------");
       System.out.println("Bienvenidos al hotel The Debug Inn");
-      System.out.println("1. Registar huespedes");
-      System.out.println("2. Desalojar huespedes");
-      System.out.println("3. Ver habitaciones");
-      System.out.println("4. Reserva Restaurante");
-      System.out.println("5. Reserva Transporte");
-      System.out.println("6. Servicios extra");
-      System.out.println("0. Salir");
+      System.out.println("1. Registar huespedes.");
+      System.out.println("2. Desalojar huespedes.");
+      System.out.println("3. Ver habitaciones.");
+      System.out.println("4. Reserva Restaurante.");
+      System.out.println("5. Reserva Transporte.");
+      System.out.println("6. Servicios extra.");
+      System.out.println("7. Ver factura");
+      System.out.println("0. Salir.");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
@@ -231,9 +232,32 @@ public class Interfaz {
           reservarTransporte(hotel);
           break;
 
+          // La opcion 6 llama al metodo servicio extra //
         case 6:
           serviciosExtra(hotel);
           break;
+
+        case 7:
+
+          // La opcion 7 muestra la factura de la habitacion dada //
+
+          System.out.println("Selecione el Id de su habitacion: ");
+          Habitacion hab = seleccionarHabitacion(hotel);
+
+          if (hab.getEstaOcupado() == false) {
+            System.out.println("No hay huespedes aqui");
+            return;
+          }
+
+
+          System.out.println("\n----Hotel Debug Inn----\n");
+          System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
+          System.out.println("");
+          System.out.println(hab.getGrupo().getFactura().toString());
+          System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
+
+          break;
+
 
         case 0:
           // La opcion 0 es para Salir del sistema y terminar la ejecucion//
@@ -244,7 +268,7 @@ public class Interfaz {
         default:
           // Si se da un numero no relacionado a una opcion se saldra del sistema
           // terminando la ejecucion//
-          System.out.println("No hay una opcion relacionada con ese numero");
+          System.out.println("No hay una opcion relacionada con ese numero.");
           salirDelSistema(hotel);
           break;
 
@@ -268,7 +292,7 @@ public class Interfaz {
 
     // verifica que no esta vacia la habitacion, si esta vacia vuelve a menu
     if (hab.getEstaOcupado() == false) {
-      System.out.println("No hay huespedes aqui");
+      System.out.println("No hay huespedes aqui.");
       return 1;// esto es para regrasar a menu, nunca se le asigna a nada
     }
 
@@ -280,11 +304,11 @@ public class Interfaz {
       System.out.println("----------------------------------------");
       System.out.println("Seleccione una opción:");
       System.out.println("");
-      System.out.println("1. Agregar servicio extra");
+      System.out.println("1. Agregar servicio extra.");
       System.out.println("");
-      System.out.println("2. Calcular precio total");
+      System.out.println("2. Calcular precio total.");
       System.out.println("");
-      System.out.println("0. Salir");
+      System.out.println("0. Salir.");
       System.out.println("----------------------------------------");
       opcionServicios = readInt();
 
@@ -296,11 +320,11 @@ public class Interfaz {
             System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
-            System.out.println("1. Gimnasio");
+            System.out.println("1. Gimnasio.");
             System.out.println("");
-            System.out.println("2. Bar");
+            System.out.println("2. Bar.");
             System.out.println("");
-            System.out.println("3. Parqueadero");
+            System.out.println("3. Parqueadero.");
             System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
@@ -345,8 +369,8 @@ public class Interfaz {
     int opcion;
     do {
       System.out.println("Seleccione una opción:");
-      System.out.println("1. Reservar mesa en restaurante");
-      System.out.println("2. Salir");
+      System.out.println("1. Reservar mesa en restaurante.");
+      System.out.println("2. Salir.");
       System.out.print("Opción: ");
       opcion = sc.nextInt();
 
@@ -372,14 +396,14 @@ public class Interfaz {
 
     // Se verifica si la habitacion tiene un registro para continuar con la reserva
     if (!hab.getEstaOcupado()) {
-      System.out.println("No hay personas en esta habitacion");
+      System.out.println("No hay personas en esta habitacion.");
       return 1;
       // sale del programa
     }
 
     // Se verifica que no tengan ya una mesa reservada
     if (hab.getGrupo().getMesaReservada() != null) {
-      System.out.println("Ya tienen una mesa reservada");
+      System.out.println("Ya tienen una mesa reservada.");
       return 1;
     }
 
@@ -388,7 +412,7 @@ public class Interfaz {
     System.out.println("Restaurantes disponibles:");
     int i = 1;
     for (Restaurante restaurante : restaurantes) {
-      System.out.println(i + ": " + restaurante.getNombre());
+      System.out.println(i + ": " + restaurante.getNombre() + ".");
       i++;
     }
 
@@ -464,7 +488,7 @@ public class Interfaz {
     // Si la habitacion elegida ya esta ocupada te vuelve a pedir el ID//
     while (hab.getEstaOcupado() == true) {
       System.out.println("");
-      System.out.println("Esta habitacion esta ocupada, seleccione otra");
+      System.out.println("Esta habitacion esta ocupada, seleccione otra.");
       System.out.println("");
       System.out.print("Id de la habitacion: ");
       idHab = readInt();
@@ -495,7 +519,7 @@ public class Interfaz {
     // personas disponibles por habitacion//
     while (numeroPersonas > hab.getCapacidad()) {
       System.out.println("");
-      System.out.print("El numero sobrepasa la capacidad");
+      System.out.print("El numero sobrepasa la capacidad.");
       numeroPersonas = readInt();
     }
 
@@ -528,7 +552,7 @@ public class Interfaz {
 
     // Se verifica que la habitacion si este ocupada //
     while (hab.getEstaOcupado() == false) {
-      System.out.println("La habitacion ya esta desocupada");
+      System.out.println("La habitacion ya esta desocupada.");
       return 1;
     }
 
@@ -544,13 +568,13 @@ public class Interfaz {
     if (hab.getGrupo().getMesaReservada() != null) {
       hab.getGrupo().getMesaReservada().vaciarMesa();
       hab.getGrupo().setMesaReservada(null);
-      System.out.println("Reserva restaurante eliminada");
+      System.out.println("Reserva restaurante eliminada.");
     }
 
     if (hab.getGrupo().getVehiculoReservado() != null) {
       hab.getGrupo().getVehiculoReservado().DesocuparVehiculo();
       hab.getGrupo().setVehiculoReservado(null);
-      System.out.println("Reserva de vehiculo eliminada");
+      System.out.println("Reserva de vehiculo eliminada.");
     }
 
     // Se borra el grupo //
@@ -567,7 +591,7 @@ public class Interfaz {
     int idHab;
     while (hab == null) {
 
-      System.out.println("No existe esa habitacion seleccione otra");
+      System.out.println("No existe esa habitacion seleccione otra.");
       System.out.print("Id de la habitacion: ");
       idHab = readInt();
       hab = hotel.seleccionarHabitacionPorId(idHab);
@@ -599,7 +623,7 @@ public class Interfaz {
 
   // Terminar ejecucion //
   private static void salirDelSistema(Hotel hotel) {
-    System.out.println("Vuelva pronto");
+    System.out.println("Vuelva pronto.");
     serializador.serializar(hotel);
     System.exit(0);
 
@@ -614,14 +638,14 @@ public class Interfaz {
 
     // Se verifica que la habitacion si tenga huespedes
     if (hab.getEstaOcupado() == false) {
-      System.out.println("No hay personas en esta habitacion");
+      System.out.println("No hay personas en esta habitacion.");
       return 1;
 
     }
 
     // Se verifica que la habitacion no tenga vehiculo reservado
     if (hab.getGrupo().getVehiculoReservado() != null) {
-      System.out.println("Ya tienen un vehiculo reservado");
+      System.out.println("Ya tienen un vehiculo reservado.");
       return 1;
     }
 
@@ -644,7 +668,7 @@ public class Interfaz {
     // Se verifica que en el vehiculo quepan los huespedes
     if (vehiculo.getCapacidad() < (hab.getGrupo().getListaHuespedes().size())) {
       System.out.println("");
-      System.out.println("La capacidad del vehiculo no es suficiente para todos los huespedes");
+      System.out.println("La capacidad del vehiculo no es suficiente para todos los huespedes.");
 
       return 1;
 
@@ -654,7 +678,7 @@ public class Interfaz {
 
     if (vehiculo.isOcupado()) {
       System.out.println("");
-      System.out.println("El vehiculo ya esta ocupado");
+      System.out.println("El vehiculo ya esta ocupado.");
 
       return 1;
     }
