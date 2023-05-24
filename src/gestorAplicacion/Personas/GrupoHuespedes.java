@@ -15,11 +15,13 @@ public class GrupoHuespedes implements Serializable{
     private Factura factura;
     private Habitacion habitacion;
 
-    //mesa que reservaron
-    //null si no tiene ninguna reserva
+    /*Los atributos mesa y vehiculo se establecen en null por defecto ya que se empiezan a 
+     * modificar tras el uso de funcionalidades una vez el grupo de huespedes ya está creado
+     */
     private Mesa mesaReservada = null;
     private Vehiculo vehiculoReservado = null;
 
+    /*Sobrecarga de constructores para instanciar objetos con determinada cantidad de parametros */
 	public GrupoHuespedes(int diasEnHotel, List<Huesped> listaHuespedes, Habitacion habitacion) {
         this.diasEnHotel = diasEnHotel;
         this.listaHuespedes = listaHuespedes;
@@ -39,11 +41,14 @@ public class GrupoHuespedes implements Serializable{
         this.listaHuespedes = new ArrayList<Huesped>();
     }
 
+    /*agrega un objeto de tipo huesped a la lista de huespedes en un determinado grupo */
     public void agregarHuesped(Huesped huesped){
         listaHuespedes.add(huesped);
     }
 
-
+    /* inicializa la factura del grupo una vez se crea, solo tiene en cuenta inicialmente el 
+     * precio de la habitación y la cantidad de días que se hospeda el grupo
+     */
     public void inicializarFactura(){
         factura = new Factura();
         factura.setFacturaHospedaje(habitacion.getPrecioXdia() * diasEnHotel);
