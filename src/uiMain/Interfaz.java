@@ -59,14 +59,15 @@ public class Interfaz {
 
     do {
       System.out.println("----------------------------------------");
-      System.out.println("Bienvenidos al hotel The Debug Inn");
-      System.out.println("1. Registrar huespedes");
-      System.out.println("2. Desalojar huespedes");
-      System.out.println("3. Ver habitaciones");
-      System.out.println("4. Reserva Restaurante");
-      System.out.println("5. Reserva Transporte");
-      System.out.println("6. Servicios extra");
-      System.out.println("0. Salir");
+      System.out.println("Bienvenidos al hotel The Debug Inn.");
+      System.out.println("1. Registrar huespedes.");
+      System.out.println("2. Desalojar huespedes.");
+      System.out.println("3. Ver habitaciones.");
+      System.out.println("4. Reserva Restaurante.");
+      System.out.println("5. Reserva Transporte.");
+      System.out.println("6. Servicios extra.");
+      System.out.println("7. Ver factura.");
+      System.out.println("0. Salir.");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
@@ -102,8 +103,31 @@ public class Interfaz {
         	reservarTransporte(hotel);
         	break;
 
+          // La opcion 6 llama al metodo serivicos extra //
         case 6:serviciosExtra(hotel); break;
 
+        case 7:
+
+          // La opcion 7 muestra la factura de la habitacion dada //
+
+          System.out.println("Seleccione el Id de su habitacion: ");
+          Habitacion hab = seleccionarHabitacion(hotel);
+
+          if (hab.getEstaOcupado() == false) {
+            System.out.println("No hay huespedes aqui.");
+            return;
+          }
+
+
+          System.out.println("\n----Hotel Debug Inn----\n");
+          System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
+          System.out.println("");
+          System.out.println(hab.getGrupo().getFactura().toString());
+          System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
+
+          break;
+
+          
         case 0:
           //La opcion 0 es para Salir del sistema y terminar la ejecucion//
           System.out.println("Saliendo...");
