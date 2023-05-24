@@ -4,7 +4,9 @@ public enum ServiciosExtra {
 
     GIMNASIO(1, 50000),
     BAR(2, 20000),
-    PARQUEADERO(3, 30000);
+    PARQUEADERO(3, 30000),
+    EXCURSION(4,150000),
+    CHIVA(5,80000);
 
     private final int idServicio;
     private final int precioServicio;
