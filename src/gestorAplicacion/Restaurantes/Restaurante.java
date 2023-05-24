@@ -4,23 +4,36 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurante implements Serializable {
+public class Restaurante implements Serializable{
 
     private String nombre;
     private List<Mesa> mesas = new ArrayList<>();
     private int precio;
     private int id;
-    private Menu menu;
 
-    public Restaurante(String nombre, int precio, int id) {
+
+    public Restaurante(String nombre, List<Mesa> mesas, int precio, int id) {
+
+        this.nombre = nombre;
+        this.mesas = mesas;
+        this.precio = precio;
+        this.id = id;
+    }
+
+    public Restaurante(String nombre, int precio, int id){
+
         this.nombre = nombre;
         this.precio = precio;
         this.id = id;
-        this.menu = new Menu();
-        inicializar();
+        inicilizar();
     }
 
-    public void añadirMesa(Mesa mesa) {
+    //TODO: implementar funcionalidad
+    
+    public void reservarMesa(){};
+
+    public void añadirMesa(Mesa mesa){
+        
         mesas.add(mesa);
     }
 
@@ -34,22 +47,18 @@ public class Restaurante implements Serializable {
 
     @Override
     public String toString() {
+        //*para mostrar en la interfaz opcion 4 */
         return nombre + ", precio: " + precio;
     }
 
-    public void inicializar() {
+    public void inicilizar(){
+
+        //mesas genericas        
         for (int i = 1; i < 8; i++) {
             this.añadirMesa(new Mesa(i));
         }
     }
 
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
     //*Getters y setters */
     
     public List<Mesa> getMesas() {
