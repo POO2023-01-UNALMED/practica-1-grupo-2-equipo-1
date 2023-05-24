@@ -3,6 +3,9 @@ package gestorAplicacion.transporte;
 import gestorAplicacion.Personas.GrupoHuespedes;
 
 public class Mototaxi extends Vehiculo {
+
+	private GrupoHuespedes dueños;
+
 	private int cilindraje;
 
 	public Mototaxi(String modelo, String placa, String conductor, int capacidad, boolean ocupado, int precio
@@ -13,17 +16,32 @@ public class Mototaxi extends Vehiculo {
 	}
 
 	@Override
-    public String toString() {
-        return "Vehiculo{" +
-                "modelo='" + super.getModelo() + '\'' +
-                ", placa='" + super.getPlaca() + '\'' +
-                ", conductor='" + super.getConductor() + '\'' +
-                ", capacidad=" + super.getCapacidad() +
-                ", ocupado=" +	super.isOcupado() +
-                ", precio=" + super.getPrecio() +
-                ", Cilindraje=" + cilindraje +
-                '}';
+	  public String toString() {
+		if (dueños != null) {
+			return String.format("""
+			Vehiculo:
+			Modelo = %s
+			Placa = %s
+			Conductor = %s
+			Capacidad = %d
+			Ocupado = %b
+			Dueños = %s
+			Precio = $%d
+			Cilindraje = %d
+			""", modelo, placa, conductor, capacidad, ocupado, dueños.toString(), precio, cilindraje);
+		}
+		return String.format("""
+			Vehiculo:
+			Modelo = %s
+			Placa = %s
+			Conductor = %s
+			Capacidad = %d
+			Ocupado = %b
+			Precio = $%d
+			Cilindraje = %d
+			""", modelo, placa, conductor, capacidad, ocupado, precio, cilindraje);
 	}
+	
 
 	public int getCilindraje() {
 		return cilindraje;
