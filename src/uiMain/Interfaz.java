@@ -86,7 +86,7 @@ public class Interfaz {
       System.out.println("4. Reserva Restaurante");
       System.out.println("5. Reserva Transporte");
       System.out.println("6. Servicios extra");
-      System.out.println("0. Salir");
+      System.out.println("7. Salir");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
@@ -144,7 +144,7 @@ public class Interfaz {
 
   private static int serviciosExtra(Hotel hotel) {
     /*Seleccionar habitacion, para saber a que grupo ponerle la factura 
-     * despues se selleciona el servicio
+     * despues se seleciona el servicio
     */
 
     int opcionServicios;
