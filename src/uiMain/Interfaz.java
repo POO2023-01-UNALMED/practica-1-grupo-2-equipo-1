@@ -15,6 +15,7 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
+import gestorAplicacion.transporte.Bus;
 import gestorAplicacion.transporte.Mototaxi;
 import gestorAplicacion.transporte.Taxi;
 import gestorAplicacion.transporte.Vehiculo;
@@ -35,29 +36,29 @@ public class Interfaz {
 
     // Habitaciones //
 
-    // hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
 
-    // hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
 
-    // hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
+    hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
 
-    // hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
 
-    // hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
 
-    // hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
 
-    // hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
 
-    // hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
 
-    // hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
 
-    // hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
 
-    // hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
 
-    // hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
 
     // Restaurantes //
 
@@ -182,6 +183,7 @@ public class Interfaz {
 
     // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6,
     // false, 1650000));
+    hotel.agregarVehiculo(new Bus("Torcoroma", "AVD", "Fabio", 40, false, 10000));
 
     int opcion;
 
@@ -297,10 +299,19 @@ public class Interfaz {
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
             System.out.println("1. Gimnasio");
+            System.out.println("Precio: $"+ServiciosExtra.GIMNASIO.getPrecio());
             System.out.println("");
             System.out.println("2. Bar");
+            System.out.println("Precio: $"+ServiciosExtra.BAR.getPrecio());
             System.out.println("");
             System.out.println("3. Parqueadero");
+            System.out.println("Precio: $"+ServiciosExtra.PARQUEADERO.getPrecio());
+            System.out.println("");
+            System.out.println("4. Excursion");
+            System.out.println("Precio: $"+ServiciosExtra.EXCURSION.getPrecio());
+            System.out.println("");
+            System.out.println("5. Chiva");
+            System.out.println("Precio: $"+ServiciosExtra.CHIVA.getPrecio());
             System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
@@ -605,7 +616,7 @@ public class Interfaz {
 
   }
 
-  // Reservar trasnporte
+  // Reservar transporte
 
   private static int reservarTransporte(Hotel hotel) {
     // Con el ID se selecciona la habitacion
