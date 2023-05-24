@@ -11,6 +11,8 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
+import gestorAplicacion.transporte.Mototaxi;
+import gestorAplicacion.transporte.Taxi;
 import gestorAplicacion.transporte.Vehiculo;
 
 import java.util.ArrayList;
@@ -29,30 +31,31 @@ public class Interfaz {
 
     // Habitaciones //
 
- /*    hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
-    hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
-    hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
-    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
-    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
-    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
-    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
-    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
-    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
-    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
- */
+    // hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    // hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    // hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
+    // hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    // hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    // hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    // hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    // hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    // hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    // hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+
     // Restaurantes //
-/* 
-    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
-    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
-    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
-    hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4)); */
+    // hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000,1));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000,2));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000,3));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000,4)); 
 
     // Vehiculos //
-    /* hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
-    hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
-    hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000)); */
+    // hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2, false, 580000));
+    // hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4, false, 795000));
+    // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6, false, 1650000));
+    // hotel.agregarVehiculo(new Taxi("audi", "smjsk", "Fabio", 4, false, 100000, "taxitaxi"));
+    // hotel.agregarVehiculo(new Mototaxi("Yamaha", "jkkd", "jose", 2, false, 3000, 125));
 
 
     int opcion;
@@ -455,7 +458,8 @@ public class Interfaz {
 
   private static int reservarTransporte(Hotel hotel) {
   // Con el ID se selecciona la habitacion
-	System.out.print("Id de la habitacion: "+System.lineSeparator());
+	System.out.print("Id de la habitacion: ");
+  System.out.println("");
 	Habitacion hab = seleccionarHabitacion(hotel);
 
 	
@@ -510,6 +514,7 @@ public class Interfaz {
 	
 	
 	vehiculo.asignarDueños(hab.getGrupo());
+    System.out.println("Se asignó su vehiculo");
   	return 0;
 	
   }

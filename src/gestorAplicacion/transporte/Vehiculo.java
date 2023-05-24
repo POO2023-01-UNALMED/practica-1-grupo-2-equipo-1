@@ -5,12 +5,12 @@ import java.io.Serializable;
 import gestorAplicacion.Personas.GrupoHuespedes;
 
 public class Vehiculo implements Serializable , Transporte{
-	private String modelo; 
-	private String placa;
-	private String conductor;
-	private int capacidad;
-	private boolean ocupado;
-	private int precio;
+	protected String modelo; 
+	protected String placa;
+	protected String conductor;
+	protected int capacidad;
+	protected boolean ocupado;
+	protected int precio;
 	
 	private GrupoHuespedes dueños;
 
