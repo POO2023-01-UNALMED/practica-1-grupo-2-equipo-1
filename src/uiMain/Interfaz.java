@@ -13,7 +13,6 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
-import gestorAplicacion.transporte.Bus;
 import gestorAplicacion.transporte.Mototaxi;
 import gestorAplicacion.transporte.Taxi;
 import gestorAplicacion.transporte.Vehiculo;
@@ -188,20 +187,7 @@ public class Interfaz {
 
           // La opcion 7 muestra la factura de la habitacion dada //
 
-          System.out.println("Selecione el Id de su habitacion: ");
-          Habitacion hab = seleccionarHabitacion(hotel);
-
-          if (hab.getEstaOcupado() == false) {
-            System.out.println("No hay huespedes aqui");
-            return;
-          }
-
-          System.out.println("\n----Hotel Debug Inn----\n");
-          System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
-          System.out.println("");
-          System.out.println(hab.getGrupo().getFactura().toString());
-          System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
-
+          verFactura(hotel);
           break;
 
         case 0:
@@ -318,6 +304,30 @@ public class Interfaz {
     } while (opcionServicios != 0);
     return 0;
   }
+
+  
+  private static int verFactura(Hotel hotel) {
+
+    System.out.println("Selecione el Id de su habitacion: ");
+    Habitacion hab = seleccionarHabitacion(hotel);
+
+    if (hab.getEstaOcupado() == false) {
+      System.out.println("No hay huespedes aqui");
+      return 1;
+    }
+
+
+    System.out.println("\n----Hotel Debug Inn----\n");
+    System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
+    System.out.println("");
+    System.out.println(hab.getGrupo().getFactura().toString());
+    System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
+
+    return 1;
+
+
+  }
+
 
   private static void reservarRestaurante(Hotel hotel) {
     int opcion;
