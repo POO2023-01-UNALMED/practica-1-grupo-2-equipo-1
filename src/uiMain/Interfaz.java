@@ -61,7 +61,7 @@ public class Interfaz {
 
     // Restaurantes //
 
-    /* Restaurante restaurante1 = new Restaurante("Restaurante General", 20000, 1);
+    Restaurante restaurante1 = new Restaurante("Restaurante General", 20000, 1);
 
     Restaurante restaurante2 = new Restaurante("Restaurante Italiano", 35000, 2);
 
@@ -170,7 +170,7 @@ public class Interfaz {
     Postre postre7 = new Postre("Cheesecake", 6000);
     Postre postre8 = new Postre("Mousse de chocolate", 5500);
     menuGeneral.añadirPostre(postre7);
-    menuGeneral.añadirPostre(postre8); */
+    menuGeneral.añadirPostre(postre8);
 
     // Vehiculos //
 
@@ -187,15 +187,14 @@ public class Interfaz {
 
     do {
       System.out.println("----------------------------------------");
-      System.out.println("Bienvenidos al hotel The Debug Inn.");
-      System.out.println("1. Registrar huespedes.");
-      System.out.println("2. Desalojar huespedes.");
-      System.out.println("3. Ver habitaciones.");
-      System.out.println("4. Reserva Restaurante.");
-      System.out.println("5. Reserva Transporte.");
-      System.out.println("6. Servicios extra.");
-      System.out.println("7. Ver factura.");
-      System.out.println("0. Salir.");
+      System.out.println("Bienvenidos al hotel The Debug Inn");
+      System.out.println("1. Registar huespedes");
+      System.out.println("2. Desalojar huespedes");
+      System.out.println("3. Ver habitaciones");
+      System.out.println("4. Reserva Restaurante");
+      System.out.println("5. Reserva Transporte");
+      System.out.println("6. Servicios extra");
+      System.out.println("0. Salir");
       System.out.println("----------------------------------------");
 
       System.out.print("Opcion: ");
@@ -236,28 +235,6 @@ public class Interfaz {
           serviciosExtra(hotel);
           break;
 
-        case 7:
-
-          // La opcion 7 muestra la factura de la habitacion dada //
-
-          System.out.println("Seleccione el Id de su habitacion: ");
-          Habitacion hab = seleccionarHabitacion(hotel);
-
-          if (hab.getEstaOcupado() == false) {
-            System.out.println("No hay huespedes aqui.");
-            return;
-          }
-
-
-          System.out.println("\n----Hotel Debug Inn----\n");
-          System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
-          System.out.println("");
-          System.out.println(hab.getGrupo().getFactura().toString());
-          System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
-
-          break;
-
-          
         case 0:
           // La opcion 0 es para Salir del sistema y terminar la ejecucion//
           System.out.println("Saliendo...");
@@ -273,7 +250,7 @@ public class Interfaz {
 
       }
 
-    } while (opcion != 0);
+    } while (opcion != 7);
 
   }
 
@@ -320,13 +297,10 @@ public class Interfaz {
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
             System.out.println("1. Gimnasio");
-            System.out.println("Precio: $"+ServiciosExtra.GIMNASIO.getPrecio());
             System.out.println("");
             System.out.println("2. Bar");
-            System.out.println("Precio: $"+ServiciosExtra.BAR.getPrecio());
             System.out.println("");
             System.out.println("3. Parqueadero");
-            System.out.println("Precio: $"+ServiciosExtra.PARQUEADERO.getPrecio());
             System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
@@ -355,7 +329,7 @@ public class Interfaz {
                   factura.getFacturaServiciosExtra());
           break;
         case 0:
-          System.out.println("Volviendo al menú...");
+          System.out.println("Saliendo...");
           break;
         default:
           System.out.println("Opción inválida.");
@@ -417,7 +391,6 @@ public class Interfaz {
       System.out.println(i + ": " + restaurante.getNombre());
       i++;
     }
-    System.out.println("----------------------------------------");
 
     // Seleccionar restaurante
     System.out.print("Seleccione un restaurante: ");
@@ -523,8 +496,7 @@ public class Interfaz {
     while (numeroPersonas > hab.getCapacidad()) {
       System.out.println("");
       System.out.print("El numero sobrepasa la capacidad");
-      System.out.println("");
-      return 1;
+      numeroPersonas = readInt();
     }
 
     // Por persona se van a pedir los datos de nombre e identificacion //
