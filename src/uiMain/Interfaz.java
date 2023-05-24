@@ -15,6 +15,8 @@ import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
+import gestorAplicacion.transporte.Mototaxi;
+import gestorAplicacion.transporte.Taxi;
 import gestorAplicacion.transporte.Vehiculo;
 
 import java.util.ArrayList;
