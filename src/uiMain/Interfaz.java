@@ -144,7 +144,7 @@ public class Interfaz {
 
   private static int serviciosExtra(Hotel hotel) {
     /*Seleccionar habitacion, para saber a que grupo ponerle la factura 
-     * despues se selleciona el servicio
+     * despues se seleciona el servicio
     */
 
     int opcionServicios;
