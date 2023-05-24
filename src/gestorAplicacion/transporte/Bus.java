@@ -34,6 +34,9 @@ public class Bus extends Vehiculo{
 			Precio = $%d
 			""", modelo, placa, conductor, capacidad, ocupado, precio);
 	}
+    public void asignarDueños(GrupoHuespedes grupo) {
+		super.asignarDueños(grupo);
+	}
 
     
 }
