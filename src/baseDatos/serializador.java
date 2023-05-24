@@ -9,27 +9,39 @@ import java.io.PrintWriter;
 
 import gestorAplicacion.hoteles.Hotel;
 
+/**
+ * La clase `serializador` se encarga de serializar( convertir un objeto en una
+ * secuencia de bytes, de modo que se pueda almacenar en un archivo) los datos
+ * de un objeto `Hotel` y guardarlos en archivos.
+ */
+
 public class serializador {
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
-    public static void serializar(Hotel hotel){
+    /**
+     * Serializa los datos de un objeto `Hotel` y los guarda en archivos.
+     *
+     * @param hotel El objeto `Hotel` cuyos datos se van a serializar.
+     */
+
+    public static void serializar(Hotel hotel) {
         FileOutputStream fos;
         ObjectOutputStream oos;
         File[] docs = rutaTemp.listFiles();
         PrintWriter pw;
 
-        //*borra los archivos antes de guardar */
-        for (File file: docs){
+        // *borra los archivos antes de guardar */
+        for (File file : docs) {
             try {
-                //*Borra lo que haya en ellos automaticamente */
+                // *Borra lo que haya en ellos automaticamente */
                 pw = new PrintWriter(file);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
-        for (File file: docs){
-            if (file.getAbsolutePath().contains("habitaciones")){
+        for (File file : docs) {
+            if (file.getAbsolutePath().contains("habitaciones")) {
                 try {
                     fos = new FileOutputStream(file);
                     oos = new ObjectOutputStream(fos);
@@ -37,12 +49,12 @@ public class serializador {
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-             
-            else if (file.getAbsolutePath().contains("restaurantes")){
+
+            else if (file.getAbsolutePath().contains("restaurantes")) {
                 try {
                     fos = new FileOutputStream(file);
                     oos = new ObjectOutputStream(fos);
@@ -50,12 +62,12 @@ public class serializador {
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-            else if (file.getAbsolutePath().contains("vehiculos")){
+            else if (file.getAbsolutePath().contains("vehiculos")) {
                 try {
                     fos = new FileOutputStream(file);
                     oos = new ObjectOutputStream(fos);
@@ -63,12 +75,11 @@ public class serializador {
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
- 
- 
+
         }
 
     }
