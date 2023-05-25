@@ -124,7 +124,7 @@ public class Interfaz {
       System.out.println("Menú Administración Hotel");
       System.out.println("1. Registar huespedes.");
       System.out.println("2. Desalojar huespedes.");
-      System.out.println("3. Ver habitaciones disponibles.");
+      System.out.println("3. Ver habitaciones.");
       System.out.println("4. Reserva Restaurante.");
       System.out.println("5. Reserva Transporte.");
       System.out.println("6. Servicios extra.");
