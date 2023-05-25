@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import gestorAplicacion.Personas.GrupoHuespedes;
 
+/**
+ * La clase Habitacion representa una habitación en un hotel.
+ * Implementa la interfaz Serializable para permitir la serialización de
+ * objetos.
+ */
+
 public class Habitacion implements Serializable {
     protected static int id = 1;
 
@@ -13,6 +19,15 @@ public class Habitacion implements Serializable {
     protected GrupoHuespedes grupo;
     protected boolean estaOcupado;
 
+    /**
+     * Crea una instancia de Habitacion con los atributos especificados.
+     * 
+     * @param capacidad     Capacidad de la habitación (número de personas que puede
+     *                      alojar)
+     * @param precioXdia    Precio por día de la habitación
+     * @param iD_Habitacion Identificador único de la habitación
+     */
+
     public Habitacion(int capacidad, int precioXdia, int iD_Habitacion) {
         this.capacidad = capacidad;
         this.precioXdia = precioXdia;
@@ -20,37 +35,59 @@ public class Habitacion implements Serializable {
         this.estaOcupado = false;
     }
 
-    public Habitacion(int capacidad, int precioXdia){
+    /**
+     * Crea una instancia de Habitacion con los atributos especificados y asigna un
+     * ID automáticamente.
+     * 
+     * @param capacidad  Capacidad de la habitación (número de personas que puede
+     *                   alojar)
+     * @param precioXdia Precio por día de la habitación
+     */
+
+    public Habitacion(int capacidad, int precioXdia) {
         this(capacidad, precioXdia, id);
         id++;
     }
 
-    public void borrarGrupo(){
+    /**
+     * Borra el grupo de huéspedes asociado a la habitación y establece el estado de
+     * ocupación como desocupado.
+     */
+
+    public void borrarGrupo() {
         this.setGrupo(null);
         this.estaOcupado = false;
     }
+
+    /**
+     * Devuelve una representación en forma de cadena de texto de la habitación.
+     * Si la habitación tiene un grupo de huéspedes asociado, se muestra la
+     * información del grupo.
+     * 
+     * @return Representación en forma de cadena de texto de la habitación
+     */
 
     @Override
     public String toString() {
         if (grupo != null) {
             return String.format("""
-            Habitacion:
-            Capacidad = %d personas
-            Precio/Dia = $%d
-            ID_Habitacion = %d
-            Grupo = %s
-            Ocupado = %b
-            """, capacidad, precioXdia, ID_Habitacion, grupo.toString(), estaOcupado);
+                    Habitacion:
+                    Capacidad = %d personas
+                    Precio/Dia = $%d
+                    ID_Habitacion = %d
+                    Grupo = %s
+                    Ocupado = %b
+                    """, capacidad, precioXdia, ID_Habitacion, grupo.toString(), estaOcupado);
         }
         return String.format("""
-            Habitacion:
-            Capacidad = %d personas
-            Precio/Dia = $%d
-            ID_Habitacion = %d
-            """, capacidad, precioXdia, ID_Habitacion);
+                Habitacion:
+                Capacidad = %d personas
+                Precio/Dia = $%d
+                ID_Habitacion = %d
+                """, capacidad, precioXdia, ID_Habitacion);
     }
 
-    //*setters y getters *//
+    // *setters y getters *//
     public static int getId() {
         return id;
     }
@@ -100,5 +137,4 @@ public class Habitacion implements Serializable {
         this.estaOcupado = estaOcupado;
     }
 
-    
 }

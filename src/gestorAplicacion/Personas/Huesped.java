@@ -1,3 +1,8 @@
+/*La clase huespedes comprende la información base que el hotel obtiene de 
+ * las personas que se van a hospedar en el hotel para luego integrar estas 
+ * instancias dentro de un grupo de huespedes y asignarlas a una habitación
+ * y que puedan disfrutar de todo lo que ofrece el hotel
+ */
 package gestorAplicacion.Personas;
 
 import java.io.Serializable;

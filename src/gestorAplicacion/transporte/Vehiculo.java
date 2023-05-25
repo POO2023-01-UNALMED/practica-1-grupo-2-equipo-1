@@ -1,3 +1,11 @@
+/* La clase vehiculo es la base para la funcionalidad de reserva de vehiculos que se le ofrece a los huespedes   
+ * es la clase padre de 4 clases que representan tipos de vehiculos que se le ofrecen a los huespedes del hotel,
+ * tambien es la clase que logra la ligadura dinámica dentro del programa. 
+*/
+
+/* */
+
+
 package gestorAplicacion.transporte;
 
 import java.io.Serializable;
@@ -24,7 +32,9 @@ public class Vehiculo implements Serializable , Transporte{
 	}
 
 
-	//metodo toString para mostrar la info del vehiculo
+	/* El método toString para mostrar la información del vehiculo según sus atributos, podemos ver que se desarrolla ligadura
+	 * dinamica cuando durante la ejecución del programa este elige qué método toString llamar según el objeto
+	 */
 
 	  @Override
 	  public String toString() {
@@ -111,14 +121,18 @@ public class Vehiculo implements Serializable , Transporte{
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
-	
+	/*Este método se llama en la funcionalidad Reservar transporte y recibe un parametro de tipo GrupoHuespedes 
+	 * para asignarle a este mismo un atributo de tipo vehiculo que fue reservado por ellos
+	 */
 	@Override
 	public void asignarDueños(GrupoHuespedes grupo) {
 		this.dueños = grupo;
 		dueños.setVehiculoReservado(this);
 		ocupado = true;
 	}
-	
+	/*Este método se llama en la funcionalidad desalojar huespuedes y se encarga de que el vehiculo que fue reservado
+	 * por un grupo de huespes sea liberado y vuelva a estar disponible una dichos huespedes hayan abandonado el hotel
+	 */
 	@Override
     public void DesocuparVehiculo() {
         dueños.setVehiculoReservado(null);
@@ -126,4 +140,15 @@ public class Vehiculo implements Serializable , Transporte{
         this.ocupado = false;
     }
 
+
+	public GrupoHuespedes getDueños() {
+		return dueños;
+	}
+
+
+	public void setDueños(GrupoHuespedes dueños) {
+		this.dueños = dueños;
+	}
+
+	
 }

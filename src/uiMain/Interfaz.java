@@ -6,16 +6,13 @@ import gestorAplicacion.Habitaciones.Habitacion;
 // import gestorAplicacion.Habitaciones.HabitacionVIP;
 import gestorAplicacion.Personas.GrupoHuespedes;
 import gestorAplicacion.Personas.Huesped;
-import gestorAplicacion.Restaurantes.Bebida;
 import gestorAplicacion.Restaurantes.Menu;
 import gestorAplicacion.Restaurantes.Mesa;
 import gestorAplicacion.Restaurantes.Plato;
-import gestorAplicacion.Restaurantes.Postre;
 import gestorAplicacion.Restaurantes.Restaurante;
 import gestorAplicacion.hoteles.Hotel;
 import gestorAplicacion.serviciosExtra.Factura;
 import gestorAplicacion.serviciosExtra.ServiciosExtra;
-import gestorAplicacion.transporte.Bus;
 import gestorAplicacion.transporte.Mototaxi;
 import gestorAplicacion.transporte.Taxi;
 import gestorAplicacion.transporte.Vehiculo;
@@ -36,163 +33,110 @@ public class Interfaz {
 
     // Habitaciones //
 
-    hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    // hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
 
-    hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    // hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
 
-    hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
+    // hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
 
-    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    // hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
 
-    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    // hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
 
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
 
-    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    // hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
 
-    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    // hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
 
-    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    // hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
 
-    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    // hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
 
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
 
-    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+    // hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
 
-    // Restaurantes //
+    // // Restaurantes //
 
-    Restaurante restaurante1 = new Restaurante("Restaurante General", 20000, 1);
+    // hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000, 1));
 
-    Restaurante restaurante2 = new Restaurante("Restaurante Italiano", 35000, 2);
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000, 2));
 
-    Restaurante restaurante3 = new Restaurante("Restaurante Vegetariano", 25000, 3);
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000, 3));
 
-    Restaurante restaurante4 = new Restaurante("Restaurante Mexicano", 30000, 4);
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000, 4));
 
-    hotel.agregarRestaurante(restaurante1);
-    hotel.agregarRestaurante(restaurante2);
-    hotel.agregarRestaurante(restaurante3);
-    hotel.agregarRestaurante(restaurante4);
+    // // Crear los platos del restaurante general
+    // Plato plato1 = new Plato("Hamburguesa clásica", 15000);
+    // Plato plato2 = new Plato("Pasta Alfredo", 16000);
+    // Plato plato3 = new Plato("Sándwich de pollo", 12000);
 
+    // Menu menuGeneral = new Menu();
+
+    // menuGeneral.añadirPlato(plato1);
+    // menuGeneral.añadirPlato(plato2);
+    // menuGeneral.añadirPlato(plato3);
+
+    // hotel.getRestaurantes().get(0).setMenu(menuGeneral);
+
+    // // Crear los platos del restaurante italiano
+    // Plato plato4 = new Plato("Spaghetti Carbonara", 15000);
+    // Plato plato5 = new Plato("Pizza Margherita", 12000);
+    // Plato plato6 = new Plato("Lasagna Bolognese", 18000);
+
+    // Menu menuItaliano = new Menu();
+
+    // menuItaliano.añadirPlato(plato4);
+    // menuItaliano.añadirPlato(plato5);
+    // menuItaliano.añadirPlato(plato6);
+
+    // hotel.getRestaurantes().get(1).setMenu(menuItaliano);
+
+    // // Crear los platos del restaurante vegetariano
+    // Plato plato7 = new Plato("Ensalada mediterránea", 12000);
+    // Plato plato8 = new Plato("Hamburguesa de lentejas", 10000);
+    // Plato plato9 = new Plato("Wrap de verduras", 15000);
+
+    // Menu menuVegetariano = new Menu();
+
+    // menuVegetariano.añadirPlato(plato7);
+    // menuVegetariano.añadirPlato(plato8);
+    // menuVegetariano.añadirPlato(plato9);
+
+    // hotel.getRestaurantes().get(2).setMenu(menuVegetariano);
+
+    // // Crear los platos del restaurante mexicano
+    // Plato plato10 = new Plato("Tacos al pastor", 15000);
+    // Plato plato11 = new Plato("Enchiladas verdes", 12000);
+    // Plato plato12 = new Plato("Chiles en nogada", 18000);
+
+    // Menu menuMexicano = new Menu();
+
+    // menuMexicano.añadirPlato(plato10);
+    // menuMexicano.añadirPlato(plato11);
+    // menuMexicano.añadirPlato(plato12);
+
+    // hotel.getRestaurantes().get(3).setMenu(menuMexicano);
+
+    // // Vehiculos //
+
+    // hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2,false, 580000));
+
+    // hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4,false, 795000));
+
+    // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6,false, 1650000));
     
-
-    // Crear los platos del restaurante italiano
-    Plato plato1 = new Plato("Spaghetti Carbonara", 15000);
-    Plato plato2 = new Plato("Pizza Margherita", 12000);
-    Plato plato3 = new Plato("Lasagna Bolognese", 18000);
-    Menu menuItaliano = new Menu();
-    menuItaliano.añadirPlato(plato1);
-    menuItaliano.añadirPlato(plato2);
-    menuItaliano.añadirPlato(plato3);
-    restaurante2.setMenu(menuItaliano);
-
-    // Crear las bebidas del restaurante italiano
-    Bebida bebida1 = new Bebida("Agua", 2000);
-    Bebida bebida2 = new Bebida("Gaseosa", 3000);
-    Bebida bebida3 = new Bebida("Vino tinto", 8000);
-    menuItaliano.añadirBebida(bebida1);
-    menuItaliano.añadirBebida(bebida2);
-    menuItaliano.añadirBebida(bebida3);
-
-    // Crear los postres del restaurante italiano
-    Postre postre1 = new Postre("Tiramisú", 6000);
-    Postre postre2 = new Postre("Helado de vainilla", 4000);
-    menuItaliano.añadirPostre(postre1);
-    menuItaliano.añadirPostre(postre2);
-
-    // Crear los platos del restaurante mexicano
-    Plato plato4 = new Plato("Tacos al pastor", 15000);
-    Plato plato5 = new Plato("Enchiladas verdes", 12000);
-    Plato plato6 = new Plato("Chiles en nogada", 18000);
-    Menu menuMexicano = new Menu();
-    menuMexicano.añadirPlato(plato4);
-    menuMexicano.añadirPlato(plato5);
-    menuMexicano.añadirPlato(plato6);
-    restaurante4.setMenu(menuMexicano);
-
-    // Crear las bebidas del restaurante mexicano
-    Bebida bebida4 = new Bebida("Agua de horchata", 2000);
-    Bebida bebida5 = new Bebida("Margarita", 3000);
-    Bebida bebida6 = new Bebida("Tequila", 8000);
-    menuMexicano.añadirBebida(bebida4);
-    menuMexicano.añadirBebida(bebida5);
-    menuMexicano.añadirBebida(bebida6);
-
-    // Crear los postres del restaurante mexicano
-    Postre postre3 = new Postre("Flan", 6000);
-    Postre postre4 = new Postre("Churros", 4000);
-    menuMexicano.añadirPostre(postre3);
-    menuMexicano.añadirPostre(postre4);
-
-    // Crear los platos del restaurante vegetariano
-    Plato plato7 = new Plato("Ensalada mediterránea", 12000);
-    Plato plato8 = new Plato("Hamburguesa de lentejas", 10000);
-    Plato plato9 = new Plato("Wrap de verduras", 15000);
-    Menu menuVegetariano = new Menu();
-    menuVegetariano.añadirPlato(plato7);
-    menuVegetariano.añadirPlato(plato8);
-    menuVegetariano.añadirPlato(plato9);
-    restaurante3.setMenu(menuVegetariano);
-
-    // Crear las bebidas del restaurante vegetariano
-    Bebida bebida7 = new Bebida("Jugo natural", 3000);
-    Bebida bebida8 = new Bebida("Smoothie de frutas", 4000);
-    Bebida bebida9 = new Bebida("Agua de coco", 2500);
-    menuVegetariano.añadirBebida(bebida7);
-    menuVegetariano.añadirBebida(bebida8);
-    menuVegetariano.añadirBebida(bebida9);
-
-    // Crear los postres del restaurante vegetariano
-    Postre postre5 = new Postre("Brownie vegano", 5000);
-    Postre postre6 = new Postre("Helado de frutas", 3500);
-    menuVegetariano.añadirPostre(postre5);
-    menuVegetariano.añadirPostre(postre6);
-
-    // Crear los platos del restaurante general
-    Plato plato10 = new Plato("Hamburguesa clásica", 15000);
-    Plato plato11 = new Plato("Pasta Alfredo", 16000);
-    Plato plato12 = new Plato("Sándwich de pollo", 12000);
-    Menu menuGeneral = new Menu();
-    menuGeneral.añadirPlato(plato10);
-    menuGeneral.añadirPlato(plato11);
-    menuGeneral.añadirPlato(plato12);
-    restaurante1.setMenu(menuGeneral);
-
-    // Crear las bebidas del restaurante general
-    Bebida bebida10 = new Bebida("Refresco", 3000);
-    Bebida bebida11 = new Bebida("Té helado", 2500);
-    Bebida bebida12 = new Bebida("Cerveza", 5000);
-    menuGeneral.añadirBebida(bebida10);
-    menuGeneral.añadirBebida(bebida11);
-    menuGeneral.añadirBebida(bebida12);
-
-    // Crear los postres del restaurante general
-    Postre postre7 = new Postre("Cheesecake", 6000);
-    Postre postre8 = new Postre("Mousse de chocolate", 5500);
-    menuGeneral.añadirPostre(postre7);
-    menuGeneral.añadirPostre(postre8);
-
-    // Vehiculos //
-
-    // hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Conductor_1", 2,
-    // false, 580000));
-
-    // hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Conductor_2", 4,
-    // false, 795000));
-
-    // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Conductor_3", 6,
-    // false, 1650000));
-    hotel.agregarVehiculo(new Bus("Torcoroma", "AVD", "Fabio", 40, false, 10000));
+    // hotel.agregarVehiculo(new Bus("Torcoroma", "AVD", "Fabio", 40, false, 10000));
 
     int opcion;
 
     do {
       System.out.println("----------------------------------------");
-      System.out.println("Bienvenidos al hotel The Debug Inn");
+      System.out.println("¡Bienvenidos al hotel The Debug Inn!");
       System.out.println("1. Registar huespedes.");
       System.out.println("2. Desalojar huespedes.");
-      System.out.println("3. Ver habitaciones.");
+      System.out.println("3. Ver habitaciones disponibles.");
       System.out.println("4. Reserva Restaurante.");
       System.out.println("5. Reserva Transporte.");
       System.out.println("6. Servicios extra.");
@@ -234,7 +178,7 @@ public class Interfaz {
           reservarTransporte(hotel);
           break;
 
-          // La opcion 6 llama al metodo servicio extra //
+        // La opcion 6 llama al metodo servicio extra //
         case 6:
           serviciosExtra(hotel);
           break;
@@ -243,23 +187,8 @@ public class Interfaz {
 
           // La opcion 7 muestra la factura de la habitacion dada //
 
-          System.out.println("Selecione el Id de su habitacion: ");
-          Habitacion hab = seleccionarHabitacion(hotel);
-
-          if (hab.getEstaOcupado() == false) {
-            System.out.println("No hay huespedes aqui");
-            return;
-          }
-
-
-          System.out.println("\n----Hotel Debug Inn----\n");
-          System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
-          System.out.println("");
-          System.out.println(hab.getGrupo().getFactura().toString());
-          System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
-
+          verFactura(hotel);
           break;
-
 
         case 0:
           // La opcion 0 es para Salir del sistema y terminar la ejecucion//
@@ -270,7 +199,7 @@ public class Interfaz {
         default:
           // Si se da un numero no relacionado a una opcion se saldra del sistema
           // terminando la ejecucion//
-          System.out.println("No hay una opcion relacionada con ese numero.");
+          System.out.println("No hay una opcion relacionada con esa entrada.");
           salirDelSistema(hotel);
           break;
 
@@ -289,12 +218,12 @@ public class Interfaz {
     int opcionServicios;
     int numServiciosSeleccionados = 0;
 
-    System.out.print("Seleccione el Id de su habitacion: ");
+    System.out.print("Seleccione el Id de su habitación: ");
     Habitacion hab = seleccionarHabitacion(hotel);
 
     // verifica que no esta vacia la habitacion, si esta vacia vuelve a menu
     if (hab.getEstaOcupado() == false) {
-      System.out.println("No hay huespedes aqui.");
+      System.out.println("La habitación no registra huespedes");
       return 1;// esto es para regrasar a menu, nunca se le asigna a nada
     }
 
@@ -322,20 +251,20 @@ public class Interfaz {
             System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");
             System.out.println("");
-            System.out.println("1. Gimnasio");
-            System.out.println("Precio: $"+ServiciosExtra.GIMNASIO.getPrecio());
+            System.out.println("1. Gimnasio.");
+            System.out.println("Precio: $" + ServiciosExtra.GIMNASIO.getPrecio());
             System.out.println("");
-            System.out.println("2. Bar");
-            System.out.println("Precio: $"+ServiciosExtra.BAR.getPrecio());
+            System.out.println("2. Bar.");
+            System.out.println("Precio: $" + ServiciosExtra.BAR.getPrecio());
             System.out.println("");
-            System.out.println("3. Parqueadero");
-            System.out.println("Precio: $"+ServiciosExtra.PARQUEADERO.getPrecio());
+            System.out.println("3. Parqueadero.");
+            System.out.println("Precio: $" + ServiciosExtra.PARQUEADERO.getPrecio());
             System.out.println("");
-            System.out.println("4. Excursion");
-            System.out.println("Precio: $"+ServiciosExtra.EXCURSION.getPrecio());
+            System.out.println("4. Excursion.");
+            System.out.println("Precio: $" + ServiciosExtra.EXCURSION.getPrecio());
             System.out.println("");
-            System.out.println("5. Chiva");
-            System.out.println("Precio: $"+ServiciosExtra.CHIVA.getPrecio());
+            System.out.println("5. Chiva.");
+            System.out.println("Precio: $" + ServiciosExtra.CHIVA.getPrecio());
             System.out.println("----------------------------------------");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
@@ -347,9 +276,9 @@ public class Interfaz {
               factura.seleccionarServicio(idServicio);
               factura.getIdsServicios()[numServiciosSeleccionados] = idServicio;
               numServiciosSeleccionados++;
-              System.out.println("Servicio extra agregado.");
+              System.out.println("Servicio extra agregado exitosamente.");
             } else {
-              System.out.println("El servicio seleccionado no existe o ya fue comprado.");
+              System.out.println("El servicio seleccionado no existe o ya fue agregado a la habitación");
             }
           } else {
             System.out.println(
@@ -375,6 +304,35 @@ public class Interfaz {
     } while (opcionServicios != 0);
     return 0;
   }
+
+  
+  private static int verFactura(Hotel hotel) {
+
+    //Se pide el Id de la habitacion la cual se deseaver la factura //
+    
+    System.out.println("Selecione el Id de su habitacion: ");
+    Habitacion hab = seleccionarHabitacion(hotel);
+
+    // Se verifica que la habitacion dada tenga huespedes //
+
+    if (hab.getEstaOcupado() == false) {
+      System.out.println("La habitación no registra huespedes.");
+      return 1;
+    }
+
+    // Sedan los datos de los servicios comprados durante la estancia en el hotel //
+
+    System.out.println("\n----Hotel Debug Inn----\n");
+    System.out.println("A quien se realiza la facturacion: " + hab.getGrupo().toString());
+    System.out.println("");
+    System.out.println(hab.getGrupo().getFactura().toString());
+    System.out.println("Total: " + hab.getGrupo().getFactura().CalcularPrecioFactura());
+
+    return 1;
+
+
+  }
+
 
   private static void reservarRestaurante(Hotel hotel) {
     int opcion;
@@ -407,7 +365,7 @@ public class Interfaz {
 
     // Se verifica si la habitacion tiene un registro para continuar con la reserva
     if (!hab.getEstaOcupado()) {
-      System.out.println("No hay personas en esta habitacion.");
+      System.out.println("La habitación no registra huespedes.");
       return 1;
       // sale del programa
     }
@@ -439,16 +397,6 @@ public class Interfaz {
     List<Plato> platos = menu.getPlatos();
     for (int j = 0; j < platos.size(); j++) {
       System.out.println((j + 1) + ": " + platos.get(j).toString());
-    }
-    System.out.println("--- Bebidas ---");
-    List<Bebida> bebidas = menu.getBebidas();
-    for (int j = 0; j < bebidas.size(); j++) {
-      System.out.println((j + 1) + ": " + bebidas.get(j).toString());
-    }
-    System.out.println("--- Postres ---");
-    List<Postre> postres = menu.getPostres();
-    for (int j = 0; j < postres.size(); j++) {
-      System.out.println((j + 1) + ": " + postres.get(j).toString());
     }
 
     // Mostrar mesas del restaurante seleccionado
@@ -484,7 +432,7 @@ public class Interfaz {
       // Si la lista de habitaciones disponibles esta vacia te menciona que el hotel
       // ya esta lleno//
       System.out.println("");
-      System.out.println("El hotel esta lleno!");
+      System.out.println("¡El hotel esta lleno!");
       return 1;
     }
 
@@ -499,7 +447,7 @@ public class Interfaz {
     // Si la habitacion elegida ya esta ocupada te vuelve a pedir el ID//
     while (hab.getEstaOcupado() == true) {
       System.out.println("");
-      System.out.println("Esta habitacion esta ocupada, seleccione otra.");
+      System.out.println("La habitación se encuentra ocupada, seleccione otra por favor.");
       System.out.println("");
       System.out.print("Id de la habitacion: ");
       idHab = readInt();
@@ -530,7 +478,7 @@ public class Interfaz {
     // personas disponibles por habitacion//
     while (numeroPersonas > hab.getCapacidad()) {
       System.out.println("");
-      System.out.print("El numero sobrepasa la capacidad.");
+      System.out.print("La cantidad de personas sobrepasa la capacidad de la habitación");
       numeroPersonas = readInt();
     }
 
@@ -539,7 +487,7 @@ public class Interfaz {
       System.out.print("");
       System.out.print("Nombre de la persona " + (i + 1) + ": ");
       String nombre = readString();
-      System.out.print("Identificacion de la persona " + (i + 1) + ": ");
+      System.out.print("Identificación de la persona " + (i + 1) + ": ");
       int identificacion = readInt();
       // Se crea una instancia de huesped con los datos //
       grupoHuespedes.agregarHuesped(new Huesped(nombre, identificacion));
@@ -602,7 +550,7 @@ public class Interfaz {
     int idHab;
     while (hab == null) {
 
-      System.out.println("No existe esa habitacion seleccione otra.");
+      System.out.println("No existe una habitación con ese Id, por favor seleccione otra");
       System.out.print("Id de la habitacion: ");
       idHab = readInt();
       hab = hotel.seleccionarHabitacionPorId(idHab);
@@ -634,7 +582,7 @@ public class Interfaz {
 
   // Terminar ejecucion //
   private static void salirDelSistema(Hotel hotel) {
-    System.out.println("Vuelva pronto.");
+    System.out.println("¡Vuelva pronto!");
     serializador.serializar(hotel);
     System.exit(0);
 
@@ -649,14 +597,14 @@ public class Interfaz {
 
     // Se verifica que la habitacion si tenga huespedes
     if (hab.getEstaOcupado() == false) {
-      System.out.println("No hay personas en esta habitacion.");
+      System.out.println("La habitación no registra huespedes.");
       return 1;
 
     }
 
     // Se verifica que la habitacion no tenga vehiculo reservado
     if (hab.getGrupo().getVehiculoReservado() != null) {
-      System.out.println("Ya tienen un vehiculo reservado.");
+      System.out.println("La habitación ya registra un vehiculo reservado");
       return 1;
     }
 

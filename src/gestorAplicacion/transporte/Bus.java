@@ -1,3 +1,7 @@
+/*Clase bus, hereda de la clase Vehiculo y tiene un método toString en el cual se presenta ligadura dinámica
+ * a la hora de ejecutar el programa
+ */
+
 package gestorAplicacion.transporte;
 
 import gestorAplicacion.Personas.GrupoHuespedes;
@@ -38,5 +42,15 @@ public class Bus extends Vehiculo{
 		super.asignarDueños(grupo);
 	}
 
+
+	public GrupoHuespedes getDueños() {
+		return dueños;
+	}
+
+	public void setDueños(GrupoHuespedes dueños) {
+		this.dueños = dueños;
+	}
+
     
+	
 }
