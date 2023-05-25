@@ -257,6 +257,7 @@ public class Interfaz {
             System.out.println("5. Chiva.");
             System.out.println("Precio: $" + ServiciosExtra.CHIVA.getPrecio());
             System.out.println("----------------------------------------");
+            System.out.print("Opcion: ");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
 
