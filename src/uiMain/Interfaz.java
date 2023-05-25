@@ -231,12 +231,13 @@ public class Interfaz {
       System.out.println("");
       System.out.println("0. Salir.");
       System.out.println("----------------------------------------");
+      System.out.print("Opción: ");
       opcionServicios = readInt();
 
       switch (opcionServicios) {
         case 1: // agregar servicio extra
 
-          if (numServiciosSeleccionados < 3) {
+          if (numServiciosSeleccionados < 5) {
 
             System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");

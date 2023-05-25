@@ -10,7 +10,7 @@ public class Factura implements Serializable{
     private int FacturaServiciosExtra;
     private int FacturaRestaurante;
     private int FacturaVehiculo;
-    private int[] idsServicios = new int[3];
+    private int[] idsServicios = new int[5];
 
     public String mostrarListaServiciosExtra(){
         return """
