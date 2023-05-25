@@ -34,87 +34,87 @@ public class Interfaz {
     // * Base de datos inicial. Solo se ejecuto una vez */
 
     // Habitaciones //
-    hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
-    hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
-    hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
-    hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
-    hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
-    hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
-    hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
-    hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
-    hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
-    hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
-    hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
+    // hotel.agregarHabitacion(new Habitacion(4, 64000, 1));
+    // hotel.agregarHabitacion(new Habitacion(2, 64000, 2));
+    // hotel.agregarHabitacion(new Habitacion(6, 64000, 3));
+    // hotel.agregarHabitacion(new Habitacion(8, 120000, 4));
+    // hotel.agregarHabitacion(new Habitacion(4, 40000, 5));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 6));
+    // hotel.agregarHabitacion(new Habitacion(3, 34000, 7));
+    // hotel.agregarHabitacion(new Habitacion(1, 20000, 8));
+    // hotel.agregarHabitacion(new Habitacion(6, 60000, 9));
+    // hotel.agregarHabitacion(new Habitacion(4, 50000, 10));
+    // hotel.agregarHabitacion(new Habitacion(2, 25000, 11));
+    // hotel.agregarHabitacion(new Habitacion(3, 35000, 12));
 
 
     // // Restaurantes //
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000, 1));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante General", 20000, 1));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000, 2));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Italiano", 35000, 2));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000, 3));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Vegetariano", 25000, 3));
 
-    hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000, 4));
+    // hotel.agregarRestaurante(new Restaurante("Restaurante Mexicano", 30000, 4));
 
     // // Crear los platos del restaurante general
-    Plato plato1 = new Plato("Hamburguesa clásica", 15000);
-    Plato plato2 = new Plato("Pasta Alfredo", 16000);
-    Plato plato3 = new Plato("Sándwich de pollo", 12000);
+    // Plato plato1 = new Plato("Hamburguesa clásica", 15000);
+    // Plato plato2 = new Plato("Pasta Alfredo", 16000);
+    // Plato plato3 = new Plato("Sándwich de pollo", 12000);
 
-    Menu menuGeneral = new Menu();
+    // Menu menuGeneral = new Menu();
 
-    menuGeneral.añadirPlato(plato1);
-    menuGeneral.añadirPlato(plato2);
-    menuGeneral.añadirPlato(plato3);
+    // menuGeneral.añadirPlato(plato1);
+    // menuGeneral.añadirPlato(plato2);
+    // menuGeneral.añadirPlato(plato3);
 
-    hotel.getRestaurantes().get(0).setMenu(menuGeneral);
+    // hotel.getRestaurantes().get(0).setMenu(menuGeneral);
 
     // // Crear los platos del restaurante italiano
-    Plato plato4 = new Plato("Spaghetti Carbonara", 15000);
-    Plato plato5 = new Plato("Pizza Margherita", 12000);
-    Plato plato6 = new Plato("Lasagna Bolognese", 18000);
+    // Plato plato4 = new Plato("Spaghetti Carbonara", 15000);
+    // Plato plato5 = new Plato("Pizza Margherita", 12000);
+    // Plato plato6 = new Plato("Lasagna Bolognese", 18000);
 
-    Menu menuItaliano = new Menu();
+    // Menu menuItaliano = new Menu();
 
-    menuItaliano.añadirPlato(plato4);
-    menuItaliano.añadirPlato(plato5);
-    menuItaliano.añadirPlato(plato6);
+    // menuItaliano.añadirPlato(plato4);
+    // menuItaliano.añadirPlato(plato5);
+    // menuItaliano.añadirPlato(plato6);
 
-    hotel.getRestaurantes().get(1).setMenu(menuItaliano);
+    // hotel.getRestaurantes().get(1).setMenu(menuItaliano);
 
     // // Crear los platos del restaurante vegetariano
-    Plato plato7 = new Plato("Ensalada mediterránea", 12000);
-    Plato plato8 = new Plato("Hamburguesa de lentejas", 10000);
-    Plato plato9 = new Plato("Wrap de verduras", 15000);
+    // Plato plato7 = new Plato("Ensalada mediterránea", 12000);
+    // Plato plato8 = new Plato("Hamburguesa de lentejas", 10000);
+    // Plato plato9 = new Plato("Wrap de verduras", 15000);
 
-    Menu menuVegetariano = new Menu();
+    // Menu menuVegetariano = new Menu();
 
-    menuVegetariano.añadirPlato(plato7);
-    menuVegetariano.añadirPlato(plato8);
-    menuVegetariano.añadirPlato(plato9);
+    // menuVegetariano.añadirPlato(plato7);
+    // menuVegetariano.añadirPlato(plato8);
+    // menuVegetariano.añadirPlato(plato9);
 
-    hotel.getRestaurantes().get(2).setMenu(menuVegetariano);
+    // hotel.getRestaurantes().get(2).setMenu(menuVegetariano);
 
     // // Crear los platos del restaurante mexicano
 
-    Menu menuMexicano = new Menu();
+    // Menu menuMexicano = new Menu();
 
-    menuMexicano.añadirPlato(new Plato("Tacos al pastor", 15000));
-    menuMexicano.añadirPlato(new Plato("Enchiladas verdes", 12000));
-    menuMexicano.añadirPlato(new Plato("Chiles en nogada", 18000));
+    // menuMexicano.añadirPlato(new Plato("Tacos al pastor", 15000));
+    // menuMexicano.añadirPlato(new Plato("Enchiladas verdes", 12000));
+    // menuMexicano.añadirPlato(new Plato("Chiles en nogada", 18000));
 
-    hotel.getRestaurantes().get(3).setMenu(menuMexicano);
+    // hotel.getRestaurantes().get(3).setMenu(menuMexicano);
 
     // // Vehiculos //
 
-    hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Luis", 2,false, 580000));
-    hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Juan", 4,false, 795000));
-    hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Sara", 6,false, 1650000));
-    hotel.agregarVehiculo(new Vehiculo("Suzuki", "GSD", "Leo", 4,false, 1650000));
-    hotel.agregarVehiculo(new Bus("Torcoroma", "AVD", "Fabio", 40, false, 10000));
-    hotel.agregarVehiculo(new Bus("Brasilia", "KDU", "Samuel", 35, false, 10000));
+    // hotel.agregarVehiculo(new Vehiculo("Renoult", "ABC123", "Luis", 2,false, 580000));
+    // hotel.agregarVehiculo(new Vehiculo("Chevrolet", "CDT890", "Juan", 4,false, 795000));
+    // hotel.agregarVehiculo(new Vehiculo("Toyota", "LMN321", "Sara", 6,false, 1650000));
+    // hotel.agregarVehiculo(new Vehiculo("Suzuki", "GSD", "Leo", 4,false, 1650000));
+    // hotel.agregarVehiculo(new Bus("Torcoroma", "AVD", "Fabio", 40, false, 10000));
+    // hotel.agregarVehiculo(new Bus("Brasilia", "KDU", "Samuel", 35, false, 10000));
 
 
     int opcion;
