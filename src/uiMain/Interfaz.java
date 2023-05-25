@@ -633,6 +633,7 @@ public class Interfaz {
     }
 
     vehiculo.asignarDueños(hab.getGrupo());
+    System.out.println("El vehiculo se asigno correctamente");
     return 0;
 
   }
