@@ -231,12 +231,13 @@ public class Interfaz {
       System.out.println("");
       System.out.println("0. Salir.");
       System.out.println("----------------------------------------");
+      System.out.print("Opción: ");
       opcionServicios = readInt();
 
       switch (opcionServicios) {
         case 1: // agregar servicio extra
 
-          if (numServiciosSeleccionados < 3) {
+          if (numServiciosSeleccionados < 5) {
 
             System.out.println("----------------------------------------");
             System.out.println("Seleccione un servicio extra:");
@@ -256,6 +257,7 @@ public class Interfaz {
             System.out.println("5. Chiva.");
             System.out.println("Precio: $" + ServiciosExtra.CHIVA.getPrecio());
             System.out.println("----------------------------------------");
+            System.out.print("Opcion: ");
             int idServicio = readInt();
             ServiciosExtra servicio = ServiciosExtra.buscarPorId(idServicio);
 
@@ -399,6 +401,10 @@ public class Interfaz {
     // Se elige la mesa que se desea asignar
     System.out.print("Seleccione mesa: ");
     int mesaSeleccionada = readInt();
+    if (mesas.get(mesaSeleccionada - 1).isOcupado()){
+      System.out.println("La mesa ya esta ocupada");
+      return 1;
+    }
     Mesa mesa = mesas.get(mesaSeleccionada - 1);
 
     // Asignar la mesa al grupo de huespedes
@@ -633,6 +639,7 @@ public class Interfaz {
     }
 
     vehiculo.asignarDueños(hab.getGrupo());
+    System.out.println("El vehiculo se asigno correctamente");
     return 0;
 
   }
