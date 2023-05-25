@@ -205,7 +205,10 @@ public class Interfaz {
 
       }
 
-    } while (opcion != 7);
+
+    } while (opcion !=0);
+
+
 
   }
 
@@ -223,7 +226,7 @@ public class Interfaz {
 
     // verifica que no esta vacia la habitacion, si esta vacia vuelve a menu
     if (hab.getEstaOcupado() == false) {
-      System.out.println("La habitación no registra huespedes");
+      System.out.println("La habitación no registra huespedes.");
       return 1;// esto es para regrasar a menu, nunca se le asigna a nada
     }
 
