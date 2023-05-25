@@ -399,6 +399,10 @@ public class Interfaz {
     // Se elige la mesa que se desea asignar
     System.out.print("Seleccione mesa: ");
     int mesaSeleccionada = readInt();
+    if (mesas.get(mesaSeleccionada - 1).isOcupado()){
+      System.out.println("La mesa ya esta ocupada");
+      return 1;
+    }
     Mesa mesa = mesas.get(mesaSeleccionada - 1);
 
     // Asignar la mesa al grupo de huespedes
