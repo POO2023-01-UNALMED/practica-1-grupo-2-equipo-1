@@ -121,7 +121,7 @@ public class Interfaz {
 
     do {
       System.out.println("----------------------------------------");
-      System.out.println("¡Bienvenidos al hotel The Debug Inn!");
+      System.out.println("Menú Administración Hotel");
       System.out.println("1. Registar huespedes.");
       System.out.println("2. Desalojar huespedes.");
       System.out.println("3. Ver habitaciones disponibles.");
