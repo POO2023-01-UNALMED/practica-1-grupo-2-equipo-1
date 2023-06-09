@@ -20,5 +20,4 @@ class Huesped:
         self._nombre = nuevo_nombre
     
 
-p = Huesped()
-print(p.nombre)
+p2 = Huesped()
