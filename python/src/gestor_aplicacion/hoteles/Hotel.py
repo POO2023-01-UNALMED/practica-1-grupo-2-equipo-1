@@ -6,7 +6,7 @@ from base_datos.Desearizador import deserializar
 
 class Hotel:
     def __init__(self) -> None:
-        self._habitaciones = []
+        self._habitaciones:list[Habitacion] = []
         deserializar(self)
 
 
