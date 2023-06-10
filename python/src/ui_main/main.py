@@ -7,6 +7,7 @@ from gestor_aplicacion.hoteles.Hotel import Hotel
 from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
+from base_datos.Serializador import serializar
 
 hotel = Hotel()
 # hotel.añadir_habitacion(Habitacion(1, 4, 400000))
@@ -19,10 +20,7 @@ hotel = Hotel()
 # hotel.get_habitaciones[0].set_grupo_huespedes = GrupoHuespedes(2, [Huesped()], Factura())
 
 # hotel.get_habitaciones[0].borrar_grupo()
-print(hotel.get_habitaciones[0])
+print(hotel.get_habitaciones)
 
 
-# * serializador
-with open(r"python\src\base_datos\temp\habitaciones.pickle", "wb") as archivo_habitaciones:
-    pickle.dump(hotel.get_habitaciones, archivo_habitaciones)
-
+serializar(hotel)
