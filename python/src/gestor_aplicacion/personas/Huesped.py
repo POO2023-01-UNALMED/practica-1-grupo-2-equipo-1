@@ -7,17 +7,15 @@ class Huesped:
         self._ID = ID
 
     def __str__(self) -> str:
-        return f"{self._nombre} - {self._ID}"
+        return f"{self._nombre}-{self._ID}"
     
     #getter
     @property
-    def nombre(self):
+    def get_nombre(self):
         return self._nombre
     
     #setter
-    @nombre.setter
-    def nombre(self, nuevo_nombre):
+    @get_nombre.setter
+    def set_nombre(self, nuevo_nombre):
         self._nombre = nuevo_nombre
     
-
-p2 = Huesped()
