@@ -1,4 +1,4 @@
-from python.src.gestor_aplicacion import servicios_extra
+from gestor_aplicacion.servicios_extra.Servicios_extra import ServiciosExtra
 
 class Factura:
     
@@ -18,7 +18,7 @@ class Factura:
         '''
 
     def seleccionarServicio(self, id):
-        servicio = servicios_extra.buscarPorId(id)
+        servicio = ServiciosExtra.buscarPorId(id)
         self.FacturaServiciosExtra += servicio.getPrecio()
         return True
 
