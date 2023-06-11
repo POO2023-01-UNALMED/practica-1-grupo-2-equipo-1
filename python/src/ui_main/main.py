@@ -8,7 +8,12 @@ from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
 from base_datos.Serializador import serializar
+from ui_main.ventanas.Ventana_inicio import Ventana_inicio
 
+ventana_inicio = Ventana_inicio()
+
+if __name__ == "__main__":
+    ventana_inicio.mainloop()
 
 
 #tests

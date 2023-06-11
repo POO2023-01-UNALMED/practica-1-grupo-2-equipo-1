@@ -1,11 +1,10 @@
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
 from gestor_aplicacion.hoteles.Habitacion import Habitacion
-from gestor_aplicacion.restaurantes.Mesa import Mesa
 
 
 class GrupoHuespedes:
-    def __init__(self, dias_en_hotel:int, lista_huespedes:list[Huesped], factura:Factura = Factura(), habitacion:Habitacion = Habitacion(), mesaReservada:Mesa = Mesa ) -> None:
+    def __init__(self, dias_en_hotel:int, lista_huespedes:list[Huesped], habitacion:Habitacion, mesaReservada, factura:Factura = Factura()) -> None:
         self._dias_en_hotel:int = dias_en_hotel
         self._lista_huespedes:list[Huesped] = lista_huespedes
         self._factura:Factura = factura

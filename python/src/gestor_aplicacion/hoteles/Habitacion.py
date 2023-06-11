@@ -1,13 +1,13 @@
 
 
-from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
+# from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 class Habitacion:
 
     def __init__(self, ID_HABITACION:int, capacidad:int, precioxdia:int, grupo=None, esta_ocupado:bool = False) -> None:
         self._ID_HABITACION:int = ID_HABITACION
         self._capacidad:int = capacidad
         self._precioxdia:int = precioxdia
-        self._grupo_huespedes:GrupoHuespedes = grupo #puede ser de tipo GrupoHuespedes o None
+        self._grupo_huespedes = grupo #puede ser de tipo GrupoHuespedes o None
         self._esta_ocupado:bool = esta_ocupado
 
 
