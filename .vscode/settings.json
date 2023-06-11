@@ -4,5 +4,8 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "files.watcherExclude": {
+        "**/target": true
+    }
 }
