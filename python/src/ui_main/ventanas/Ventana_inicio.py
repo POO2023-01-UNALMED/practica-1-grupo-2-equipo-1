@@ -39,31 +39,52 @@ label_bienvenida.place(relx=0.5, rely=0.5, anchor=CENTER) #esta centrado
 #Breve hoja de vida de cada desarrolador
 #derecha superio (p5)
 
+def eveto_label(evento):
+    #cambio nombre
+    hoja_vida.config(text=next(circulo))
+    #cambio imagenes
+    img1 = PhotoImage(file = root_img + "cr7_2.png")
+    img2 = PhotoImage(file = root_img + "cr7_2.png")
+    img3 = PhotoImage(file = root_img + "cr7_2.png")
+    img4 = PhotoImage(file = root_img + "cr7_2.png")
+    print(root_img + "cr7_2.png")
+    uno.config(image=img1)
+    dos.config(image=img2)
+    tres.config(image=img3)
+    cuatro.config(image=img4)
+    print("imagenes cambiadas")
+
+
 #Cuando lllega al ultimo se devuelve al inicio
 circulo = cycle(("Alejandro", "Miguel", "Stiven", "Samuel", "Abraham"))
 
 hoja_vida = Label(p5Frame, text=next(circulo), font=("Arial", 10), fg="blue")
 hoja_vida.place(relx=0.5, rely=0.5, anchor=CENTER) #centra el texto
-hoja_vida.bind("<Button-1>", lambda _: hoja_vida.config(text=next(circulo)))
+hoja_vida.bind("<Button-1>", eveto_label)
 
-#Imagenes
-dict_imgs = {
-    "Alejandro": ("img1", "img2"),
-    "M": ("img3", "img4")
-}
+#Imagene3
+# dict_imgs = {
+#     "img1": cycle(("cr7_1.png","cr7_2.png","cr7_3.png","cr7_4.png")),
+#     "img2": cycle(("messi_1.png","messi_2.png","messi_3.png","messi_4.png"))
+# }
 
+root_img = "python\\src\\ui_main\\ventanas\\imagenes\\"
+
+img1 = PhotoImage(file = root_img + "cr7_1.png")
+img2 = PhotoImage(file = root_img + "cr7_2.png")
+img3 = PhotoImage(file = root_img + "cr7_3.png")
+img4 = PhotoImage(file = root_img + "cr7_4.png")
+
+# imagen = PhotoImage(file=r"python\src\ui_main\ventanas\imagenes\cr7_3.png")
 #cambiar imagenes
-# uno = Label(p4Frame, width=200, height=180)
-# uno.grid(row=0, column=0, padx=0, pady=0)
-# imagen = PhotoImage(file=r"python\src\ui_main\ventanas\imagenes\img1_2.png", name="je")
-# uno.config(image=imagen)
+uno = Label(p6Frame, width=255, height=250, bg='black', image=img1)
+uno.grid(row=0, column=0, padx=0, pady=5)
 
-# dos = Label(p4Frame, height=200, width=180, bg="black", image=imagen)
-# dos.grid(row=0, column=1, padx=0, pady=0)
+dos = Label(p6Frame, width=255, height=250, bg='black', image=img2)
+dos.grid(row=0, column=1, padx=0, pady=5)
 
-# tres = Label(p4Frame, height=200, width=180, bg="black", image=imagen)
-# tres.grid(row=1, column=0, padx=0, pady=0)
+tres = Label(p6Frame, width=255, height=250, bg='black', image=img3)
+tres.grid(row=1, column=0, padx=0, pady=5)
 
-# cuatro = Label(p4Frame, height=200, width=180, bg="black", image=imagen)
-# cuatro.grid(row=1, column=1, padx=0, pady=0)
-
+cuatro = Label(p6Frame, width=255, height=250, bg='black', image=img4)
+cuatro.grid(row=1, column=1, padx=0, pady=5)
