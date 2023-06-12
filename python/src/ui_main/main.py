@@ -1,5 +1,6 @@
 import pickle
 import sys
+from tkinter import *
 sys.path.append(r"python\src") #para poder importar nuestros modulos
 
 from gestor_aplicacion.hoteles.Habitacion import Habitacion
@@ -8,12 +9,12 @@ from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
 from base_datos.Serializador import serializar
-from ui_main.ventanas.Ventana_inicio import Ventana_inicio
+from ui_main.ventanas.Ventana_inicio import ventana
 
-ventana_inicio = Ventana_inicio()
+
 
 if __name__ == "__main__":
-    ventana_inicio.mainloop()
+    ventana.mainloop()
 
 
 #tests
