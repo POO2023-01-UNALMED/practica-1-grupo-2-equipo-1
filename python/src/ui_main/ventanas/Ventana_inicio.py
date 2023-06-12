@@ -2,16 +2,17 @@ from tkinter import *
 import tkinter as tk
 from itertools import cycle
 from ui_main.ventanas.ventana_base import ventana
+from ui_main.ventanas.Ventana_principal import frame_principal
 
 
-label_inicio = Label(ventana)
-label_inicio.pack()
+frame_inicio = Frame(ventana)
+frame_inicio.pack()
 
-p1Frame=Frame(label_inicio,width=530, height=650,bg="red")
+p1Frame=Frame(frame_inicio,width=530, height=650,bg="red")
 p1Frame.grid(row=0,column=0,padx=5,pady=5)
 p1Frame.grid_propagate(False)
 
-p2Frame=Frame(label_inicio,width=530, height=650,bg="blue")
+p2Frame=Frame(frame_inicio,width=530, height=650,bg="blue")
 p2Frame.grid(row=0,column=1,padx=5,pady=5)
 p2Frame.grid_propagate(False)
 
@@ -88,3 +89,12 @@ tres.grid(row=1, column=0, padx=0, pady=5)
 
 cuatro = Label(p6Frame, width=255, height=250, bg='black', image=img4)
 cuatro.grid(row=1, column=1, padx=0, pady=5)
+
+def abrir_ventana_principal():
+    frame_inicio.destroy()
+    frame_principal.place(x = 20, y=20)
+
+
+#p4 abrir nueva pantalla
+boton_ventana_principal = Button(p4Frame, text="Abrir", width=10, height=10, command=abrir_ventana_principal)
+boton_ventana_principal.place(relx=0.5, rely=0.5, anchor=CENTER)
