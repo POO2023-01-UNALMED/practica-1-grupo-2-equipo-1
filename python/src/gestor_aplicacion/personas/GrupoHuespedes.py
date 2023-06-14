@@ -1,9 +1,13 @@
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
 from gestor_aplicacion.hoteles.Habitacion import Habitacion
+from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 
 class GrupoHuespedes:
+
+    vehiculoReservado: Vehiculo = None
+
     def __init__(self, dias_en_hotel:int, lista_huespedes:list[Huesped], habitacion:Habitacion, mesaReservada, factura:Factura = Factura()) -> None:
         self._dias_en_hotel:int = dias_en_hotel
         self._lista_huespedes:list[Huesped] = lista_huespedes
@@ -32,3 +36,9 @@ class GrupoHuespedes:
 
     def setMesaReservada(self, mesaReservada):
         self.mesaReservada = mesaReservada
+
+    def getVehiculoReservado(self):
+        return self.vehiculoReservado
+    
+    def setVehiculoReservado(self,vehiculoReservado: Vehiculo):
+        self.vehiculoReservado
