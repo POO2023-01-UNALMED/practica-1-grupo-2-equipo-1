@@ -15,7 +15,7 @@ class Taxi(Vehiculo):
 
         if(dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
-            return '''
+            return '''  
             Vehiculo: {}
             Modelo: {}
             Conductor: {}
