@@ -1,8 +1,8 @@
-from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
+#from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 
 class Vehiculo: 
 
-    dueños: GrupoHuespedes = None
+    
 
     def __init__(self,modelo:str,placa:str,conductor:str,capacidad: int,ocupado:bool,precio:int):
         self.modelo = modelo
@@ -11,6 +11,8 @@ class Vehiculo:
         self.capacidad = capacidad
         self.ocupado = ocupado
         self.precio = precio
+
+        dueños= None
 
     #to string
     def __str__(self) -> str:
@@ -59,7 +61,7 @@ class Vehiculo:
     #Este método se llama en la funcionalidad Reservar transporte y recibe un parametro de tipo GrupoHuespedes 
 	# para asignarle a este mismo un atributo de tipo vehiculo que fue reservado por ellos
 	 
-    def asignarDueños(self,grupo:GrupoHuespedes):
+    def asignarDueños(self,grupo):
         self.dueños = grupo
         dueños.setVehiculoReservado(self)
         self.ocupado = True

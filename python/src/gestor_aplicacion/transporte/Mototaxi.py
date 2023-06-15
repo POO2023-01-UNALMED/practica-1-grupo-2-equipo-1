@@ -1,14 +1,16 @@
 
-from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-from gestor_aplicacion.transporte.Vehiculo import Vehiculo
+#from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
+#from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 class Mototaxi(Vehiculo):
 
-    dueños: GrupoHuespedes = None
+    
 
     def __init__(self, modelo: str, placa: str, conductor: str, capacidad: int, ocupado: bool, precio: int,cilindraje: int):
         super().__init__(modelo, placa, conductor, capacidad, ocupado, precio)
         self.cilindraje = cilindraje
+
+        dueños = None
 
     def __str__(self) -> str:
 
@@ -25,7 +27,7 @@ class Mototaxi(Vehiculo):
     def getCilindraje(self):
         return self.cilindraje
     
-    def asignarDueños(self, grupo: GrupoHuespedes):
+    def asignarDueños(self, grupo):
         super().asignarDueños(grupo) #return?
     
     def getDueños(self):

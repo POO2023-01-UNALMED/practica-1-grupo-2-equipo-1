@@ -15,6 +15,9 @@ class Factura:
             1. Gimnasio
             2. Bar
             3. Parqueadero
+            4. Excursion
+            5. Chiva
+            ======================================================================
         '''
 
     def seleccionarServicio(self, id):

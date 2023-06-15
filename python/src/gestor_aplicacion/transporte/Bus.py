@@ -1,13 +1,15 @@
 
-from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-from gestor_aplicacion.transporte.Vehiculo import Vehiculo
+#from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
+#from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 class Bus(Vehiculo):
 
-    dueños: GrupoHuespedes = None
+    
 
     def __init__(self,modelo:str,placa:str,conductor:str,capacidad: int,ocupado:bool,precio:int):
         super().__init__(modelo,placa,conductor,capacidad,ocupado,precio)
+
+        dueños= None
 
     def __str__(self) -> str:
 
@@ -19,7 +21,7 @@ class Bus(Vehiculo):
             return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nPrecio: "+str(self.precio)
             
 
-    def asignarDueños(self, grupo: GrupoHuespedes):
+    def asignarDueños(self, grupo):
         super().asignarDueños(grupo) #return?
     
     def setDueños(self,dueños):
