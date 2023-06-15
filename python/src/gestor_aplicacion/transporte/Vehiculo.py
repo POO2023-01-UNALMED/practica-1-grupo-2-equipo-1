@@ -11,12 +11,11 @@ class Vehiculo:
         self.capacidad = capacidad
         self.ocupado = ocupado
         self.precio = precio
-
-        dueños= None
+        self.dueños= None
 
     #to string
     def __str__(self) -> str:
-        if(dueños != None):
+        if(self.dueños != None):
 
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
             return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nDueños: "+self.dueños+"\nPrecio: "+str(self.precio)
@@ -63,14 +62,14 @@ class Vehiculo:
 	 
     def asignarDueños(self,grupo):
         self.dueños = grupo
-        dueños.setVehiculoReservado(self)
+        self.dueños.setVehiculoReservado(self)
         self.ocupado = True
 
     #Este método se llama en la funcionalidad desalojar huespuedes y se encarga de que el vehiculo que fue reservado
 	#por un grupo de huespes sea liberado y vuelva a estar disponible una dichos huespedes hayan abandonado el hotel
 	
     def desocuparVehiculo(self):
-        dueños.setVehiculoReservado(None)
+        self.dueños.setVehiculoReservado(None)
         self.dueños = None
         self.ocupado = False
 
