@@ -16,10 +16,27 @@ class Mototaxi(Vehiculo):
 
         if(dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nDueños: "+self.dueños+"\nPrecio: "+str(self.precio)+"\nCilindraje: "+str(self.cilindraje)
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Dueños: {}
+            Precio: {}
+            Cilindraje: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.dueños,self.precio,self.cilindraje)
             
         else : 
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nPrecio: "+str(self.precio)+"\nCilindraje: "+str(self.cilindraje)
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Precio: {}
+            Cilindraje: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.precio,self.cilindraje)
         
     def setCilindraje(self,cilindraje):
         self.cilindraje = cilindraje

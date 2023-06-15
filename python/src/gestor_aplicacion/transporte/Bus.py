@@ -15,11 +15,25 @@ class Bus(Vehiculo):
 
         if(dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nDueños: "+self.dueños+"\nPrecio: "+str(self.precio)
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Dueños: {}
+            Precio: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.dueños,self.precio)
             
         else : 
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nPrecio: "+str(self.precio)
-            
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Precio: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.precio)
 
     def asignarDueños(self, grupo):
         super().asignarDueños(grupo) #return?

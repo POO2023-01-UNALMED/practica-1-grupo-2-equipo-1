@@ -15,10 +15,27 @@ class Taxi(Vehiculo):
 
         if(dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nDueños: "+self.dueños+"\nPrecio: "+str(self.precio)+"\nCompañia: "+str(self.compañia)
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Dueños: {}
+            Precio: {}
+            Compañia: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.dueños,self.precio,self.compañia)
             
         else : 
-            return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nPrecio: "+str(self.precio)+"\nCompañia: "+str(self.compañia)
+            return '''
+            Vehiculo: {}
+            Modelo: {}
+            Conductor: {}
+            Capacidad: {}
+            Ocupado: {}
+            Precio: {}
+            Compañia: {}
+            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.precio,self.compañia)
         
     def setCompañia(self,compañia):
         self.compañia = compañia
