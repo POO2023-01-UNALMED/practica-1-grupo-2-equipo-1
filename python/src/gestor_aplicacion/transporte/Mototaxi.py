@@ -1,6 +1,6 @@
 
 #from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-#from gestor_aplicacion.transporte.Vehiculo import Vehiculo
+from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 class Mototaxi(Vehiculo):
 
@@ -10,11 +10,11 @@ class Mototaxi(Vehiculo):
         super().__init__(modelo, placa, conductor, capacidad, ocupado, precio)
         self.cilindraje = cilindraje
 
-        dueños = None
+        self.dueños = None
 
     def __str__(self) -> str:
 
-        if(dueños != None):
+        if(self.dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
             return "Vehiculo: \nModelo: "+self.modelo+"\nPlaca: "+self.placa+"\nConductor: "+self.conductor+"\nCapacidad: "+str(self.capacidad)+"\nOcupado: "+str(self.ocupado)+"\nDueños: "+self.dueños+"\nPrecio: "+str(self.precio)+"\nCilindraje: "+str(self.cilindraje)
             
