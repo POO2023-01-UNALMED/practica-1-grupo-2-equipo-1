@@ -1,3 +1,4 @@
+import sys
 from tkinter import *
 import tkinter as tk
 from itertools import cycle
@@ -37,6 +38,14 @@ saludo = "Bienvenido al sistema de gestion de hotel"
 label_bienvenida = Label(p3Frame, text=saludo, font=("Arial",10), fg="blue", background="green")
 label_bienvenida.place(relx=0.5, rely=0.5, anchor=CENTER) #esta centrado
 
+
+descripcion = cycle(("Descripcion del proyecto", "")) # se activa al presionar el boton descripcion del menu
+label_descripcion = Label(p4Frame, font=("Arial",10), fg="black", background="green")
+label_descripcion.place(x=0, y=0)
+
+def mostrar_ocultar_Descripcion():
+    label_descripcion.config(text=next(descripcion))
+
 #Imagene3
 root_img = "python\\src\\ui_main\\ventanas\\imagenes\\"
 dict_imgs = {
@@ -57,6 +66,7 @@ dict_imgs = {
                              PhotoImage(file = root_img + "messi_3.png"),
                              PhotoImage(file = root_img + "messi_4.png")))
 }
+
 
 
 def eveto_label(evento):
@@ -102,3 +112,13 @@ def abrir_ventana_principal():
 #p4 abrir nueva pantalla
 boton_ventana_principal = Button(p4Frame, text="Abrir", width=10, height=10, command=abrir_ventana_principal)
 boton_ventana_principal.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
+#Menu
+menu_inicio = tk.Menu(frame_inicio)
+ventana.config(menu=menu_inicio, height=30)
+
+inicio = tk.Menu(menu_inicio)
+menu_inicio.add_cascade(label="Menu", menu=inicio)
+inicio.add_command(label="Salir", command = lambda: sys.exit())
+inicio.add_command(label="Descripcion", command=mostrar_ocultar_Descripcion)

@@ -1,6 +1,6 @@
 
 #from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-#from gestor_aplicacion.transporte.Vehiculo import Vehiculo
+from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 class Bus(Vehiculo):
 
