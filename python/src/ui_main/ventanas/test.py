@@ -1,14 +1,32 @@
+from tkinter import Tk
 from tkinter import *
-from itertools import cycle
+import tkinter as tk
 
-root_img = "base/"
+ventana = Tk()
+ventana.title("Inicio")
+ventana.geometry("1090x670")
+ventana.pack_propagate(False)
+ventana.grid_propagate(False)
 
-dict_imgs = {
-    "img1": cycle((PhotoImage(file=root_img + "cr7_1.png"),
-                   PhotoImage(file=root_img + "cr7_2.png"),
-                   PhotoImage(file=root_img + "cr7_3.png"),
-                   PhotoImage(file=root_img + "cr7_4.png"))),
-    "img2": cycle(("messi_1.png", "messi_2.png", "messi_3.png", "messi_4.png"))
-}
+frame_principal = Frame(ventana)
+frame_principal.pack_propagate(False)
+frame_principal.grid_propagate(False)
 
-print(dict_imgs["img1"])
+# t = Label(frame_principal, text="hola", bg="orange")
+# t.grid()
+
+menu_principal = tk.Menu(frame_principal)
+ventana.config(menu=menu_principal)
+
+principal = tk.Menu(menu_principal)
+menu_principal.add_cascade(label="Menu", menu=principal)
+
+ventana.config(menu=tk.Menu())
+
+menu_principal2 = tk.Menu(frame_principal)
+ventana.config(menu=menu_principal2)
+
+principal2 = tk.Menu(menu_principal2)
+menu_principal2.add_cascade(label="Menu", menu=principal2)
+
+ventana.mainloop()

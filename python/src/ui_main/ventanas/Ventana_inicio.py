@@ -3,7 +3,7 @@ from tkinter import *
 import tkinter as tk
 from itertools import cycle
 from ui_main.ventanas.ventana_base import ventana
-from ui_main.ventanas.Ventana_principal import frame_principal
+from ui_main.ventanas.Ventana_principal import frame_principal, inicializar
 
 
 frame_inicio = Frame(ventana)
@@ -106,7 +106,9 @@ hoja_vida.bind("<Button-1>", eveto_label)
 
 def abrir_ventana_principal():
     frame_inicio.destroy()
-    frame_principal.place(x = 20, y=20)
+    ventana.config(menu=tk.Menu())
+    frame_principal.pack()
+    inicializar()
 
 
 #p4 abrir nueva pantalla
