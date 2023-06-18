@@ -9,38 +9,45 @@ from ui_main.ventanas.Ventana_principal import frame_principal, inicializar
 frame_inicio = Frame(ventana)
 frame_inicio.pack()
 
-p1Frame=Frame(frame_inicio,width=530, height=650,bg="red")
+p1Frame=Frame(frame_inicio,width=530, height=650,background="grey")
 p1Frame.grid(row=0,column=0,padx=5,pady=5)
 p1Frame.grid_propagate(False)
 
-p2Frame=Frame(frame_inicio,width=530, height=650,bg="blue")
+p2Frame=Frame(frame_inicio,width=530, height=650,bd=5, relief="solid", highlightbackground="red")
 p2Frame.grid(row=0,column=1,padx=5,pady=5)
 p2Frame.grid_propagate(False)
 
-p3Frame=Frame(p1Frame,width=520, height=100,bg="green")
+p3Frame=Frame(p1Frame,width=520, height=100,bd=5, relief="solid", highlightbackground="red")
 p3Frame.grid(row=0,column=0,padx=5,pady=5)
 p3Frame.grid_propagate(False)
 
-p4Frame=Frame(p1Frame,width=520, height=535,bg="green")
+p4Frame=Frame(p1Frame,width=520, height=535,bg="white")
 p4Frame.grid(row=1,column=0,padx=5,pady=0)
 p4Frame.grid_propagate(False)
 
-p5Frame=Frame(p2Frame,width=520, height=100,bg="yellow")
+p5Frame=Frame(p2Frame,width=520, height=100,bg="white")
 p5Frame.grid(row=0,column=0,padx=5,pady=5)
 p5Frame.grid_propagate(False)
 
-p6Frame=Frame(p2Frame,width=520, height=535,bg="yellow")
+p6Frame=Frame(p2Frame,width=520, height=535,bg="white")
 p6Frame.grid(row=1,column=0,padx=5,pady=0)
 p6Frame.grid_propagate(False)
 
 #Saludo de bienvenida
-saludo = "Bienvenido al sistema de gestion de hotel"
-label_bienvenida = Label(p3Frame, text=saludo, font=("Arial",10), fg="blue", background="green")
-label_bienvenida.place(relx=0.5, rely=0.5, anchor=CENTER) #esta centrado
+saludo = "Bienvenido al sistema de gestion del hotel The Debugg Inn"
+
+label_bienvenida = Label(p3Frame, text=saludo, font=("Arial",12), fg="black")
+label_bienvenida.place(relx=0.5, rely=0.3, anchor="s")#esta centrado
+saludo2 = """Un lugar donde la comodidad y la tecnología se unen. Disfruten de su estancia 
+y sumérjanse en un ambiente inspirador diseñado especialmente para programadores como ustedes.
+\n¡Que tengan una estancia increíble en el Debugg Inn!"""
+label_saludo = Label(p3Frame, text=saludo2, font=("Arial",7), fg="black")
+label_saludo.place(relx=0.5, rely=0.35, anchor="n")
+
 
 
 descripcion = cycle(("Descripcion del proyecto", "")) # se activa al presionar el boton descripcion del menu
-label_descripcion = Label(p4Frame, font=("Arial",10), fg="black", background="green")
+label_descripcion = Label(p4Frame, font=("Arial",10), fg="black", background="white")
 label_descripcion.place(x=0, y=0)
 
 def mostrar_ocultar_Descripcion():
@@ -97,7 +104,7 @@ cuatro.grid(row=1, column=1, padx=0, pady=5)
 #Breve hoja de vida de cada desarrolador
 #derecha superio (p5)
 
-#Cuando lllega al ultimo se devuelve al inicio
+#Cuando llega al ultimo se devuelve al inicio
 circulo = cycle(("Alejandro", "Miguel", "Stiven", "Samuel", "Abraham"))
 
 hoja_vida = Label(p5Frame, text=next(circulo), font=("Arial", 10), fg="blue")
@@ -112,8 +119,8 @@ def abrir_ventana_principal():
 
 
 #p4 abrir nueva pantalla
-boton_ventana_principal = Button(p4Frame, text="Abrir", width=10, height=10, command=abrir_ventana_principal)
-boton_ventana_principal.place(relx=0.5, rely=0.5, anchor=CENTER)
+boton_ventana_principal = Button(p4Frame, text="Abrir", width=5, height=1,background="lightgray", command=abrir_ventana_principal)
+boton_ventana_principal.place(relx=0.5, rely=0.98, anchor="s" )
 
 
 #Menu
