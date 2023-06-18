@@ -5,40 +5,63 @@ from gestor_aplicacion.hoteles.Habitacion import Habitacion
 
 
 class GrupoHuespedes:
+    def __init__(self, dias_en_hotel, lista_huespedes, habitacion=None):
+        self.dias_en_hotel = dias_en_hotel
+        self.lista_huespedes = lista_huespedes
+        self.factura = None
+        self.habitacion = habitacion
+        self.mesa_reservada = None
+        self.vehiculo_reservado = None
 
-    vehiculoReservado = None
+    def agregar_huesped(self, huesped):
+        self.lista_huespedes.append(huesped)
 
-    def __init__(self, dias_en_hotel:int, lista_huespedes:list[Huesped], habitacion:Habitacion, mesaReservada, factura:Factura = Factura()) -> None:
-        self._dias_en_hotel:int = dias_en_hotel
-        self._lista_huespedes:list[Huesped] = lista_huespedes
-        self._factura:Factura = factura
-        self._habitacion:Habitacion = habitacion
-        
-    def __str__(self) -> str:
-        s = ""
-        for p in self._lista_huespedes:
-            s +=  str(p)
-        return s
-    
-    
+    def inicializar_factura(self):
+        self.factura = Factura()
+        self.factura.factura_hospedaje = self.habitacion.precio_x_dia * self.dias_en_hotel
 
-    @property
+    def __str__(self):
+        lista = ""
+        if self.lista_huespedes:
+            for huesped in self.lista_huespedes:
+                if huesped:
+                    lista += str(huesped) + ","
+        if lista and lista[-1] == ",":
+            lista = lista[:-1]
+        return lista
+
+    def get_dias_en_hotel(self):
+        return self.dias_en_hotel
+
+    def set_dias_en_hotel(self, dias_en_hotel):
+        self.dias_en_hotel = dias_en_hotel
+
+    def get_lista_huespedes(self):
+        return self.lista_huespedes
+
+    def set_lista_huespedes(self, lista_huespedes):
+        self.lista_huespedes = lista_huespedes
+
     def get_factura(self):
-        return self._factura
+        return self.factura
 
-    @get_factura.setter
     def set_factura(self, factura):
-        self._factura:Factura = factura
-        
-    
-    def getMesaReservada(self):
-        return self.mesaReservada
+        self.factura = factura
 
-    def setMesaReservada(self, mesaReservada):
-        self.mesaReservada = mesaReservada
+    def get_habitacion(self):
+        return self.habitacion
 
-    def getVehiculoReservado(self):
-        return self.vehiculoReservado
-    
-    def setVehiculoReservado(self,vehiculoReservado):
-        self.vehiculoReservado
+    def set_habitacion(self, habitacion):
+        self.habitacion = habitacion
+
+    def get_mesa_reservada(self):
+        return self.mesa_reservada
+
+    def set_mesa_reservada(self, reserva_restaurante):
+        self.mesa_reservada = reserva_restaurante
+
+    def get_vehiculo_reservado(self):
+        return self.vehiculo_reservado
+
+    def set_vehiculo_reservado(self, vehiculo_reservado):
+        self.vehiculo_reservado = vehiculo_reservado
