@@ -101,8 +101,8 @@ tres.grid(row=1, column=0, padx=0, pady=5)
 cuatro = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["abajo_derecha"]))
 cuatro.grid(row=1, column=1, padx=0, pady=5)
 
-#Breve hoja de vida de cada desarrolador
-#derecha superio (p5)
+#Breve hoja de vida de cada desarrollador
+#derecha superior (p5)
 
 #Cuando llega al ultimo se devuelve al inicio
 
@@ -113,8 +113,9 @@ circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGust
                  , "Abraham David Miguel\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Alejo y como aprieta")
                  )
 
+#Especificaciones del label
 
-hoja_vida = Label(p5Frame, text=next(circulo), font=("Arial", 10), fg="blue")
+hoja_vida = Label(p5Frame, text=next(circulo), font=("Times", 10), fg="black")
 hoja_vida.place(relx=0.5, rely=0.5, anchor=CENTER) #centra el texto
 hoja_vida.bind("<Button-1>", eveto_label)
 
