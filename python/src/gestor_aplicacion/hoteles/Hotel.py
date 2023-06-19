@@ -28,8 +28,13 @@ class Hotel:
         ventana_datos.geometry("400x300")
         ventana_datos.title("Habitaciones")
         for habitacion in self._habitaciones:
-            label = Label(ventana_datos, text=habitacion)
+            label = Label(ventana_datos, text=str(habitacion))
             label.pack()
         
-
- 
+    def seleccionar_habitacion_porId(self, id:int):
+        print(self._habitaciones)
+        for habitacion in self._habitaciones:
+            if habitacion._ID_HABITACION == id:
+                return habitacion
+        print("No se hallo la habitacion")
+        return None

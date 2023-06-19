@@ -5,6 +5,10 @@ from ui_main.ventanas.FieldFrame import FieldFrame
 from ui_main.main import hotel
 from tkinter import messagebox
 
+from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
+from gestor_aplicacion.personas.Huesped import Huesped
+from gestor_aplicacion.hoteles.Hotel import Hotel, Habitacion
+
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
 frame_principal.grid_propagate(False)
@@ -31,13 +35,24 @@ def obtenerValores() -> list:
         #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
         #     )
 
+def agregar_huesped(hotel:Hotel):
+    print("a")
+    nombre, id, cantidad, dias, id_habitacion = obtenerValores()
+    cabeza = Huesped(nombre, id)
+    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
+    print(habitacion)
+    print(grupo)
+    # print("-----------")
+    habitacion.set_grupo_huespedes(grupo)
+
 
 def generar_alojar_huesped():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_alojo
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command=obtenerValores)
+    frame_actual.boton_aceptar.config(command=lambda: agregar_huesped(hotel))
 
  
 def generar_desalojarHuesped():
