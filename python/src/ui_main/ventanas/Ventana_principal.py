@@ -45,6 +45,10 @@ def agregar_huesped(hotel:Hotel):
         "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
         )
 
+def desalojar_huesped(hotel:Hotel):
+    pass
+
+
 def reservarRestaurante(hotel:Hotel):
     return None
 
