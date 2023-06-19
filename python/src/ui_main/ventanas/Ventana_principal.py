@@ -35,7 +35,7 @@ def alojar_huesped():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=obtenerValores)
 
-
+ 
 def desalojarHuesped():
     global frame_actual
     frame_actual.pack_forget()
@@ -89,8 +89,8 @@ def inicializar():
     proceso_consulta.add_command(label="Transporte", command= transporte)
     proceso_consulta.add_command(label="Servicios extra", command= servExtra)
     
-    menu_inicio.add_cascade(menu=estado, label="ver")
-    estado.add_command(label="Habitaciones",  command=lambda: hotel.mostrar_habitaciones())
+    menu_inicio.add_cascade(menu=estado, label="Ver")
+    estado.add_command(label="Habitaciones",  command=hotel.mostrar_habitaciones)
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de")

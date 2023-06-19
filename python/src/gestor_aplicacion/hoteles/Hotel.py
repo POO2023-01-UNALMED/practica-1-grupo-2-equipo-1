@@ -2,6 +2,8 @@ import pickle
 from gestor_aplicacion.hoteles.Habitacion import Habitacion
 import os
 from base_datos.Desearizador import deserializar
+from tkinter import Tk, Menu, Toplevel, Label
+
 
 
 class Hotel:
@@ -22,5 +24,12 @@ class Hotel:
         self.get_habitaciones.append(habitacion)
 
     def mostrar_habitaciones(self):
+        ventana_datos= Toplevel()
+        ventana_datos.geometry("400x300")
+        ventana_datos.title("Habitaciones")
         for habitacion in self._habitaciones:
-            print(habitacion)
+            label = Label(ventana_datos, text=habitacion)
+            label.pack()
+        
+
+ 
