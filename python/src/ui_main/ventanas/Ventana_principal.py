@@ -18,6 +18,7 @@ frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"
 frame_transporte = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 frame_restaurante = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 frame_servExtra = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
+frame_factura = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 #aqui iran los demas frames...
 
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
@@ -104,6 +105,13 @@ def generar_servExtra():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command = obtenerValores)
 
+def generar_factura():
+    global frame_actual
+    frame_actual.pack_forget()
+    frame_actual = frame_factura
+    frame_actual.pack()
+    frame_actual.boton_aceptar.config(command = lambda: verFactura(hotel))
+
 def comando_boton_aceptar():
     for i, nombre_criterio in enumerate(frame_actual.criterios):
         print(nombre_criterio + ": " + frame_actual.getValue(i))
@@ -132,7 +140,7 @@ def inicializar():
     
     menu_inicio.add_cascade(menu=estado, label="Ver")
     estado.add_command(label="Habitaciones",  command=hotel.mostrar_habitaciones)
-    estado.add_command(label="Factura")
+    estado.add_command(label="Factura", command=generar_factura)
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de", command= acercaDe)
@@ -153,3 +161,13 @@ def aplicacion():
 def acercaDe(): 
     descripcion = "Aplicación desarrollada por:\nAlejandro Feria\nAbraham David Miguel\nJuan Miguel Márquez\nSamuel Gutierrez\nStiven Julio Doval"
     messagebox.showinfo("Acerda de", descripcion)
+
+def verFactura(hotel:Hotel):
+    id_habitacion = obtenerValores()[0]
+    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    ventana_datos= Toplevel()
+    ventana_datos.geometry("200x150")
+    ventana_datos.title("Factura")
+    label = Label(ventana_datos, text=habitacion.factura())
+    label.pack()
+

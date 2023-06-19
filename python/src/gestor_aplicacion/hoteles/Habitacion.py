@@ -33,5 +33,11 @@ class Habitacion:
     def factura(self):
         if (self.grupo == None) :
             return "No hay Factura"
-        return f"Factura: {self.grupo.get_factura().CalcularPrecioFactura()}"
+        return (f"Factura Hospedaje: {self.grupo.get_factura().getFacturaHospedaje()}\n"
+                f"Factura Servicios Extra: {self.grupo.get_factura().getFacturaServiciosExtra()}\n"
+                f"Factura Restaurante: {self.grupo.get_factura().getFacturaRestaurante()}\n"
+                f"Factura Transporte: {self.grupo.get_factura().getFacturaVehiculo()}\n\n"
+                f"Factura Total: {self.grupo.get_factura().CalcularPrecioFactura()}")
+    
+
         
