@@ -41,9 +41,12 @@ def obtenerValores() -> list:
             #     )
     except CamposFaltantesError as e:
         print(e)
+        return [None for c in frame_actual.criterios]
 
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
+    if nombre == None:
+        return 0; #salir de la apliacion
     cabeza = Huesped(nombre, id)
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
     grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
