@@ -47,8 +47,21 @@ def agregar_huesped(hotel:Hotel):
     
 def desalojar_huesped(hotel:Hotel):
     #se pide el id para saber que habitacion se va a desalojar
-    id_habitacion = obtenerValores
+    id_habitacion = obtenerValores()[0]
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+
+    grupo = habitacion.get_grupo_huespedes()
+
+    #se calcula y se muestra la factura
+    frame_actual.output.insert(END,str(grupo)+
+                               " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
+    
+    #eliminar reserva del restaurante
+
+    #eliminar transporte    
+
+
+    habitacion.borrar_grupo()
 
 
 
@@ -68,7 +81,7 @@ def generar_desalojarHuesped():
     frame_actual.pack_forget()
     frame_actual = frame_desalojo
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command=obtenerValores)
+    frame_actual.boton_aceptar.config(command=lambda: desalojar_huesped(hotel))
 
 def generar_transporte():
     global frame_actual
