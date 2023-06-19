@@ -18,7 +18,7 @@ frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"
 frame_transporte = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 frame_restaurante = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 frame_servExtra = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
-frame_factura = FieldFrame(frame_principal, "Criterios", ["Id de la habitación","Id de la cabeza"], "Datos", [""]*2, None)
+frame_factura = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 #aqui iran los demas frames...
 
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
@@ -151,7 +151,7 @@ def acercaDe():
     messagebox.showinfo("Acerda de", descripcion)
 
 def verFactura(hotel:Hotel):
-    id_habitacion, id = obtenerValores()
+    id_habitacion = obtenerValores()[0]
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
     ventana_datos= Toplevel()
     ventana_datos.geometry("400x300")
