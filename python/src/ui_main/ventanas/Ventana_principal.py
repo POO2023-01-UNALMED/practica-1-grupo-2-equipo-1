@@ -32,9 +32,12 @@ t = Label(frame_principal, text="hola", bg="orange")
 t.grid()
 
 def salir():
-    from ui_main.ventanas.Ventana_inicio import frame_inicio
+    from ui_main.ventanas.Ventana_inicio import frame_inicio, menu_inicio
+    ventana.config(menu=tk.Menu())
     frame_principal.pack_forget()
     frame_inicio.pack()
+    ventana.config(menu=menu_inicio, height=30)
+
 
     
 
