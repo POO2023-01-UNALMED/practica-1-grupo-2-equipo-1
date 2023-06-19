@@ -19,14 +19,14 @@ class Habitacion:
         if (self.grupo == None):
             return "Huespedes: " + "Vacio" + f", ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}"
 
-        return f"Huespedes:  {self.get_grupo_huespedes().cabeza}, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}, Factura: {self.grupo.get_factura()}"
+        return f"Huespedes:  {self.get_grupo_huespedes().cabeza}, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}, Factura: {self.grupo.get_factura().CalcularPrecioFactura()}"
         # return f"Huespedes: cabeza, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}"
     
     def get_grupo_huespedes(self):
         return self.grupo
 
-    def set_grupo_huespedes(self, cabeza):
+    def set_grupo_huespedes(self, grupo):
         self._esta_ocupado = True
-        self.grupo = cabeza
-        # self.cabeza.get_factura().setFacturaHospedaje(self._precioxdia)
+        self.grupo = grupo
+        self.grupo.get_factura().setFacturaHospedaje(self._precioxdia)
         
