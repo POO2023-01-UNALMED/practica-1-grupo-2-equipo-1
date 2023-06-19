@@ -18,4 +18,4 @@ class CamposFaltantesError(Error):
         self.campos = campos
     
     def __str__(self):
-        return f"Faltan llenar los siguientes campos: {', '.join(self.campos)}"
+        return f"Faltan llenar el campos: {self.campos}"

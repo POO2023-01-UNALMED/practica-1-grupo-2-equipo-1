@@ -30,7 +30,6 @@ class Hotel:
             label.pack()
         
     def seleccionar_habitacion_porId(self, id:int):
-        print(self._habitaciones)
         for habitacion in self._habitaciones:
             if habitacion._ID_HABITACION == id:
                 return habitacion

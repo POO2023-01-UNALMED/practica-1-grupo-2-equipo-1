@@ -8,6 +8,7 @@ from tkinter import messagebox
 from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.hoteles.Hotel import Hotel, Habitacion
+from ui_main.excepciones.excepciones import *
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -28,12 +29,18 @@ como_usar.pack()
 
 def obtenerValores() -> list:
     l = []
-    for i, nombre_criterio in enumerate(frame_actual.criterios):
-        l.append(frame_actual.getValue(i))
-    return l
-        # frame_actual.output.insert(
-        #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
-        #     )
+
+    try:
+        for i, nombre_criterio in enumerate(frame_actual.criterios):
+            if frame_actual.getValue(i) == "":
+                raise CamposFaltantesError(nombre_criterio)
+            l.append(frame_actual.getValue(i))
+        return l
+            # frame_actual.output.insert(
+            #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
+            #     )
+    except CamposFaltantesError as e:
+        print(e)
 
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
