@@ -4,6 +4,7 @@ from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
 from ui_main.main import hotel
 from tkinter import messagebox
+from ui_main.excepciones.excepciones import CamposFaltantesError
 
 from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
@@ -41,8 +42,9 @@ def obtenerValores() -> list:
             #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
             #     )
     except CamposFaltantesError as e:
-        print(e)
+        messagebox.showerror("Campos faltantes", str(e))
         return [None for c in frame_actual.criterios]
+        
 
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
@@ -95,6 +97,11 @@ def desalojar_huesped(hotel:Hotel):
 
     
 
+def servicios_extra():
+    id_habitacion = obtenerValores()[0]
+    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    grupo = habitacion.get_grupo_huespedes()
+
 
 
 def reservarRestaurante(hotel:Hotel):
@@ -134,7 +141,7 @@ def generar_servExtra():
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command = obtenerValores)
+    frame_actual.boton_aceptar.config(command = servicios_extra)
 
 def generar_factura():
     global frame_actual
