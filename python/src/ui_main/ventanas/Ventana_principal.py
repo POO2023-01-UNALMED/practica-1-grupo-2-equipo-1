@@ -21,14 +21,17 @@ frame_actual.pack()
 como_usar = Label(frame_actual,text="Como usar la aplicacion")
 como_usar.pack()
 
-def obtenerValores():
+def obtenerValores() -> list:
+    l = []
     for i, nombre_criterio in enumerate(frame_actual.criterios):
-        frame_actual.output.insert(
-            END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
-            )
+        l.append(frame_actual.getValue(i))
+    return l
+        # frame_actual.output.insert(
+        #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
+        #     )
 
 
-def alojar_huesped():
+def generar_alojar_huesped():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_alojo
@@ -43,21 +46,21 @@ def desalojarHuesped():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=obtenerValores)
 
-def transporte():
+def generar_transporte():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_transporte
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command= obtenerValores)
 
-def alimentacion():
+def generar_alimentacion():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_restaurante
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command = obtenerValores)
 
-def servExtra():
+def generar_servExtra():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
@@ -83,11 +86,11 @@ def inicializar():
     Archivo.add_command(label="Salir", command=salir) #terminar
 
     menu_inicio.add_cascade(menu=proceso_consulta, label="Procesos y consultas")
-    proceso_consulta.add_command(label="Alojar Huésped", command= alojar_huesped)
-    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= desalojarHuesped)
-    proceso_consulta.add_command(label="Restaurante y alimentación", command= alimentacion)
-    proceso_consulta.add_command(label="Transporte", command= transporte)
-    proceso_consulta.add_command(label="Servicios extra", command= servExtra)
+    proceso_consulta.add_command(label="Alojar Huésped", command= generar_alojar_huesped)
+    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= generar_desalojarHuesped)
+    proceso_consulta.add_command(label="Restaurante y alimentación", command= generar_alimentacion)
+    proceso_consulta.add_command(label="Transporte", command= generar_transporte)
+    proceso_consulta.add_command(label="Servicios extra", command= generar_servExtra)
     
     menu_inicio.add_cascade(menu=estado, label="Ver")
     estado.add_command(label="Habitaciones",  command=hotel.mostrar_habitaciones)

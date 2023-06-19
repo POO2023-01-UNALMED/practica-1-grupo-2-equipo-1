@@ -12,6 +12,11 @@ from base_datos.Serializador import serializar
 from ui_main.ventanas.Ventana_inicio import ventana
 
 
+def agregar_huesped(hotel:Hotel):
+    pass
+
+
+
 hotel = Hotel()
 hotel.añadir_habitacion(Habitacion(1, 4, 400000))
 hotel.añadir_habitacion(Habitacion(2, 2, 200000))
