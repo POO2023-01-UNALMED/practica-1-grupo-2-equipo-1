@@ -4,6 +4,7 @@ from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
 from ui_main.main import hotel
 from tkinter import messagebox
+from ui_main.excepciones.excepciones import CamposFaltantesError
 
 from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
@@ -41,8 +42,8 @@ def obtenerValores() -> list:
             #     END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
             #     )
     except CamposFaltantesError as e:
-        print(e)
-        return [None for c in frame_actual.criterios]
+        messagebox.showerror("Campos faltantes", str(e))
+        
 
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
