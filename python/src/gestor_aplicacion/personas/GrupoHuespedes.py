@@ -4,7 +4,7 @@ from gestor_aplicacion.hoteles.Habitacion import Habitacion
 #from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 
-class GrupoHuespedes:
+class GrupoHuespedes: 
     def __init__(self, dias_en_hotel, cabeza, habitacion):
         self.dias_en_hotel = dias_en_hotel
         self.cabeza = cabeza
