@@ -30,6 +30,12 @@ class Habitacion:
         self.grupo = grupo
         self.grupo.get_factura().setFacturaHospedaje(self._precioxdia)
 
+    def isOcupado(self):
+        return self._esta_ocupado
+    
+    def getOcupado(self,ocupado):
+        self._esta_ocupado = ocupado
+
     def factura(self):
         if (self.grupo == None) :
             return "No hay Factura"
