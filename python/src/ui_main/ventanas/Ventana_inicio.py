@@ -102,6 +102,8 @@ dict_imgs = {
     )
 }
 
+def evento_hotel(evento):
+    cinco.config(image=next(dict_imgs["Hotel"]))
 
 def eveto_label(evento):
     # cambio nombre
@@ -111,7 +113,6 @@ def eveto_label(evento):
     dos.config(image=next(dict_imgs["arriba_derecha"]))
     tres.config(image=next(dict_imgs["abajo_izquierda"]))
     cuatro.config(image=next(dict_imgs["abajo_derecha"]))
-    cinco.config(image=next(dict_imgs["Hotel"]))
 
 # Cambiar imágenes
 
@@ -129,6 +130,7 @@ cuatro.grid(row=1, column=1, padx=0, pady=5)
 
 cinco = Label(p4Frame, width=500, height=400, bg="white", image=next(dict_imgs["Hotel"]), bd=2, relief="solid")
 cinco.place(relx=0.5, rely=0.9,anchor="s")
+cinco.bind("<Enter>", evento_hotel)
 
 
 #Breve hoja de vida de cada desarrollador
