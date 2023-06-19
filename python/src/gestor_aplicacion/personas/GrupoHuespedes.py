@@ -19,7 +19,7 @@ class GrupoHuespedes:
         self.factura.factura_hospedaje = self.habitacion.precio_x_dia * self.dias_en_hotel
 
     def __str__(self):
-        return 
+        return f"cabeza: {self.cabeza}, Habitacion: {self.habitacion}"
 
     def get_dias_en_hotel(self):
         return self.dias_en_hotel
