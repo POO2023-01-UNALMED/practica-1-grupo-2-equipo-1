@@ -1,5 +1,5 @@
 #from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-#from gestor_aplicacion.transporte.Vehiculo import Vehiculo
+from gestor_aplicacion.transporte.Vehiculo import Vehiculo
 
 class Taxi(Vehiculo):
 
@@ -9,11 +9,11 @@ class Taxi(Vehiculo):
         super().__init__(modelo, placa, conductor, capacidad, ocupado, precio)
         self.compañia = compañia
 
-        dueños = None
+        self.dueños = None
     
     def __str__(self) -> str:
 
-        if(dueños != None):
+        if(self.dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
             return '''  
             Vehiculo: {}

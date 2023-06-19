@@ -9,11 +9,11 @@ class Bus(Vehiculo):
     def __init__(self,modelo:str,placa:str,conductor:str,capacidad: int,ocupado:bool,precio:int):
         super().__init__(modelo,placa,conductor,capacidad,ocupado,precio)
 
-        dueños= None
+        self.dueños= None
 
     def __str__(self) -> str:
 
-        if(dueños != None):
+        if(self.dueños != None):
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
             return '''
             Vehiculo: {}

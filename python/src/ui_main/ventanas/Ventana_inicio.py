@@ -123,7 +123,7 @@ circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGust
                  , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: El popper"
                  ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Las bandidas"
                  ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
-                 , "Abraham David Miguel\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Alejo y como aprieta")
+                 , "Abraham David Miguel Cardenas\nHoja de Vida\n\nFecha de Nacimiento:10/10/2004\nGustos: Estar con mis amigos, ver series y escuchar hip hop/rap")
                  )
 
 #Especificaciones del label
