@@ -46,6 +46,8 @@ def agregar_huesped(hotel:Hotel):
     # print("-----------")
     habitacion.set_grupo_huespedes(grupo)
 
+def reservarRestaurante(hotel:Hotel):
+    return None
 
 def generar_alojar_huesped():
     global frame_actual
@@ -107,9 +109,11 @@ def inicializar():
     proceso_consulta.add_command(label="Restaurante y alimentación", command= generar_alimentacion)
     proceso_consulta.add_command(label="Transporte", command= generar_transporte)
     proceso_consulta.add_command(label="Servicios extra", command= generar_servExtra)
+
     
     menu_inicio.add_cascade(menu=estado, label="Ver")
     estado.add_command(label="Habitaciones",  command=hotel.mostrar_habitaciones)
+    estado.add_command(label="Factura")
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de", command= acercaDe)

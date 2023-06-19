@@ -517,7 +517,7 @@ public class Interfaz {
     System.out.println("\n----Hotel Debug Inn----\n");
     System.out.println("A quien se realiza la facturacion: " + grup.toString() + "\n");
     System.out.println(grup.getFactura().toString());
-    System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura());
+    System.out.println("Total: " + grup.getFactura().CalcularPrecioFactura()); 
 
     // Se borra la reserva del restaurante
     if (hab.getGrupo().getMesaReservada() != null) {
