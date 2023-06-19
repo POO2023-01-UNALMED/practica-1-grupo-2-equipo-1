@@ -8,7 +8,7 @@ frame_principal.pack_propagate(False)
 frame_principal.grid_propagate(False)
 
 
-frame = FieldFrame(frame_principal, "Criterio", ["Nombre", "ID", "habitacion"], "Valor", ["", "", ""], [True, True, False])
+frame = FieldFrame(frame_principal, "Criterio", ["Nombre", "ID", "habitacion"], "Valores", ["", "", ""], [True, True, True])
 frame.pack()
 
 def inicializar():
