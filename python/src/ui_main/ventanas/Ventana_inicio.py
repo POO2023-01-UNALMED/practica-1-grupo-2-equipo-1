@@ -105,11 +105,19 @@ cuatro.grid(row=1, column=1, padx=0, pady=5)
 #derecha superio (p5)
 
 #Cuando llega al ultimo se devuelve al inicio
-circulo = cycle(("Alejandro Feria", "Juan Miguel Márquez", "Stiven Julio Doval", "Samuel Gutierrez", "Abraham David Miguel"))
+
+circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Abraham y ver peliculas con el <3"
+                 , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: El popper"
+                 ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Las bandidas"
+                 ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
+                 , "Abraham David Miguel\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Alejo y como aprieta")
+                 )
+
 
 hoja_vida = Label(p5Frame, text=next(circulo), font=("Arial", 10), fg="blue")
-hoja_vida.place(relx=0.5, rely=0.1, anchor=CENTER) #centra el texto
+hoja_vida.place(relx=0.5, rely=0.5, anchor=CENTER) #centra el texto
 hoja_vida.bind("<Button-1>", eveto_label)
+
 
 def abrir_ventana_principal():
     frame_inicio.pack_forget()
