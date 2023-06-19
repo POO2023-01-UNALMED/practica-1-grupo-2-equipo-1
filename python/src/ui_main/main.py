@@ -8,7 +8,6 @@ from gestor_aplicacion.hoteles.Hotel import Hotel
 from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.servicios_extra.Factura import Factura
-from base_datos.Serializador import serializar
 from ui_main.ventanas.Ventana_inicio import ventana
 
 
@@ -37,4 +36,3 @@ if __name__ == "__main__":
 # print(hotel.get_habitaciones[0])
 
 
-# serializar(hotel)

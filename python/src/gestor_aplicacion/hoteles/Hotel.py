@@ -19,7 +19,7 @@ class Hotel:
         self._habitaciones = lista_habitaciones
 
     def añadir_habitacion(self, habitacion:Habitacion) -> None:
-        self.get_habitaciones().append(habitacion)
+        self._habitaciones.append(habitacion)
 
     def mostrar_habitaciones(self):
         ventana_datos= Toplevel()

@@ -4,6 +4,8 @@ import tkinter as tk
 from itertools import cycle
 from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.Ventana_principal import frame_principal, inicializar
+from base_datos.Serializador import serializar
+from ui_main.main import hotel
 
 
 frame_inicio = Frame(ventana)
@@ -149,7 +151,11 @@ boton_ventana_principal.place(relx=0.5, rely=0.98, anchor="s" )
 menu_inicio = tk.Menu(frame_inicio)
 ventana.config(menu=menu_inicio, height=30)
 
+def salir():
+    serializar(hotel)
+    sys.exit()
+
 inicio = tk.Menu(menu_inicio)
 menu_inicio.add_cascade(label="Menú", menu=inicio)
-inicio.add_command(label="Salir", command = lambda: sys.exit())
+inicio.add_command(label="Salir", command = salir)
 inicio.add_command(label="Descripcion", command=mostrar_ocultar_Descripcion)
