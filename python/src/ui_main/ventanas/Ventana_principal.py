@@ -1,10 +1,15 @@
 import tkinter as tk
 from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
+from ui_main.ventanas.FieldFrame import FieldFrame
 
-frame_principal = Frame(ventana, bg="green", width=1090, height=670)
+frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
 frame_principal.grid_propagate(False)
+
+
+frame = FieldFrame(frame_principal, "Criterio", ["Nombre", "ID", "habitacion"], "Valor", ["", "", ""], [True, True, False])
+frame.pack()
 
 def inicializar():
     menu_inicio = tk.Menu(frame_principal)
@@ -28,8 +33,6 @@ def inicializar():
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de")
 
-t = Label(frame_principal, text="hola", bg="orange")
-t.grid()
 
 def salir():
     from ui_main.ventanas.Ventana_inicio import frame_inicio, menu_inicio
