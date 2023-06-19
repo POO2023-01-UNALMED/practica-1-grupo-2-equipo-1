@@ -58,6 +58,8 @@ def agregar_huesped(hotel:Hotel):
         "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
         )
     
+  
+#DESALOJAR HUESPEDES    
 def desalojar_huesped(hotel:Hotel):
     #se pide el id para saber que habitacion se va a desalojar
     id_habitacion = obtenerValores()[0]
@@ -65,25 +67,35 @@ def desalojar_huesped(hotel:Hotel):
 
     grupo = habitacion.get_grupo_huespedes()
 
-    #se calcula y se muestra la factura
-    frame_actual.output.insert(END,str(grupo)+
+    if (habitacion.isOcupado == True):
+        #se calcula y se muestra la factura
+        frame_actual.output.insert(END,str(grupo)+
                                " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
     
-    #eliminar reserva del restaurante
         #eliminar reserva del restaurante
-    if (grupo.get_mesa_reservada() != None):
-        grupo.get_mesa_reservada().vaciarMesa()
-        grupo.set_mesa_reservada(None)
-        frame_actual.output.insert(END,"Reserva de restaurante eliminada")
+        if (grupo.get_mesa_reservada() != None):
+            grupo.get_mesa_reservada().vaciarMesa()
+            grupo.set_mesa_reservada(None)
+            frame_actual.output.insert(END,"\nReserva de restaurante eliminada")
+        else : 
+            frame_actual.output.insert(END,"\nNo se reservó ningun restaurante")
         
-    #eliminar transporte  
-    if (grupo.get_vehiculo_reservado() != None):
-        grupo.get_vehiculo_reservado().desocuparVehiculo()
-        grupo.get_vehiculo_reservado(None)
-        frame_actual.output.insert(END,"Reserva de vehiculo eliminada")  
+        #eliminar transporte  
+        if (grupo.get_vehiculo_reservado() != None):
+            grupo.get_vehiculo_reservado().desocuparVehiculo()
+            grupo.get_vehiculo_reservado(None)
+            frame_actual.output.insert(END,"\nReserva de vehiculo eliminada")
+
+        else : 
+            frame_actual.output.insert(END,"\nNo se reservó ningun vehiculo")  
 
 
-    habitacion.borrar_grupo()
+        habitacion.borrar_grupo()
+    
+    else: 
+        messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
+
+    
 
 def servicios_extra():
     id_habitacion = obtenerValores()[0]
