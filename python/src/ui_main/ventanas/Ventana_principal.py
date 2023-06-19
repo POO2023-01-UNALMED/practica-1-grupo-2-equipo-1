@@ -3,6 +3,7 @@ from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
 from ui_main.main import hotel
+from tkinter import messagebox
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -82,7 +83,7 @@ def inicializar():
     estado = tk.Menu(menu_inicio)
 
     menu_inicio.add_cascade(menu=Archivo, label="Archivo")
-    Archivo.add_command(label="Aplicación") #Terminar
+    Archivo.add_command(label="Aplicación", command= aplicacion) #Terminar
     Archivo.add_command(label="Salir", command=salir) #terminar
 
     menu_inicio.add_cascade(menu=proceso_consulta, label="Procesos y consultas")
@@ -96,7 +97,7 @@ def inicializar():
     estado.add_command(label="Habitaciones",  command=hotel.mostrar_habitaciones)
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
-    ayuda.add_command(label="Acerca de")
+    ayuda.add_command(label="Acerca de", command= acercaDe)
 
 
 
@@ -106,3 +107,11 @@ def salir():
     frame_principal.pack_forget()
     frame_inicio.pack()
     ventana.config(menu=menu_inicio, height=30)
+
+def aplicacion(): 
+    descripcion = "El sistema de The Debugg Inn permite hacer uso de funcionalidades como alojar y desalojar huespedes, reservar servicios extra para los clientes y generar una factura que refleje los gastos del huesped en su estancia"
+    messagebox.showinfo("Descripción de la aplicación", descripcion)
+
+def acercaDe(): 
+    descripcion = "Programa elaborado por:\nAlejandro Feria\nAbraham David Miguel\nJuan Miguel Márquez\nSamuel Gutierrez\nStiven Julio Doval"
+    messagebox.showinfo("Acerda de", descripcion)
