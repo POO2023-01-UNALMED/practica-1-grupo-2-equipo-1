@@ -120,7 +120,7 @@ cuatro.grid(row=1, column=1, padx=0, pady=5)
 #Cuando llega al ultimo se devuelve al inicio
 
 circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Abraham y ver peliculas con el <3"
-                 , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: El popper"
+                 , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:02/05/2004\nGustos: Ir al gimnasio, escuchar música y cocinar :)"
                  ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Las bandidas"
                  ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
                  , "Abraham David Miguel Cardenas\nHoja de Vida\n\nFecha de Nacimiento:10/10/2004\nGustos: Estar con mis amigos, ver series y escuchar hip hop/rap")

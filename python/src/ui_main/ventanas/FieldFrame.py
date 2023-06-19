@@ -14,7 +14,7 @@ class FieldFrame(Frame):
         self.valores:list = valores
         self.entradas:list[Entry] = []
 
-        self.config(width=600, height=300)
+        self.config(width=1090, height=670)
         self.grid_propagate(False)
         #Etiquetas para los títulos de las columnas
         Label(self.frame_formulario, text=tituloCriterios,bg="white",font=("Helvetica", 12, "bold")).grid(row=0, column=0, padx=10)
