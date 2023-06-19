@@ -43,6 +43,7 @@ def obtenerValores() -> list:
             #     )
     except CamposFaltantesError as e:
         messagebox.showerror("Campos faltantes", str(e))
+        return [None for c in frame_actual.criterios]
         
 
 def agregar_huesped(hotel:Hotel):
@@ -123,7 +124,6 @@ def generar_servExtra():
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command = obtenerValores)
 
 def generar_factura():
     global frame_actual
