@@ -39,7 +39,7 @@ def generar_alojar_huesped():
     frame_actual.boton_aceptar.config(command=obtenerValores)
 
  
-def desalojarHuesped():
+def generar_desalojarHuesped():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_desalojo
@@ -87,7 +87,7 @@ def inicializar():
 
     menu_inicio.add_cascade(menu=proceso_consulta, label="Procesos y consultas")
     proceso_consulta.add_command(label="Alojar Huésped", command= generar_alojar_huesped)
-    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= generar_desalojarHuesped)
+    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= generar_alojar_huesped)
     proceso_consulta.add_command(label="Restaurante y alimentación", command= generar_alimentacion)
     proceso_consulta.add_command(label="Transporte", command= generar_transporte)
     proceso_consulta.add_command(label="Servicios extra", command= generar_servExtra)
