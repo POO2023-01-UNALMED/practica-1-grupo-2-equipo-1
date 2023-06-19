@@ -28,7 +28,31 @@ frame_factura = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
 frame_actual = Frame(frame_principal) #viene por defecto
 frame_actual.pack()
-como_usar = Label(frame_actual,text="Como usar la aplicacion")
+
+como_usar = Label(frame_actual,text="\n\nCOMO USAR LA APLICACION\n\n\n"
+                  
+                  "Archivo:\n"
+                  "      ▪ Aplicación: Se despliega una ventana de diálogo con la información básica de lo que hace la aplicación.\n"
+                  "      ▪ Salir: retorna a la Ventana de Inicio del programa.\n\n"
+
+                  "Procesos y Consultas:\n"
+                  "      ▪ Alojar Huesped: Se llena el formulario y se registra a el/los huespede/s en una habitacion del hotel.\n"
+                  "      ▪ Desalojar Huesped/Factura: Se llena el formulario, y los huespedes desalojan la habitacion recibiendo la factura total del hospedaje.\n"
+                  "      ▪ Restaurante y Alimentacion: Se da la informacion de la habitacion para proceder a hacer la reserva de una mesa de algun restaurante.\n"
+                  "      ▪ Transporte: Se da la informacion de la habitacion para proceder a hacer la reservacion de un transporte.\n"
+                  "      ▪ Servicios Extra: Se da la informacion de la habitacion para agregar algun servicio extra que se desea usar.\n\n"
+
+                  "Ver:\n"
+                  "      ▪ Habitaciones: Muestra las habitaciones que hay en todo el hotel (Disponibles y Ocupadas).\n"
+                  "      ▪ Factura: Se da la informacion de la habitacion a la que se desea ver la factura.\n\n"
+
+                  "Ayuda:\n"
+                  "      ▪ Acerca de: muestra una ventana de diálogo con los nombres de los dueños del hotel.\n"
+
+                  , font=("Times",14)
+                  , fg="black")
+
+
 como_usar.pack()
 
 def obtenerValores() -> list:
