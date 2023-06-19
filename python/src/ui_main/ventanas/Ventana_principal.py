@@ -54,12 +54,17 @@ def agregar_huesped(hotel:Hotel):
         return 0; #salir de la apliacion
     cabeza = Huesped(nombre, id)
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-    grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
-    habitacion.set_grupo_huespedes(grupo)
-    HabOcupada(nombre, id_habitacion)
-    frame_actual.output.insert(END,
-        "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
-        )
+
+    if (habitacion.isOcupado()==False):
+        grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
+        habitacion.set_grupo_huespedes(grupo)
+        HabOcupada(nombre, id_habitacion)
+        frame_actual.output.insert(END,
+            "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
+            )
+        
+    else:
+        messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra ocupada")
     
   
 #DESALOJAR HUESPEDES    
