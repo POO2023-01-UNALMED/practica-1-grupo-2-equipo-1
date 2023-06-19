@@ -11,15 +11,11 @@ from gestor_aplicacion.servicios_extra.Factura import Factura
 from ui_main.ventanas.Ventana_inicio import ventana
 
 
-def agregar_huesped(hotel:Hotel):
-    pass
-
-
 
 hotel = Hotel()
-hotel.añadir_habitacion(Habitacion(1, 4, 400000))
-hotel.añadir_habitacion(Habitacion(2, 2, 200000))
-hotel.añadir_habitacion(Habitacion(3, 4, 400000))
+# hotel.añadir_habitacion(Habitacion(1, 4, 400000))
+# hotel.añadir_habitacion(Habitacion(2, 2, 200000))
+# hotel.añadir_habitacion(Habitacion(3, 4, 400000))
 
 if __name__ == "__main__":
     ventana.mainloop()
