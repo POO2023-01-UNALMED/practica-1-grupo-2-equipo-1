@@ -112,7 +112,7 @@ hoja_vida.place(relx=0.5, rely=0.1, anchor=CENTER) #centra el texto
 hoja_vida.bind("<Button-1>", eveto_label)
 
 def abrir_ventana_principal():
-    frame_inicio.destroy()
+    frame_inicio.pack_forget()
     ventana.config(menu=tk.Menu())
     frame_principal.pack()
     inicializar()

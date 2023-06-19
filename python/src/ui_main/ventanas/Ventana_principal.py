@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
-from ui_main.ventanas.Ventana_inicio import *
 
 frame_principal = Frame(ventana, bg="green", width=400, height=400)
 frame_principal.pack_propagate(False)
@@ -33,6 +32,9 @@ t = Label(frame_principal, text="hola", bg="orange")
 t.grid()
 
 def salir():
-    frame_principal.destroy()
+    from ui_main.ventanas.Ventana_inicio import frame_inicio
+    frame_principal.pack_forget()
+    frame_inicio.pack()
+
     
 
