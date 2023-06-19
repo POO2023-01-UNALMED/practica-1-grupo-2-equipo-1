@@ -113,5 +113,5 @@ def aplicacion():
     messagebox.showinfo("Descripción de la aplicación", descripcion)
 
 def acercaDe(): 
-    descripcion = "Programa elaborado por:\nAlejandro Feria\nAbraham David Miguel\nJuan Miguel Márquez\nSamuel Gutierrez\nStiven Julio Doval"
+    descripcion = "Aplicación desarrollada por:\nAlejandro Feria\nAbraham David Miguel\nJuan Miguel Márquez\nSamuel Gutierrez\nStiven Julio Doval"
     messagebox.showinfo("Acerda de", descripcion)
