@@ -21,3 +21,6 @@ class Hotel:
     def añadir_habitacion(self, habitacion:Habitacion) -> None:
         self.get_habitaciones.append(habitacion)
 
+    def mostrar_habitaciones(self):
+        for habitacion in self._habitaciones:
+            print(habitacion)

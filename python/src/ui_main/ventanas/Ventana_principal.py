@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
+from ui_main.main import hotel
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -40,7 +41,6 @@ def desalojarHuesped():
     frame_actual.boton_aceptar.config(command=obtenerValores)
 
 
-
 def comando_boton_aceptar():
     for i, nombre_criterio in enumerate(frame_actual.criterios):
         print(nombre_criterio + ": " + frame_actual.getValue(i))
@@ -67,7 +67,7 @@ def inicializar():
     proceso_consulta.add_command(label="Servicios extra")
     
     menu_inicio.add_cascade(menu=estado, label="ver")
-    estado.add_command(label="Habitaciones",  command=lambda: print("habitaciones"))
+    estado.add_command(label="Habitaciones",  command=lambda: hotel.mostrar_habitaciones())
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de")
