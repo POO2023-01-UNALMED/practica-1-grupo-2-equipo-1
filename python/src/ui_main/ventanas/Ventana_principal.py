@@ -129,11 +129,13 @@ def desalojar_huesped(hotel:Hotel):
     else:
         messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
 
-    
 
 def servicios_extra():
     id_habitacion = obtenerValores()[0]
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
+        print("No hay gente")
+        return 0
     grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
 
     ventana_secundaria = Toplevel()
@@ -144,16 +146,18 @@ def servicios_extra():
     #comboBox
     opciones = [f"{s.idServicio}:{s.name}, {s.precioServicio}" for s in ServiciosExtra]
     comboBox = ttk.Combobox(master=ventana_secundaria,values= opciones, textvariable="...")
-    def seleccionServicio(e):
+    comboBox.pack()
+    def seleccionServicio():
         print(comboBox.get()[0])
         servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
         print(servicio_seleccionado)
         grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
-        
+        ventana_secundaria.destroy()
 
+    boton_combobox = Button(master=ventana_secundaria, text="Seleccionar", command=seleccionServicio)
+    boton_combobox.pack()
 
-    comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
-    comboBox.pack()
+    # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
 
 
 
