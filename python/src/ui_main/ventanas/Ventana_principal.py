@@ -9,6 +9,9 @@ frame_principal.grid_propagate(False)
 
 frame_alojo = FieldFrame(frame_principal,"Criterios", ["Nombre", "Id", "Cantidad", "Dias", "Habitacion"], "Datos" ,[""]*5, None)
 frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"], "Datos", [""], None)
+frame_transporte = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
+frame_restaurante = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
+frame_servExtra = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 #aqui iran los demas frames...
 
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
@@ -39,7 +42,26 @@ def desalojarHuesped():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=obtenerValores)
 
+def transporte():
+    global frame_actual
+    frame_actual.pack_forget()
+    frame_actual = frame_transporte
+    frame_actual.pack()
+    frame_actual.boton_aceptar.config(command= obtenerValores)
 
+def alimentacion():
+    global frame_actual
+    frame_actual.pack_forget()
+    frame_actual = frame_restaurante
+    frame_actual.pack()
+    frame_actual.boton_aceptar.config(command = obtenerValores)
+
+def servExtra():
+    global frame_actual
+    frame_actual.pack_forget()
+    frame_actual = frame_servExtra
+    frame_actual.pack()
+    frame_actual.boton_aceptar.config(command = obtenerValores)
 
 def comando_boton_aceptar():
     for i, nombre_criterio in enumerate(frame_actual.criterios):
@@ -60,11 +82,11 @@ def inicializar():
     Archivo.add_command(label="Salir", command=salir) #terminar
 
     menu_inicio.add_cascade(menu=proceso_consulta, label="Procesos y consultas")
-    proceso_consulta.add_command(label="Alojar Huésped", command=alojar_huesped)
-    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command=desalojarHuesped)
-    proceso_consulta.add_command(label="Restaurante y alimentación")
-    proceso_consulta.add_command(label="Transporte")
-    proceso_consulta.add_command(label="Servicios extra")
+    proceso_consulta.add_command(label="Alojar Huésped", command= alojar_huesped)
+    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= desalojarHuesped)
+    proceso_consulta.add_command(label="Restaurante y alimentación", command= alimentacion)
+    proceso_consulta.add_command(label="Transporte", command= transporte)
+    proceso_consulta.add_command(label="Servicios extra", command= servExtra)
     
     menu_inicio.add_cascade(menu=estado, label="ver")
     estado.add_command(label="Habitaciones",  command=lambda: print("habitaciones"))
