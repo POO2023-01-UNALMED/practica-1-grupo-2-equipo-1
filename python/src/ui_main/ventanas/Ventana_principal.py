@@ -11,17 +11,17 @@ frame_alojo = FieldFrame(frame_principal,"Criterios", ["Nombre", "Id", "Cantidad
 frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"], "Datos", [""], None)
 #aqui iran los demas frames...
 
-
-def obtenerValores():
-    for i, nombre_criterio in enumerate(frame_actual.criterios):
-        print(nombre_criterio + ": " + frame_actual.getValue(i))
-
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
 frame_actual = Frame(frame_principal) #viene por defecto
 frame_actual.pack()
 como_usar = Label(frame_actual,text="Como usar la aplicacion")
 como_usar.pack()
 
+def obtenerValores():
+    for i, nombre_criterio in enumerate(frame_actual.criterios):
+        frame_actual.output.insert(
+            END, nombre_criterio + ": " + frame_actual.getValue(i) + "\n"
+            )
 
 
 def alojar_huesped():
@@ -37,6 +37,8 @@ def desalojarHuesped():
     frame_actual.pack_forget()
     frame_actual = frame_desalojo
     frame_actual.pack()
+    frame_actual.boton_aceptar.config(command=obtenerValores)
+
 
 
 def comando_boton_aceptar():
