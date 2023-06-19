@@ -54,6 +54,7 @@ def agregar_huesped(hotel:Hotel):
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
     grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
     habitacion.set_grupo_huespedes(grupo)
+    HabOcupada(nombre, id_habitacion)
     frame_actual.output.insert(END,
         "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
         )
@@ -210,3 +211,10 @@ def verFactura(hotel:Hotel):
     label = Label(ventana_datos, text=habitacion.factura())
     label.pack()
 
+def HabDesocupada():
+    descripcion = "Habitación desalojada satisfactoriamente"
+    messagebox.showinfo("Mensaje", descripcion)
+
+def HabOcupada(cabeza, IDhabitacion):
+    descripcion = f"Se han alojado los huespedes con la cabeza de grupo {cabeza} en la habitación {IDhabitacion} correctamente"
+    messagebox.showinfo("Mensaje", descripcion)
