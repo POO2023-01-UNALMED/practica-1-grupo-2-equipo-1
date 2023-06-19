@@ -91,6 +91,15 @@ dict_imgs = {
             PhotoImage(file=root_img + "messi_4.png"),
         )
     ),
+    
+    "Hotel": cycle(
+        (
+            PhotoImage(file=root_img + "hotel_1.png"),
+            PhotoImage(file=root_img + "hotel_2.png"),
+            PhotoImage(file=root_img + "hotel_3.png"),
+            PhotoImage(file=root_img + "hotel_4.png"),
+        )
+    )
 }
 
 
@@ -102,6 +111,7 @@ def eveto_label(evento):
     dos.config(image=next(dict_imgs["arriba_derecha"]))
     tres.config(image=next(dict_imgs["abajo_izquierda"]))
     cuatro.config(image=next(dict_imgs["abajo_derecha"]))
+    cinco.config(image=next(dict_imgs["Hotel"]))
 
 # Cambiar imágenes
 
@@ -116,6 +126,11 @@ tres.grid(row=1, column=0, padx=0, pady=5)
 
 cuatro = Label(p6Frame, width=250, height=250, bg="white", image=next(dict_imgs["abajo_derecha"]), bd=1, relief="solid")
 cuatro.grid(row=1, column=1, padx=0, pady=5)
+
+cinco = Label(p4Frame, width=500, height=400, bg="white", image=next(dict_imgs["Hotel"]), bd=2, relief="solid")
+cinco.place(relx=0.5, rely=0.9,anchor="s")
+
+
 #Breve hoja de vida de cada desarrollador
 #derecha superior (p5)
 
