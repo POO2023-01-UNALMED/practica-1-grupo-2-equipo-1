@@ -15,11 +15,22 @@ def inicializar():
     ayuda = tk.Menu(menu_inicio)
 
     menu_inicio.add_cascade(menu=Archivo, label="Archivo")
+    Archivo.add_command(label="Aplicación") #Terminar
+    Archivo.add_command(label="Salir") #terminar
+
     menu_inicio.add_cascade(menu=proseso_comsulta, label="Procesos y consultas")
+    proseso_comsulta.add_command(label="Alojar Huésped")
+    proseso_comsulta.add_command(label="Desalojar Huésped/Factura")
+    proseso_comsulta.add_command(label="Restaurante y alimentación")
+    proseso_comsulta.add_command(label="Transporte")
+    proseso_comsulta.add_command(label="Servicios extra")
+    
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
+    ayuda.add_command(label="Acerca de")
 
 t = Label(frame_principal, text="hola", bg="orange")
 t.grid()
+
 
 
 

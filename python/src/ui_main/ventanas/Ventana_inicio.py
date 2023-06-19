@@ -25,11 +25,11 @@ p4Frame=Frame(p1Frame,width=520, height=535,bg="white")
 p4Frame.grid(row=1,column=0,padx=5,pady=0)
 p4Frame.grid_propagate(False)
 
-p5Frame=Frame(p2Frame,width=520, height=100,bg="white")
+p5Frame=Frame(p2Frame,width=510, height=100,bg="white")
 p5Frame.grid(row=0,column=0,padx=5,pady=5)
 p5Frame.grid_propagate(False)
 
-p6Frame=Frame(p2Frame,width=520, height=535,bg="white")
+p6Frame=Frame(p2Frame,width=510, height=525,bg="white")
 p6Frame.grid(row=1,column=0,padx=5,pady=0)
 p6Frame.grid_propagate(False)
 
@@ -46,7 +46,7 @@ label_saludo.place(relx=0.5, rely=0.35, anchor="n")
 
 
 
-descripcion = cycle(("Descripcion del proyecto", "")) # se activa al presionar el boton descripcion del menu
+descripcion = cycle(("  El sistema de The Debugg Inn permite hacer uso de funcionalidades como alojar y \n desalojar huespedes, reservar servicios extra para los clientes y generar \n una factura que refleje los gastos del huesped en su estancia", "")) # se activa al presionar el boton descripcion del menu
 label_descripcion = Label(p4Frame, font=("Arial",10), fg="black", background="white")
 label_descripcion.place(x=0, y=0)
 
@@ -89,26 +89,26 @@ def eveto_label(evento):
 
 # imagen = PhotoImage(file=r"python\src\ui_main\ventanas\imagenes\cr7_3.png")
 #cambiar imagenes
-uno = Label(p6Frame, width=255, height=250, bg='black', image=next(dict_imgs["arriba_izquierda"]))
+uno = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["arriba_izquierda"]))
 uno.grid(row=0, column=0, padx=0, pady=5)
 
-dos = Label(p6Frame, width=255, height=250, bg='black', image=next(dict_imgs["arriba_derecha"]))
+dos = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["arriba_derecha"]))
 dos.grid(row=0, column=1, padx=0, pady=5)
 
-tres = Label(p6Frame, width=255, height=250, bg='black', image=next(dict_imgs["abajo_izquierda"]))
+tres = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["abajo_izquierda"]))
 tres.grid(row=1, column=0, padx=0, pady=5)
 
-cuatro = Label(p6Frame, width=255, height=250, bg='black', image=next(dict_imgs["abajo_derecha"]))
+cuatro = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["abajo_derecha"]))
 cuatro.grid(row=1, column=1, padx=0, pady=5)
 
 #Breve hoja de vida de cada desarrolador
 #derecha superio (p5)
 
 #Cuando llega al ultimo se devuelve al inicio
-circulo = cycle(("Alejandro", "Miguel", "Stiven", "Samuel", "Abraham"))
+circulo = cycle(("Alejandro Feria", "Juan Miguel Márquez", "Stiven Julio Doval", "Samuel Gutierrez", "Abraham David Miguel"))
 
 hoja_vida = Label(p5Frame, text=next(circulo), font=("Arial", 10), fg="blue")
-hoja_vida.place(relx=0.5, rely=0.5, anchor=CENTER) #centra el texto
+hoja_vida.place(relx=0.5, rely=0.1, anchor=CENTER) #centra el texto
 hoja_vida.bind("<Button-1>", eveto_label)
 
 def abrir_ventana_principal():
@@ -128,6 +128,6 @@ menu_inicio = tk.Menu(frame_inicio)
 ventana.config(menu=menu_inicio, height=30)
 
 inicio = tk.Menu(menu_inicio)
-menu_inicio.add_cascade(label="Menu", menu=inicio)
+menu_inicio.add_cascade(label="Menú", menu=inicio)
 inicio.add_command(label="Salir", command = lambda: sys.exit())
 inicio.add_command(label="Descripcion", command=mostrar_ocultar_Descripcion)
