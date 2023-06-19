@@ -120,16 +120,18 @@ def servicios_extra():
     #comboBox
     opciones = [f"{s.idServicio}:{s.name}, {s.precioServicio}" for s in ServiciosExtra]
     comboBox = ttk.Combobox(master=ventana_secundaria,values= opciones, textvariable="...")
-    def seleccionServicio(e):
+    comboBox.pack()
+    def seleccionServicio():
         print(comboBox.get()[0])
         servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
         print(servicio_seleccionado)
         grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
-        
+        ventana_secundaria.destroy()
 
+    boton_combobox = Button(master=ventana_secundaria, text="Seleccionar", command=seleccionServicio)
+    boton_combobox.pack()
 
-    comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
-    comboBox.pack()
+    # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
 
 
 
