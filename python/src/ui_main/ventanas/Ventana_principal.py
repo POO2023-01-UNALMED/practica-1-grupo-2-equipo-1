@@ -105,11 +105,13 @@ def desalojar_huesped(hotel:Hotel):
     else:
         messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
 
-    
 
 def servicios_extra():
     id_habitacion = obtenerValores()[0]
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
+        print("No hay gente")
+        return 0
     grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
 
     ventana_secundaria = Toplevel()
