@@ -54,53 +54,66 @@ def mostrar_ocultar_Descripcion():
     label_descripcion.config(text=next(descripcion))
 
 #Imagene3
+# Imágenes
 root_img = "python\\src\\ui_main\\ventanas\\imagenes\\"
 dict_imgs = {
-    "arriba_izquierda": cycle((PhotoImage(file=root_img + "cr7_1.png"),
-                   PhotoImage(file=root_img + "cr7_2.png"),
-                   PhotoImage(file=root_img + "cr7_3.png"),
-                   PhotoImage(file=root_img + "cr7_4.png"))),
-    "arriba_derecha": cycle((PhotoImage(file = root_img + "messi_1.png"),
-                             PhotoImage(file = root_img + "messi_2.png"),
-                             PhotoImage(file = root_img + "messi_3.png"),
-                             PhotoImage(file = root_img + "messi_4.png"))),
-    "abajo_izquierda": cycle((PhotoImage(file=root_img + "cr7_1.png"),
-                            PhotoImage(file=root_img + "cr7_2.png"),
-                            PhotoImage(file=root_img + "cr7_3.png"),
-                            PhotoImage(file=root_img + "cr7_4.png"))),
-    "abajo_derecha": cycle((PhotoImage(file = root_img + "messi_1.png"),
-                             PhotoImage(file = root_img + "messi_2.png"),
-                             PhotoImage(file = root_img + "messi_3.png"),
-                             PhotoImage(file = root_img + "messi_4.png")))
+    "arriba_izquierda": cycle(
+        (
+            PhotoImage(file=root_img + "cr7_1.png"),
+            PhotoImage(file=root_img + "cr7_2.png"),
+            PhotoImage(file=root_img + "cr7_3.png"),
+            PhotoImage(file=root_img + "cr7_4.png"),
+        )
+    ),
+    "arriba_derecha": cycle(
+        (
+            PhotoImage(file=root_img + "messi_1.png"),
+            PhotoImage(file=root_img + "messi_2.png"),
+            PhotoImage(file=root_img + "messi_3.png"),
+            PhotoImage(file=root_img + "messi_4.png"),
+        )
+    ),
+    "abajo_izquierda": cycle(
+        (
+            PhotoImage(file=root_img + "cr7_1.png"),
+            PhotoImage(file=root_img + "cr7_2.png"),
+            PhotoImage(file=root_img + "cr7_3.png"),
+            PhotoImage(file=root_img + "cr7_4.png"),
+        )
+    ),
+    "abajo_derecha": cycle(
+        (
+            PhotoImage(file=root_img + "messi_1.png"),
+            PhotoImage(file=root_img + "messi_2.png"),
+            PhotoImage(file=root_img + "messi_3.png"),
+            PhotoImage(file=root_img + "messi_4.png"),
+        )
+    ),
 }
 
 
-
 def eveto_label(evento):
-    #cambio nombre
+    # cambio nombre
     hoja_vida.config(text=next(circulo))
-    #cambio imagenes
-
+    # cambio imágenes
     uno.config(image=next(dict_imgs["arriba_izquierda"]))
     dos.config(image=next(dict_imgs["arriba_derecha"]))
     tres.config(image=next(dict_imgs["abajo_izquierda"]))
     cuatro.config(image=next(dict_imgs["abajo_derecha"]))
 
+# Cambiar imágenes
 
-# imagen = PhotoImage(file=r"python\src\ui_main\ventanas\imagenes\cr7_3.png")
-#cambiar imagenes
-uno = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["arriba_izquierda"]))
+uno = Label(p6Frame, width=250, height=250, bg="white", image=next(dict_imgs["arriba_izquierda"]), bd=1, relief="solid")
 uno.grid(row=0, column=0, padx=0, pady=5)
 
-dos = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["arriba_derecha"]))
+dos = Label(p6Frame, width=250, height=250, bg="white", image=next(dict_imgs["arriba_derecha"]), bd=1, relief="solid")
 dos.grid(row=0, column=1, padx=0, pady=5)
 
-tres = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["abajo_izquierda"]))
+tres = Label(p6Frame, width=250, height=250, bg="white", image=next(dict_imgs["abajo_izquierda"]), bd=1, relief="solid")
 tres.grid(row=1, column=0, padx=0, pady=5)
 
-cuatro = Label(p6Frame, width=250, height=250, bg='black', image=next(dict_imgs["abajo_derecha"]))
+cuatro = Label(p6Frame, width=250, height=250, bg="white", image=next(dict_imgs["abajo_derecha"]), bd=1, relief="solid")
 cuatro.grid(row=1, column=1, padx=0, pady=5)
-
 #Breve hoja de vida de cada desarrollador
 #derecha superior (p5)
 
