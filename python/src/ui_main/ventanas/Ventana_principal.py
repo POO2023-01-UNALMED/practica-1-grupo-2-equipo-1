@@ -68,8 +68,17 @@ def desalojar_huesped(hotel:Hotel):
                                " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
     
     #eliminar reserva del restaurante
-
-    #eliminar transporte    
+        #eliminar reserva del restaurante
+    if (grupo.get_mesa_reservada() != None):
+        grupo.get_mesa_reservada().vaciarMesa()
+        grupo.set_mesa_reservada(None)
+        frame_actual.output.insert(END,"Reserva de restaurante eliminada")
+        
+    #eliminar transporte  
+    if (grupo.get_vehiculo_reservado() != None):
+        grupo.get_vehiculo_reservado().desocuparVehiculo()
+        grupo.get_vehiculo_reservado(None)
+        frame_actual.output.insert(END,"Reserva de vehiculo eliminada")  
 
 
     habitacion.borrar_grupo()
