@@ -85,6 +85,11 @@ def desalojar_huesped(hotel:Hotel):
 
     habitacion.borrar_grupo()
 
+def servicios_extra():
+    id_habitacion = obtenerValores()[0]
+    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    grupo = habitacion.get_grupo_huespedes()
+
 
 
 def reservarRestaurante(hotel:Hotel):
@@ -124,6 +129,7 @@ def generar_servExtra():
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
+    frame_actual.boton_aceptar.config(command = servicios_extra)
 
 def generar_factura():
     global frame_actual
