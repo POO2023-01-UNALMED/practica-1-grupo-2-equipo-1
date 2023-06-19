@@ -5,30 +5,21 @@ from gestor_aplicacion.hoteles.Habitacion import Habitacion
 
 
 class GrupoHuespedes:
-    def __init__(self, dias_en_hotel, lista_huespedes, habitacion=None):
+    def __init__(self, dias_en_hotel, cabeza, habitacion):
         self.dias_en_hotel = dias_en_hotel
-        self.lista_huespedes = lista_huespedes
+        self.cabeza = cabeza
         self.factura = None
         self.habitacion = habitacion
         self.mesa_reservada = None
         self.vehiculo_reservado = None
 
-    def agregar_huesped(self, huesped):
-        self.lista_huespedes.append(huesped)
 
     def inicializar_factura(self):
         self.factura = Factura()
         self.factura.factura_hospedaje = self.habitacion.precio_x_dia * self.dias_en_hotel
 
     def __str__(self):
-        lista = ""
-        if self.lista_huespedes:
-            for huesped in self.lista_huespedes:
-                if huesped:
-                    lista += str(huesped) + ","
-        if lista and lista[-1] == ",":
-            lista = lista[:-1]
-        return lista
+        return 
 
     def get_dias_en_hotel(self):
         return self.dias_en_hotel
