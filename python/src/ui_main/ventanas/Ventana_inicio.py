@@ -61,43 +61,43 @@ root_img = "python\\src\\ui_main\\ventanas\\imagenes\\"
 dict_imgs = {
     "arriba_izquierda": cycle(
         (
-            PhotoImage(file=root_img + "cr7_1.png"),
+            PhotoImage(file=root_img + "cr7_1.png").subsample(2,2),
             PhotoImage(file=root_img + "cr7_2.png"),
-            PhotoImage(file=root_img + "cr7_3.png"),
-            PhotoImage(file=root_img + "cr7_4.png"),
+            PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
+            PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
         )
     ),
     "arriba_derecha": cycle(
         (
             PhotoImage(file=root_img + "messi_1.png"),
-            PhotoImage(file=root_img + "messi_2.png"),
+            PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
-            PhotoImage(file=root_img + "messi_4.png"),
+            PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
         )
     ),
     "abajo_izquierda": cycle(
         (
-            PhotoImage(file=root_img + "cr7_1.png"),
+            PhotoImage(file=root_img + "cr7_1.png").subsample(2,2),
             PhotoImage(file=root_img + "cr7_2.png"),
-            PhotoImage(file=root_img + "cr7_3.png"),
-            PhotoImage(file=root_img + "cr7_4.png"),
+            PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
+            PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
         )
     ),
     "abajo_derecha": cycle(
         (
             PhotoImage(file=root_img + "messi_1.png"),
-            PhotoImage(file=root_img + "messi_2.png"),
+            PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
-            PhotoImage(file=root_img + "messi_4.png"),
+            PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
         )
     ),
     
     "Hotel": cycle(
         (
-            PhotoImage(file=root_img + "hotel_1.png"),
-            PhotoImage(file=root_img + "hotel_2.png"),
-            PhotoImage(file=root_img + "hotel_3.png"),
-            PhotoImage(file=root_img + "hotel_4.png"),
+            PhotoImage(file=root_img + "hotel_1.png").zoom(2,2),
+            PhotoImage(file=root_img + "hotel_2.png").zoom(2,2),
+            PhotoImage(file=root_img + "hotel_3.png").subsample(2,2),
+            PhotoImage(file=root_img + "hotel_4.png").subsample(2,2),
         )
     )
 }
