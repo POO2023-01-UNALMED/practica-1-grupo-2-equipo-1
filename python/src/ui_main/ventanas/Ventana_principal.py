@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from tkinter import ttk
 from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
 from ui_main.main import hotel
@@ -10,6 +11,7 @@ from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
 from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.hoteles.Hotel import Hotel, Habitacion
 from ui_main.excepciones.excepciones import *
+from gestor_aplicacion.servicios_extra.Servicios_extra import ServiciosExtra
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -103,7 +105,26 @@ def desalojar_huesped(hotel:Hotel):
 def servicios_extra():
     id_habitacion = obtenerValores()[0]
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-    grupo = habitacion.get_grupo_huespedes()
+    grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
+
+    ventana_secundaria = Toplevel()
+    ventana_secundaria.geometry("500x500")
+    ventana_secundaria.title("Seleccion servicio extra")
+
+    Label(ventana_secundaria, text="Seleccion un servicio").pack()
+    #comboBox
+    opciones = [f"{s.idServicio}:{s.name}, {s.precioServicio}" for s in ServiciosExtra]
+    comboBox = ttk.Combobox(master=ventana_secundaria,values= opciones, textvariable="...")
+    def seleccionServicio(e):
+        print(comboBox.get()[0])
+        servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
+        print(servicio_seleccionado)
+        grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
+        
+
+
+    comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
+    comboBox.pack()
 
 
 

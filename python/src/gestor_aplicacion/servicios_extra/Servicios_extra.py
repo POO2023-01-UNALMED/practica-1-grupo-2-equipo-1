@@ -25,8 +25,10 @@ class ServiciosExtra(Enum):
     @staticmethod
     def buscarPorId(idServicio):
         for servicio in ServiciosExtra:
-            if servicio.getIdServicio() == idServicio:
+            if int(servicio.getIdServicio()) == int(idServicio):
                 return servicio
+
+        print("no encontrado")
         return None
 
 
@@ -39,3 +41,4 @@ class ServiciosExtra(Enum):
                 precioTotal += servicio.getPrecio()
         return precioTotal
 
+# print(str(ServiciosExtra.GIMNASIO.name), str(ServiciosExtra.GIMNASIO.precioServicio))
