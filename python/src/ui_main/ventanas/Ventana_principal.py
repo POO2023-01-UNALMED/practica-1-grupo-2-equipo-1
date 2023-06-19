@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
 from ui_main.ventanas.FieldFrame import FieldFrame
+from ui_main.main import hotel
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -89,7 +90,7 @@ def inicializar():
     proceso_consulta.add_command(label="Servicios extra", command= servExtra)
     
     menu_inicio.add_cascade(menu=estado, label="ver")
-    estado.add_command(label="Habitaciones",  command=lambda: print("habitaciones"))
+    estado.add_command(label="Habitaciones",  command=lambda: hotel.mostrar_habitaciones())
 
     menu_inicio.add_cascade(menu=ayuda, label="Ayuda")
     ayuda.add_command(label="Acerca de")
