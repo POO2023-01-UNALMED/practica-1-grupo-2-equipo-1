@@ -92,6 +92,7 @@ def desalojar_huesped(hotel:Hotel):
 
 
         habitacion.borrar_grupo()
+        HabDesocupada()
         
     
     else:
