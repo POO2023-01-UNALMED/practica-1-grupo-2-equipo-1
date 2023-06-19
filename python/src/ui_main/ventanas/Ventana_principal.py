@@ -36,15 +36,14 @@ def obtenerValores() -> list:
         #     )
 
 def agregar_huesped(hotel:Hotel):
-    print("a")
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
     cabeza = Huesped(nombre, id)
     habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
     grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
-    print(habitacion)
-    print(grupo)
-    # print("-----------")
     habitacion.set_grupo_huespedes(grupo)
+    frame_actual.output.insert(END,
+        "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
+        )
 
 def reservarRestaurante(hotel:Hotel):
     return None

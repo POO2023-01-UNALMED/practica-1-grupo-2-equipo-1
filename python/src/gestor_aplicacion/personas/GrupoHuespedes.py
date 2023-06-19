@@ -8,7 +8,7 @@ class GrupoHuespedes:
     def __init__(self, dias_en_hotel, cabeza, habitacion):
         self.dias_en_hotel = dias_en_hotel
         self.cabeza = cabeza
-        self.factura = None
+        self.factura = Factura()
         self.habitacion = habitacion
         self.mesa_reservada = None
         self.vehiculo_reservado = None

@@ -12,16 +12,14 @@ class Hotel:
         deserializar(self)
 
 
-    @property
     def get_habitaciones(self):
         return self._habitaciones
 
-    @get_habitaciones.setter
     def set_habitaciones(self, lista_habitaciones):
         self._habitaciones = lista_habitaciones
 
     def añadir_habitacion(self, habitacion:Habitacion) -> None:
-        self.get_habitaciones.append(habitacion)
+        self.get_habitaciones().append(habitacion)
 
     def mostrar_habitaciones(self):
         ventana_datos= Toplevel()
