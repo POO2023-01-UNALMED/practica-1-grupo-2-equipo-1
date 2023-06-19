@@ -9,15 +9,19 @@ frame_principal.grid_propagate(False)
 
 frame_alojo = FieldFrame(frame_principal,"Criterios", ["Nombre", "Id", "Cantidad", "Dias", "Habitacion"], "Datos" ,[""]*5, None)
 frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"], "Datos", [""], None)
+#aqui iran los demas frames...
+
 
 def obtenerValores():
     for i, nombre_criterio in enumerate(frame_actual.criterios):
         print(nombre_criterio + ": " + frame_actual.getValue(i))
 
-
-frame_actual = frame_alojo #viene por defecto
+#Lo que aparece la primera vez que se abre la ventana principal, despues se borra
+frame_actual = Frame(frame_principal) #viene por defecto
 frame_actual.pack()
-frame_actual.boton_aceptar.config(command=obtenerValores)
+como_usar = Label(frame_actual,text="Como usar la aplicacion")
+como_usar.pack()
+
 
 
 def alojar_huesped():
@@ -74,8 +78,3 @@ def salir():
     frame_principal.pack_forget()
     frame_inicio.pack()
     ventana.config(menu=menu_inicio, height=30)
-
-
-    
-
-print(frame_principal.children)

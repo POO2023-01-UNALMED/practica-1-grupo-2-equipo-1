@@ -12,19 +12,19 @@ from base_datos.Serializador import serializar
 from ui_main.ventanas.Ventana_inicio import ventana
 
 
+hotel = Hotel()
+hotel.añadir_habitacion(Habitacion(1, 4, 400000))
+hotel.añadir_habitacion(Habitacion(2, 2, 200000))
+hotel.añadir_habitacion(Habitacion(3, 4, 400000))
 
 if __name__ == "__main__":
     ventana.mainloop()
 
 
-#tests
-# hotel = Hotel()
-# hotel.añadir_habitacion(Habitacion(1, 4, 400000))
-# hotel.añadir_habitacion(Habitacion(2, 2, 200000))
-# hotel.añadir_habitacion(Habitacion(3, 4, 400000))
+# tests
 
-# # set_grupohuespedes es una funcion pero nose porque lo pone como una variable
-# # buesque en google y se supone que asi es
+# set_grupohuespedes es una funcion pero nose porque lo pone como una variable
+# buesque en google y se supone que asi es
 
 # hotel.get_habitaciones[0].set_grupo_huespedes = GrupoHuespedes(2, [Huesped()], Factura())
 
