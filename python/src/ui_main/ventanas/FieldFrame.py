@@ -1,5 +1,4 @@
 from tkinter import *
-from ui_main.main import hotel
 
 
 class FieldFrame(Frame):

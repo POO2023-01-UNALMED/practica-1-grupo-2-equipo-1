@@ -45,6 +45,13 @@ def agregar_huesped(hotel:Hotel):
     frame_actual.output.insert(END,
         "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
         )
+    
+def desalojar_huesped(hotel:Hotel):
+    #se pide el id para saber que habitacion se va a desalojar
+    id_habitacion = obtenerValores
+    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+
+
 
 def reservarRestaurante(hotel:Hotel):
     id = obtenerValores()
@@ -113,7 +120,7 @@ def inicializar():
 
     menu_inicio.add_cascade(menu=proceso_consulta, label="Procesos y consultas")
     proceso_consulta.add_command(label="Alojar Huésped", command= generar_alojar_huesped)
-    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= generar_alojar_huesped)
+    proceso_consulta.add_command(label="Desalojar Huésped/Factura", command= generar_desalojarHuesped)
     proceso_consulta.add_command(label="Restaurante y alimentación", command= generar_alimentacion)
     proceso_consulta.add_command(label="Transporte", command= generar_transporte)
     proceso_consulta.add_command(label="Servicios extra", command= generar_servExtra)
