@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from ui_main.ventanas.ventana_base import ventana
+from ui_main.ventanas.Ventana_inicio import *
 
 frame_principal = Frame(ventana, bg="green", width=400, height=400)
 frame_principal.pack_propagate(False)
@@ -16,7 +17,7 @@ def inicializar():
 
     menu_inicio.add_cascade(menu=Archivo, label="Archivo")
     Archivo.add_command(label="Aplicación") #Terminar
-    Archivo.add_command(label="Salir") #terminar
+    Archivo.add_command(label="Salir", command=salir) #terminar
 
     menu_inicio.add_cascade(menu=proseso_comsulta, label="Procesos y consultas")
     proseso_comsulta.add_command(label="Alojar Huésped")
@@ -31,6 +32,7 @@ def inicializar():
 t = Label(frame_principal, text="hola", bg="orange")
 t.grid()
 
-
-
+def salir():
+    frame_principal.destroy()
+    
 
