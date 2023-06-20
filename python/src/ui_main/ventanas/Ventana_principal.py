@@ -14,6 +14,7 @@ from ui_main.excepciones.excepciones import *
 from gestor_aplicacion.servicios_extra.Servicios_extra import ServiciosExtra
 from gestor_aplicacion.restaurantes.Restaurante import Restaurante
 from gestor_aplicacion.transporte.Vehiculo import Vehiculo, Vehiculos
+from gestor_aplicacion.restaurantes.Mesa import Mesa
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -181,32 +182,43 @@ def servicios_extra(hotel: Hotel):
     # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
 
 
+<<<<<<< HEAD
 #FUNCIONALIDAD RESERVAR RESTAURANTES
 def reservarRestaurante(hotel:Hotel):
+=======
+
+def reservarRestaurante(hotel: Hotel):
+>>>>>>> main
     try:
         id_habitacion = obtenerValores()[0]
-        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-        if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
+        habitacion: Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if not habitacion.isOcupado():  # Si está desocupada, salir
             raise habitacionDesocupada()
-        grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
+        grupo: GrupoHuespedes = habitacion.get_grupo_huespedes()
     except Exception as e:
-            messagebox.showerror("Error", "No hay gente en esta habitacion")
-            return 0 #salir de la funcionalidad
+        messagebox.showerror("Error", "No hay gente en esta habitación o la mesa no está asignada")
+        return 0  # Salir de la funcionalidad
+    
     ventana_emergente = Toplevel()
     ventana_emergente.geometry("500x500")
     ventana_emergente.title("Seleccione un Restaurante")
 
     Label(ventana_emergente, text="Seleccione un Restaurante").pack()
-    #comboBox
+    # ComboBox
     opciones = [f"{r.idRestaurante}:{r.name}, {r.getPrecioResetaurante()}" for r in Restaurante]
-    comboBox = ttk.Combobox(master=ventana_emergente,width=40,values= opciones, textvariable="...")
+    comboBox = ttk.Combobox(master=ventana_emergente, width=40, values=opciones, textvariable="...")
     comboBox.pack()
-    
+
     def seleccionRestaurante():
-        restaurante_seleccionado = Restaurante.buscarPorId(comboBox.get()[0])  
+        restaurante_seleccionado = Restaurante.buscarPorId(comboBox.get()[0])
+        
         grupo.get_factura().FacturaRestaurante += restaurante_seleccionado.precioRestaurante
+        mesa= Mesa(hotel.seleccionar_habitacion_porId(int(id_habitacion)))
+        mesa.asignarDueños(grupo)  # Asignar la mesa al grupo de huéspedes
+        mesa.setOcupado(True)  # Marcar la mesa como ocupada
         ventana_emergente.destroy()
-        frame_actual.output.insert(END,"Has seleccionado el: "+str(restaurante_seleccionado.name))
+        frame_actual.output.delete("1.0", END)  # Borrar el contenido existente
+        frame_actual.output.insert(END, "Has seleccionado el: " + str(restaurante_seleccionado.name))
 
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command=seleccionRestaurante)
     boton_combobox.pack()
