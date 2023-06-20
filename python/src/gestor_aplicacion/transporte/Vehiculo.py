@@ -1,18 +1,18 @@
 #from gestor_aplicacion.personas.GrupoHuespedes import GrupoHuespedes
-
+Vehiculos = []
 class Vehiculo: 
 
-    
-
-    def __init__(self,modelo:str,placa:str,conductor:str,capacidad: int,ocupado:bool,precio:int):
+    def __init__(self,id:int,modelo:str,placa:str,conductor:str,capacidad: int,ocupado:bool,precio:int):
+        self.id = id
         self.modelo = modelo
         self.placa = placa
         self.conductor = conductor
         self.capacidad = capacidad
         self.ocupado = ocupado
         self.precio = precio
-
         dueños = None
+        Vehiculos.append(self)
+
 
     #to string
     def __str__(self) -> str:
@@ -20,6 +20,7 @@ class Vehiculo:
 
             #dueños se debe imprimir con el metodo to string de GrupoHuespedes pero aun no esta hecho
             return '''
+            id: {}
             Vehiculo: {}
             Modelo: {}
             Conductor: {}
@@ -27,17 +28,18 @@ class Vehiculo:
             Ocupado: {}
             Dueños: {}
             Precio: {}
-            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.dueños,self.precio)
+            '''.format(self.id,self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.dueños,self.precio)
         
         else : 
             return '''
+            id: {}
             Vehiculo: {}
             Modelo: {}
             Conductor: {}
             Capacidad: {}
             Ocupado: {}
             Precio: {}
-            '''.format(self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.precio)
+            '''.format(self.id, self.modelo,self.placa,self.conductor,self.capacidad,self.ocupado,self.precio)
     
 
     #getters and setters
@@ -95,4 +97,7 @@ class Vehiculo:
         return self.dueños
 
 
-        
+Vehiculo(1,"Corola","AAA111", "Gerardo", 4, False, "5000")
+Vehiculo(2,"Chevy","AAA111", "Gerardo", 4, False, "5000")
+Vehiculo(3,"Mercho","AAA111", "Gerardo", 4, False, "5000")
+Vehiculo(4,"Jaja","AAA111", "Gerardo", 4, False, "5000")

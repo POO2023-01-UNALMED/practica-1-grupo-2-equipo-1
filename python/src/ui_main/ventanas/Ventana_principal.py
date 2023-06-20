@@ -13,6 +13,7 @@ from gestor_aplicacion.hoteles.Hotel import Hotel, Habitacion
 from ui_main.excepciones.excepciones import *
 from gestor_aplicacion.servicios_extra.Servicios_extra import ServiciosExtra
 from gestor_aplicacion.restaurantes.Restaurante import Restaurante
+from gestor_aplicacion.transporte.Vehiculo import Vehiculo, Vehiculos
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -189,8 +190,6 @@ def reservarRestaurante(hotel:Hotel):
     except Exception as e:
             messagebox.showerror("Error", "No hay gente en esta habitacion")
             return 0 #salir de la funcionalidad
-        
-
     ventana_emergente = Toplevel()
     ventana_emergente.geometry("500x500")
     ventana_emergente.title("Seleccione un Restaurante")
@@ -213,6 +212,28 @@ def reservarRestaurante(hotel:Hotel):
     
 
 
+
+def reservarTransporte(hotel: Hotel):
+    try: 
+        id_habitacion = obtenerValores()[0]
+        habitacion: Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if (habitacion.isOcupado() == False):
+            raise habitacionDesocupada()
+        grupo: GrupoHuespedes = habitacion.get_grupo_huespedes()
+    except Exception as e:
+        messagebox.showerror("Error", "No hay gente en esta habitacion")
+        return 0
+    ventana_emergente = Toplevel()
+    ventana_emergente.geometry("500x500")
+    ventana_emergente.title("Seleccione un vehiculo")
+    Label(ventana_emergente, text="Seleccione un vehiculo").pack()
+    opciones = [f"Id: {v.id}, Modelo: {v.modelo}, Capacidad: {v.capacidad}, Precio: {v.precio}" for v in Vehiculos]
+    comboBox = ttk.Combobox(master=ventana_emergente, values= opciones, textvariable="...")
+    comboBox.config(width=50, height=10)
+    comboBox.pack()
+
+    #def seleccionarVehiculo():
+        #vehiculo_seleccionado = Vehiculo.
 
 
 def generar_alojar_huesped():
@@ -243,7 +264,7 @@ def generar_transporte():
     frame_actual.pack_forget()
     frame_actual = frame_transporte
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command= obtenerValores)
+    frame_actual.boton_aceptar.config(command= lambda: reservarTransporte(hotel))
 
 def generar_alimentacion():
     global frame_actual
