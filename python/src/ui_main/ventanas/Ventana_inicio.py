@@ -62,7 +62,7 @@ dict_imgs = {
     "arriba_izquierda": cycle(
         (
             PhotoImage(file=root_img + "alejo1.png").subsample(2,2),
-            PhotoImage(file=root_img + "cr7_2.png"),
+            PhotoImage(file=root_img + "Miguel1.png"),
             PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
             PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
             PhotoImage(file=root_img + "abraham1.png").subsample(5,5)
@@ -71,7 +71,7 @@ dict_imgs = {
     "arriba_derecha": cycle(
         (
             PhotoImage(file=root_img + "alejo2.png"),
-            PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
+            PhotoImage(file=root_img + "Miguel2.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
             PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
             PhotoImage(file=root_img + "abraham2.png").subsample(4,4)
@@ -80,7 +80,7 @@ dict_imgs = {
     "abajo_izquierda": cycle(
         (
             PhotoImage(file=root_img + "alejo3.png").subsample(3,3),
-            PhotoImage(file=root_img + "cr7_2.png"),
+            PhotoImage(file=root_img + "Miguel3.png"),
             PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
             PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
             PhotoImage(file=root_img + "abraham3.png").subsample(3,3)
@@ -89,7 +89,7 @@ dict_imgs = {
     "abajo_derecha": cycle(
         (
             PhotoImage(file=root_img + "alejo4.png"),
-            PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
+            PhotoImage(file=root_img + "Miguel4.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
             PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
             PhotoImage(file=root_img + "abraham4.png").subsample(5,5)
