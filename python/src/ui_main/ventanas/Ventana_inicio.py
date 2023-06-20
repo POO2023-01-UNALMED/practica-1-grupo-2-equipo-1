@@ -187,7 +187,7 @@ def abrir_ventana_principal():
 
 
 #p4 abrir nueva pantalla
-boton_ventana_principal = Button(p4Frame, text="Abrir", width=5, height=1,background="lightgray", command=abrir_ventana_principal)
+boton_ventana_principal = Button(p4Frame, text="Abrir", width=6, height=1,background="lightgray", command=abrir_ventana_principal, font=("Helvetica", 12, "bold"))
 boton_ventana_principal.place(relx=0.5, rely=0.98, anchor="s" )
 
 

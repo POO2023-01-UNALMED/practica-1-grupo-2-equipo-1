@@ -89,18 +89,6 @@ def agregar_huesped(hotel:Hotel):
         return 0; #salir de la apliacion
     cabeza = Huesped(nombre, id)
     
-    if not isinstance(dias,int):
-        raise TipadoNoValido
-    
-    if not isinstance(cantidad,int):
-        raise TipadoNoValido
-
-    if not isinstance(id,int):
-        raise TipadoNoValido
-    
-    if not isinstance(nombre,StringVar):
-        raise TipadoNoValido
-    
     try:
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
         if habitacion == None:
