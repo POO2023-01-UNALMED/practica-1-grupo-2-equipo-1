@@ -79,28 +79,27 @@ def agregar_huesped(hotel:Hotel):
     cabeza = Huesped(nombre, id)
 
     try:
-        try:
-            habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-        except ValueError as e:
-            messagebox.showerror("Error", e)
-            return 0 #Salirse
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
         if habitacion == None:
             raise HabitacionNoExiste
+        if (habitacion.isOcupado()==False):
+            grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
+            habitacion.set_grupo_huespedes(grupo)
+            HabOcupada(nombre, id_habitacion)
+            frame_actual.output.insert(END,
+                "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
+                )
+        else:
+            raise habitacionOcupada(habitacion)
     except HabitacionNoExiste as e:
         messagebox.showerror("Error", e)
         return 0 #terminar funcionalidad
-
-    if (habitacion.isOcupado()==False):
-        grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
-        habitacion.set_grupo_huespedes(grupo)
-        HabOcupada(nombre, id_habitacion)
-        frame_actual.output.insert(END,
-            "Han sido agregados con exito\n" + str(grupo) + "\n" + str(habitacion)
-            )
-        
-    else:
-        messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra ocupada")
-    
+    except ValueError as e:
+        messagebox.showerror("Error", e)#pasar letra en vez de numero
+        return 0 #Salirse
+    except habitacionOcupada as e:
+        messagebox.showerror("Incorrecto",e)
+        return 0
   
 #DESALOJAR HUESPEDES    
 def desalojar_huesped(hotel:Hotel):
@@ -141,7 +140,7 @@ def desalojar_huesped(hotel:Hotel):
         messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
 
 
-def servicios_extra():
+def servicios_extra(hotel: Hotel):
     try:
         id_habitacion = obtenerValores()[0]
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
@@ -211,7 +210,7 @@ def generar_servExtra():
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command = servicios_extra)
+    frame_actual.boton_aceptar.config(command = lambda: servicios_extra(hotel))
 
 def generar_factura():
     global frame_actual
