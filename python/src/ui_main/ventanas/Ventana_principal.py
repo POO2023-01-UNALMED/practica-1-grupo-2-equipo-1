@@ -202,12 +202,16 @@ def reservarRestaurante(hotel:Hotel):
     comboBox.pack()
     
     def seleccionRestaurante():
-        restaurante_seleccionado = Restaurante.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
+        restaurante_seleccionado = Restaurante.buscarPorId(comboBox.get()[0])  
         grupo.get_factura().FacturaRestaurante += restaurante_seleccionado.precioRestaurante
         ventana_emergente.destroy()
+        frame_actual.output.insert(END,"Has seleccionado el: "+str(restaurante_seleccionado.name))
 
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command=seleccionRestaurante)
     boton_combobox.pack()
+
+    
+
 
 
 
