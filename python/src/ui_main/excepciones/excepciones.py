@@ -2,7 +2,7 @@ from tkinter import messagebox
 
 class Error(Exception): 
     def __init__(self, error):
-        self._error = f"Manejo de excepciones {error}"
+        self._error = f"Manejo de excepciones: {error}"
         super().__init__(self._error)
     
     def printExcepcion(self):
@@ -16,7 +16,7 @@ class habitacionOcupada(Error):
 class habitacionDesocupada(Error):
     def __init__(self,error):
         self.error = error
-        super().__init__(f"No hay gente en la habitacion {error}")
+        super().__init__(f"La habitación está desocupada")
 
 class HabitacionNoExiste(Error):
     def __init__(self):
