@@ -246,7 +246,7 @@ def generar_alimentacion():
     frame_actual.pack_forget()
     frame_actual = frame_restaurante
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command = obtenerValores)
+    frame_actual.boton_aceptar.config(command = lambda: reservarRestaurante(hotel))
 
 def generar_servExtra():
     global frame_actual
