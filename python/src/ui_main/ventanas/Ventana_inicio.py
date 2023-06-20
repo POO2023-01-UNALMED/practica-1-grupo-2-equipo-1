@@ -64,7 +64,7 @@ dict_imgs = {
             PhotoImage(file=root_img + "alejo1.png").subsample(2,2),
             PhotoImage(file=root_img + "Miguel1.png"),
             PhotoImage(file=root_img + "stiven_1.png").subsample(1,1),
-            PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
+            PhotoImage(file=root_img + "Samuel1.png").subsample(4,4),
             PhotoImage(file=root_img + "abraham1.png").subsample(5,5)
         )
     ),
@@ -73,7 +73,7 @@ dict_imgs = {
             PhotoImage(file=root_img + "alejo2.png"),
             PhotoImage(file=root_img + "Miguel2.png").subsample(3,3),
             PhotoImage(file=root_img + "stiven_2.png").subsample(1,1),
-            PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
+            PhotoImage(file=root_img + "Samuel2.png").subsample(10,10),
             PhotoImage(file=root_img + "abraham2.png").subsample(4,4)
         )
     ),
@@ -82,7 +82,7 @@ dict_imgs = {
             PhotoImage(file=root_img + "alejo3.png").subsample(3,3),
             PhotoImage(file=root_img + "Miguel3.png").subsample(5,5),
             PhotoImage(file=root_img + "stiven_3.png").subsample(1,1),
-            PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
+            PhotoImage(file=root_img + "Samuel3.png").subsample(4,4),
             PhotoImage(file=root_img + "abraham3.png").subsample(3,3)
         )
     ),
@@ -91,7 +91,7 @@ dict_imgs = {
             PhotoImage(file=root_img + "alejo4.png"),
             PhotoImage(file=root_img + "Miguel4.png").subsample(6,6),
             PhotoImage(file=root_img + "stiven_4.png").subsample(1,1),
-            PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
+            PhotoImage(file=root_img + "Samuel4.png").subsample(4,4),
             PhotoImage(file=root_img + "abraham4.png").subsample(5,5)
         )
     ),
@@ -145,7 +145,7 @@ cinco.bind("<Enter>", evento_hotel)
 circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:20/07/2004\nGustos: Programar y tocar musica <3"
                  , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:02/05/2004\nGustos: Ir al gimnasio, escuchar música y cocinar :)"
                  ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:09/06/2004\nGustos: Salir con amigos, cocinar, ver anime y escuchar musica"
-                 ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
+                 ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y escuchar musica"
                  , "Abraham David Miguel Cardenas\nHoja de Vida\n\nFecha de Nacimiento:10/10/2004\nGustos: Estar con mis amigos, ver series y escuchar hip hop/rap")
                  )
 
