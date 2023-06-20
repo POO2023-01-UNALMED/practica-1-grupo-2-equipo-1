@@ -39,3 +39,7 @@ class VehiculoOcupado(Error):
     def __init__(self, error):
         self.error = error
         super().__init__("El vehículo ya está ocupado")
+
+class CapacidadInsuficiente(Error):
+    def __init__(self, error):
+        super().__init__(error)
