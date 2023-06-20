@@ -88,7 +88,19 @@ def agregar_huesped(hotel:Hotel):
     if nombre == None:
         return 0; #salir de la apliacion
     cabeza = Huesped(nombre, id)
+    
+    if not isinstance(dias,int):
+        raise TipadoNoValido
+    
+    if not isinstance(cantidad,int):
+        raise TipadoNoValido
 
+    if not isinstance(id,int):
+        raise TipadoNoValido
+    
+    if not isinstance(nombre,StringVar):
+        raise TipadoNoValido
+    
     try:
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
         if habitacion == None:
@@ -111,6 +123,7 @@ def agregar_huesped(hotel:Hotel):
     except habitacionOcupada as e:
         messagebox.showerror("Incorrecto",e)
         return 0
+        
   
 
 #DESALOJAR HUESPEDES    
@@ -254,10 +267,15 @@ def reservarTransporte(hotel: Hotel):
 
     def seleccionarVehiculo():
         vehiculo_seleccionado = Vehiculo.buscarPorId(comboBox.get()[4])
-        vehiculo_seleccionado.asignarDueños(grupo)
-        grupo.get_factura().FacturaVehiculo += vehiculo_seleccionado.precio
-        ventana_emergente.destroy()
-        frame_actual.output.insert(END,"Has seleccionado el vehiculo: "+str(vehiculo_seleccionado.modelo))
+        if vehiculo_seleccionado.isOcupado() == True: 
+            raise messagebox.showerror("Excepción", "EL vehiculo ya está ocupado")
+        else: 
+            vehiculo_seleccionado.asignarDueños(grupo)
+            grupo.get_factura().FacturaVehiculo += vehiculo_seleccionado.precio
+            ventana_emergente.destroy()
+            frame_actual.output.delete("1.0", END)  # Borrar el contenido existente
+            frame_actual.output.insert(END,"Has seleccionado el vehiculo: "+str(vehiculo_seleccionado.modelo))
+
 
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command= seleccionarVehiculo)
     boton_combobox.pack()
