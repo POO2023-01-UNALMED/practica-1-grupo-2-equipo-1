@@ -104,7 +104,7 @@ def agregar_huesped(hotel:Hotel):
     except TipadoNoValido as e:
         messagebox.showerror("Error", e)
         return 0
-    except TypeError | ValueError as e:
+    except ValueError as e:
         messagebox.showerror("Error", "Error con los tipos de datos")
         return 0
     
@@ -112,6 +112,11 @@ def agregar_huesped(hotel:Hotel):
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
         if habitacion == None:
             raise HabitacionNoExiste
+        
+        #Si la capacidad es menor a las personas registradas
+        if int(habitacion._capacidad) < int(cantidad):
+            pass
+
         if (habitacion.isOcupado()==False):
             grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
             habitacion.set_grupo_huespedes(grupo)
