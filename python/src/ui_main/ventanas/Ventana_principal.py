@@ -254,10 +254,15 @@ def reservarTransporte(hotel: Hotel):
 
     def seleccionarVehiculo():
         vehiculo_seleccionado = Vehiculo.buscarPorId(comboBox.get()[4])
-        vehiculo_seleccionado.asignarDueños(grupo)
-        grupo.get_factura().FacturaVehiculo += vehiculo_seleccionado.precio
-        ventana_emergente.destroy()
-        frame_actual.output.insert(END,"Has seleccionado el vehiculo: "+str(vehiculo_seleccionado.modelo))
+        if vehiculo_seleccionado.isOcupado() == True: 
+            raise messagebox.showerror("Excepción", "EL vehiculo ya está ocupado")
+        else: 
+            vehiculo_seleccionado.asignarDueños(grupo)
+            grupo.get_factura().FacturaVehiculo += vehiculo_seleccionado.precio
+            ventana_emergente.destroy()
+            frame_actual.output.delete("1.0", END)  # Borrar el contenido existente
+            frame_actual.output.insert(END,"Has seleccionado el vehiculo: "+str(vehiculo_seleccionado.modelo))
+
 
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command= seleccionarVehiculo)
     boton_combobox.pack()

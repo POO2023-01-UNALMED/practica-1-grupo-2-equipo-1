@@ -35,3 +35,7 @@ class TipadoNoValido(Error):
     def __init__(self):
         super().__init__(f"Tipo de dato no aceptado")
 
+class VehiculoOcupado(Error):
+    def __init__(self, error):
+        self.error = error
+        super().__init__("El vehículo ya está ocupado")
