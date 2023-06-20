@@ -105,42 +105,47 @@ def agregar_huesped(hotel:Hotel):
 def desalojar_huesped(hotel:Hotel):
     #se pide el id para saber que habitacion se va a desalojar
     id_habitacion = obtenerValores()[0]
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    
+    try:
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
 
-    grupo = habitacion.get_grupo_huespedes()
+        grupo = habitacion.get_grupo_huespedes()
 
-    if (habitacion.isOcupado() == True):
-        #se calcula y se muestra la factura
-        frame_actual.output.insert(END,str(grupo)+
+        if (habitacion.isOcupado() == True):
+            #se calcula y se muestra la factura
+            frame_actual.output.insert(END,str(grupo)+
                                " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
     
-        #eliminar reserva del restaurante
-        if (grupo.get_mesa_reservada() != None):
-            grupo.get_mesa_reservada().vaciarMesa()
-            grupo.set_mesa_reservada(None)
-            frame_actual.output.insert(END,"\nReserva de restaurante eliminada")
-        else : 
-            frame_actual.output.insert(END,"\nNo se reservó ningun restaurante")
+            #eliminar reserva del restaurante
+            if (grupo.get_mesa_reservada() != None):
+                grupo.get_mesa_reservada().vaciarMesa()
+                grupo.set_mesa_reservada(None)
+                frame_actual.output.insert(END,"\nReserva de restaurante eliminada")
+            else : 
+                frame_actual.output.insert(END,"\nNo se reservó ningun restaurante")
         
-        #eliminar transporte  
-        if (grupo.get_vehiculo_reservado() != None):
-            grupo.get_vehiculo_reservado().desocuparVehiculo()
-            grupo.get_vehiculo_reservado(None)
-            frame_actual.output.insert(END,"\nReserva de vehiculo eliminada")
+            #eliminar transporte  
+            if (grupo.get_vehiculo_reservado() != None):
+                grupo.get_vehiculo_reservado().desocuparVehiculo().get_vehiculo_reservado(None)
+                frame_actual.output.insert(END,"\nReserva de vehiculo eliminada")
 
-        else : 
-            frame_actual.output.insert(END,"\nNo se reservó ningun vehiculo")  
+            else : 
+                frame_actual.output.insert(END,"\nNo se reservó ningun vehiculo")  
 
 
-        habitacion.borrar_grupo()
-        HabDesocupada()
+            habitacion.borrar_grupo()
+            HabDesocupada()
         
     
-    else:
-        messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
+        else:
+            messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
+
+    except ValueError as e:
+        messagebox.showerror("Error", e)#pasar letra en vez de numero
+        return 0 #Salirse
 
 
-def servicios_extra():
+def servicios_extra(hotel: Hotel):
     try:
         id_habitacion = obtenerValores()[0]
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
@@ -210,7 +215,7 @@ def generar_servExtra():
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
-    frame_actual.boton_aceptar.config(command = servicios_extra)
+    frame_actual.boton_aceptar.config(command = lambda: servicios_extra(hotel))
 
 def generar_factura():
     global frame_actual
@@ -271,12 +276,37 @@ def acercaDe():
 
 def verFactura(hotel:Hotel):
     id_habitacion = obtenerValores()[0]
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-    ventana_datos= Toplevel()
-    ventana_datos.geometry("200x150")
-    ventana_datos.title("Factura")
-    label = Label(ventana_datos, text=habitacion.factura())
-    label.pack()
+
+    try:
+
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if habitacion == None:
+            raise HabitacionNoExiste
+        if (habitacion.isOcupado()==True):
+            ventana_datos= Toplevel()
+            ventana_datos.geometry("200x150")
+            ventana_datos.title("Factura")
+            label = Label(ventana_datos, text=habitacion.factura())
+            label.pack()
+        elif (habitacion.isOcupado()==False):
+            raise habitacionDesocupada(habitacion)
+
+    except ValueError as e:
+        
+        messagebox.showerror("Error", e)#pasar letra en vez de numero
+        return 0 #Salirse
+    
+    except HabitacionNoExiste as e:
+
+        messagebox.showerror("Error", e)
+        return 0 #terminar funcionalidad
+    
+    except habitacionDesocupada as e:
+        messagebox.showerror("Incorrecto",e)
+        return 0
+    
+
+
 
 def HabDesocupada():
     descripcion = "Habitación desalojada satisfactoriamente"

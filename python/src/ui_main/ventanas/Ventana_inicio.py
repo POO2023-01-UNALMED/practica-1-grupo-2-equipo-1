@@ -61,34 +61,38 @@ root_img = "python\\src\\ui_main\\ventanas\\imagenes\\"
 dict_imgs = {
     "arriba_izquierda": cycle(
         (
-            PhotoImage(file=root_img + "cr7_1.png").subsample(2,2),
+            PhotoImage(file=root_img + "alejo1.png").subsample(2,2),
             PhotoImage(file=root_img + "cr7_2.png"),
             PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
             PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
+            PhotoImage(file=root_img + "abraham1.png").subsample(5,5)
         )
     ),
     "arriba_derecha": cycle(
         (
-            PhotoImage(file=root_img + "messi_1.png"),
+            PhotoImage(file=root_img + "alejo2.png"),
             PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
             PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
+            PhotoImage(file=root_img + "abraham2.png").subsample(4,4)
         )
     ),
     "abajo_izquierda": cycle(
         (
-            PhotoImage(file=root_img + "cr7_1.png").subsample(2,2),
+            PhotoImage(file=root_img + "alejo3.png").subsample(3,3),
             PhotoImage(file=root_img + "cr7_2.png"),
             PhotoImage(file=root_img + "cr7_3.png").zoom(1,1),
             PhotoImage(file=root_img + "cr7_4.png").zoom(1,1),
+            PhotoImage(file=root_img + "abraham3.png").subsample(3,3)
         )
     ),
     "abajo_derecha": cycle(
         (
-            PhotoImage(file=root_img + "messi_1.png"),
+            PhotoImage(file=root_img + "alejo4.png"),
             PhotoImage(file=root_img + "messi_2.png").subsample(8,8),
             PhotoImage(file=root_img + "messi_3.png"),
             PhotoImage(file=root_img + "messi_4.png").subsample(5,5),
+            PhotoImage(file=root_img + "abraham4.png").subsample(5,5)
         )
     ),
     
@@ -130,7 +134,7 @@ cuatro.grid(row=1, column=1, padx=0, pady=5)
 
 cinco = Label(p4Frame, width=500, height=400, bg="white", image=next(dict_imgs["Hotel"]), bd=2, relief="solid")
 cinco.place(relx=0.5, rely=0.9,anchor="s")
-cinco.bind("<Enter>", evento_hotel)
+cinco.bind("<Enter>", evento_hotel) 
 
 
 #Breve hoja de vida de cada desarrollador
@@ -138,7 +142,7 @@ cinco.bind("<Enter>", evento_hotel)
 
 #Cuando llega al ultimo se devuelve al inicio
 
-circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Abraham y ver peliculas con el <3"
+circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:20/07/2004\nGustos: Programar y tocar musica <3"
                  , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:02/05/2004\nGustos: Ir al gimnasio, escuchar música y cocinar :)"
                  ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Las bandidas"
                  ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
