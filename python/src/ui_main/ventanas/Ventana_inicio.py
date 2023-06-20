@@ -82,7 +82,7 @@ dict_imgs = {
         (
             PhotoImage(file=root_img + "alejo2.png"),
             PhotoImage(file=root_img + "Miguel2.png").subsample(3,3),
-            PhotoImage(file=root_img + "stiven_2.png").subsample(1,1),
+            PhotoImage(file=root_img + "stiven_2.png").subsample(6,6),
             PhotoImage(file=root_img + "Samuel2.png").subsample(10,10),
             PhotoImage(file=root_img + "abraham2.png").subsample(4,4)
         )
@@ -91,7 +91,7 @@ dict_imgs = {
         (
             PhotoImage(file=root_img + "alejo3.png").subsample(3,3),
             PhotoImage(file=root_img + "Miguel3.png").subsample(5,5),
-            PhotoImage(file=root_img + "stiven_3.png").subsample(1,1),
+            PhotoImage(file=root_img + "stiven_3.png").subsample(6,6),
             PhotoImage(file=root_img + "Samuel3.png").subsample(4,4),
             PhotoImage(file=root_img + "abraham3.png").subsample(3,3)
         )
