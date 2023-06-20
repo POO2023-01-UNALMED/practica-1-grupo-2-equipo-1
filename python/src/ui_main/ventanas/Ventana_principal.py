@@ -194,7 +194,7 @@ def servicios_extra(hotel: Hotel):
             raise habitacionDesocupada()
         grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
     except Exception as e:
-            messagebox.showerror("Error", "No hay gente en esta habitacion")
+            messagebox.showerror("Error", "Datos incorrectos")
             return 0 #salir de la funcionalidad
         
 
@@ -229,7 +229,7 @@ def reservarRestaurante(hotel:Hotel):
             raise habitacionDesocupada()
         grupo: GrupoHuespedes = habitacion.get_grupo_huespedes()
     except Exception as e:
-        messagebox.showerror("Error", "No hay gente en esta habitación o la mesa no está asignada")
+        messagebox.showerror("Error", "Error al ingresar los datos")
         return 0  # Salir de la funcionalidad
     
     ventana_emergente = Toplevel()
@@ -269,7 +269,7 @@ def reservarTransporte(hotel: Hotel):
             raise habitacionDesocupada()
         grupo: GrupoHuespedes = habitacion.get_grupo_huespedes()
     except Exception as e:
-        messagebox.showerror("Error", "No hay gente en esta habitacion")
+        messagebox.showerror("Error", "Error al escribir los datos")
         return 0
     ventana_emergente = Toplevel()
     ventana_emergente.geometry("500x500")
