@@ -52,7 +52,7 @@ label_bienvenida.place(relx=0.5, rely=0.3, anchor="s")#esta centrado
 saludo2 = """Un lugar donde la comodidad y la tecnología se unen. Disfruten de su estancia 
 y sumérjanse en un ambiente inspirador diseñado especialmente para programadores como ustedes.
 \n¡Que tengan una estancia increíble en el Debugg Inn!"""
-label_saludo = Label(p3Frame, text=saludo2, font=("Arial",7), fg="black")
+label_saludo = Label(p3Frame, text=saludo2, font=("Arial",8), fg="black")
 label_saludo.place(relx=0.5, rely=0.35, anchor="n")
 
 
