@@ -182,13 +182,8 @@ def servicios_extra(hotel: Hotel):
     # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
 
 
-<<<<<<< HEAD
 #FUNCIONALIDAD RESERVAR RESTAURANTES
 def reservarRestaurante(hotel:Hotel):
-=======
-
-def reservarRestaurante(hotel: Hotel):
->>>>>>> main
     try:
         id_habitacion = obtenerValores()[0]
         habitacion: Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
