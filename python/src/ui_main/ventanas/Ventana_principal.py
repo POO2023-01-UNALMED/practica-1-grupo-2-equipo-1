@@ -90,6 +90,25 @@ def agregar_huesped(hotel:Hotel):
     cabeza = Huesped(nombre, id)
     
     try:
+        if not isinstance(int(dias),int):
+            raise TipadoNoValido
+        
+        if not isinstance(int(cantidad),int):
+            raise TipadoNoValido
+
+        if not isinstance(int(id),int):
+            raise TipadoNoValido
+        
+        if not isinstance(nombre,str):
+            raise TipadoNoValido
+    except TipadoNoValido as e:
+        messagebox.showerror("Error", e)
+        return 0
+    except TypeError | ValueError as e:
+        messagebox.showerror("Error", "Error con los tipos de datos")
+        return 0
+    
+    try:
         habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
         if habitacion == None:
             raise HabitacionNoExiste

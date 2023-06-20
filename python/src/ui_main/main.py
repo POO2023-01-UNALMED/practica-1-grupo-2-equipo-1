@@ -13,9 +13,13 @@ from ui_main.ventanas.Ventana_inicio import ventana
 
 
 hotel = Hotel()
+# * Base da datos inicial
 # hotel.añadir_habitacion(Habitacion(1, 4, 400000))
 # hotel.añadir_habitacion(Habitacion(2, 2, 200000))
-# hotel.añadir_habitacion(Habitacion(3, 4, 400000))
+# hotel.añadir_habitacion(Habitacion(3, 4, 390000))
+# hotel.añadir_habitacion(Habitacion(4, 4, 420000))
+# hotel.añadir_habitacion(Habitacion(5, 2, 102000))
+# hotel.añadir_habitacion(Habitacion(6, 5, 541000))
 
 if __name__ == "__main__":
     ventana.mainloop()
