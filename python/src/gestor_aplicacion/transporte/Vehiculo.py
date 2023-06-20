@@ -79,7 +79,7 @@ class Vehiculo:
 	 
     def asignarDueños(self,grupo):
         self.dueños = grupo
-        self.dueños.setVehiculoReservado(self)
+        self.dueños.set_vehiculo_reservado(self)
         self.ocupado = True
 
     #Este método se llama en la funcionalidad desalojar huespuedes y se encarga de que el vehiculo que fue reservado
@@ -95,9 +95,18 @@ class Vehiculo:
     
     def getDueños(self):
         return self.dueños
+    
+    def getId(self):
+        return self.id
+
+    @staticmethod
+    def buscarPorId(idVehiculo):
+        for vehiculo  in Vehiculos:
+            if int(vehiculo.getId()) == int(idVehiculo):
+                return vehiculo
 
 
-Vehiculo(1,"Corola","AAA111", "Gerardo", 4, False, "5000")
-Vehiculo(2,"Chevy","AAA111", "Gerardo", 4, False, "5000")
-Vehiculo(3,"Mercho","AAA111", "Gerardo", 4, False, "5000")
-Vehiculo(4,"Jaja","AAA111", "Gerardo", 4, False, "5000")
+Vehiculo(1,"Corola","AAA111", "Gerardo", 4, False, 5000)
+Vehiculo(2,"Chevy","AAA111", "Gerardo", 4, False, 5000)
+Vehiculo(3,"Mercho","AAA111", "Gerardo", 4, False, 5000)
+Vehiculo(4,"Jaja","AAA111", "Gerardo", 4, False, 5000)

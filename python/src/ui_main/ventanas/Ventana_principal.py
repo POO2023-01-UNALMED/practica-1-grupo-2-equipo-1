@@ -232,9 +232,15 @@ def reservarTransporte(hotel: Hotel):
     comboBox.config(width=50, height=10)
     comboBox.pack()
 
-    #def seleccionarVehiculo():
-        #vehiculo_seleccionado = Vehiculo.
+    def seleccionarVehiculo():
+        vehiculo_seleccionado = Vehiculo.buscarPorId(comboBox.get()[4])
+        vehiculo_seleccionado.asignarDueños(grupo)
+        grupo.get_factura().FacturaVehiculo += vehiculo_seleccionado.precio
+        ventana_emergente.destroy()
+        frame_actual.output.insert(END,"Has seleccionado el vehiculo: "+str(vehiculo_seleccionado.modelo))
 
+    boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command= seleccionarVehiculo)
+    boton_combobox.pack()
 
 def generar_alojar_huesped():
     global frame_actual
