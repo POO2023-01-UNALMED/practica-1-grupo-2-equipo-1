@@ -106,7 +106,7 @@ class Vehiculo:
                 return vehiculo
 
 
-Vehiculo(1,"Corola","AAA111", "Gerardo", 4, False, 5000)
-Vehiculo(2,"Chevy","AAA111", "Gerardo", 4, False, 5000)
-Vehiculo(3,"Mercho","AAA111", "Gerardo", 4, False, 5000)
-Vehiculo(4,"Jaja","AAA111", "Gerardo", 4, False, 5000)
+Vehiculo(1,"Corola","AAA111", "Gerardo", 4, False, 55000)
+Vehiculo(2,"Chevy","GPL069", "Gerardo", 4, False, 50000)
+Vehiculo(3,"Mercho","PNK318", "Ricardo", 4, False, 75000)
+Vehiculo(4,"GWA","ABC123", "Alberto", 4, False, 80000)

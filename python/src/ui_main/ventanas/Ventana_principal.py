@@ -115,7 +115,7 @@ def agregar_huesped(hotel:Hotel):
         
         #Si la capacidad es menor a las personas registradas
         if int(habitacion._capacidad) < int(cantidad):
-            raise CapacidadInsuficiente("La habitacion tiene menor cupos de lo que se requiere")
+            raise CapacidadInsuficiente("La habitacion tiene menor capacidad de la que se requerida")
 
         if (habitacion.isOcupado()==False):
             grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
