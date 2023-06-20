@@ -1,1 +1,0 @@
-#Se debe prescindir de esta clase porque no aporta nada en este proyecto

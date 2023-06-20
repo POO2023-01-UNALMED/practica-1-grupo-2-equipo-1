@@ -17,9 +17,9 @@ class Habitacion:
 
     def __str__(self) -> str:
         if (self.grupo == None):
-            return "Huespedes: " + "Vacio" + f", ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}"
+            return "Huespedes: " + "Vacio" + f", ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}, Capacidad: {self._capacidad}"
 
-        return f"Huespedes:  {self.get_grupo_huespedes().cabeza}, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}, Factura: {self.grupo.get_factura().CalcularPrecioFactura()}"
+        return f"Huespedes:  {self.get_grupo_huespedes().cabeza}, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}, Capacidad: {self._capacidad}, Factura: {self.grupo.get_factura().CalcularPrecioFactura()}"
         # return f"Huespedes: cabeza, ID: {self._ID_HABITACION}, Ocupado: {self._esta_ocupado}"
     
     def get_grupo_huespedes(self):
