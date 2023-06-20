@@ -9,11 +9,11 @@ class Mesa:
 
     def asignarDueños(self, dueños:GrupoHuespedes ):
         self.dueños = dueños
-        dueños.setMesaReservada(self)
+        dueños.set_mesa_reservada(self)
         self.ocupado = True
 
     def vaciarMesa(self,dueños:GrupoHuespedes):
-        dueños.setMesaReservada(None)
+        dueños.set_mesa_reservada(None)
         self.dueños = None
         self.ocupado = False
 
