@@ -197,7 +197,7 @@ def reservarRestaurante(hotel:Hotel):
 
     Label(ventana_emergente, text="Seleccione un Restaurante").pack()
     #comboBox
-    opciones = [f"{r.idRestaurante}:{r.name}, {r.getprecioRestaurante}" for r in Restaurante]
+    opciones = [f"{r.idRestaurante}:{r.name}, {r.getPrecioResetaurante()}" for r in Restaurante]
     comboBox = ttk.Combobox(master=ventana_emergente,values= opciones, textvariable="...")
     comboBox.pack()
     
