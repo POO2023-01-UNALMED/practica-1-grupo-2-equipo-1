@@ -142,7 +142,7 @@ cinco.bind("<Enter>", evento_hotel)
 
 #Cuando llega al ultimo se devuelve al inicio
 
-circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Abraham y ver peliculas con el <3"
+circulo = cycle(("Alejandro Feria\nHoja de Vida\n\nFecha de Nacimiento:20/07/2004\nGustos: Programar y tocar musica <3"
                  , "Juan Miguel Márquez\nHoja de Vida\n\nFecha de Nacimiento:02/05/2004\nGustos: Ir al gimnasio, escuchar música y cocinar :)"
                  ,"Stiven Julio Doval\nHoja de Vida\n\nFecha de Nacimiento:XXX\nGustos: Las bandidas"
                  ,"Samuel Gutierrez\nHoja de Vida\n\nFecha de Nacimiento: 09/03/2004\nGustos: Salir con amigos y jugar videojuegos"
