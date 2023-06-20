@@ -77,7 +77,18 @@ def agregar_huesped(hotel:Hotel):
     if nombre == None:
         return 0; #salir de la apliacion
     cabeza = Huesped(nombre, id)
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+
+    try:
+        try:
+            habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        except ValueError as e:
+            messagebox.showerror("Error", e)
+            return 0 #Salirse
+        if habitacion == None:
+            raise HabitacionNoExiste
+    except HabitacionNoExiste as e:
+        messagebox.showerror("Error", e)
+        return 0 #terminar funcionalidad
 
     if (habitacion.isOcupado()==False):
         grupo:GrupoHuespedes = GrupoHuespedes(dias, cabeza, habitacion)
