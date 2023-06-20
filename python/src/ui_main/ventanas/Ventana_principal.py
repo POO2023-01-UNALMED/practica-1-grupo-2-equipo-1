@@ -151,7 +151,7 @@ def desalojar_huesped(hotel:Hotel):
         if (habitacion.isOcupado() == True):
             #se calcula y se muestra la factura
             frame_actual.output.insert(END,str(grupo)+
-                               " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
+                               " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura())+"\nHabitacion desalojada con exito")
     
             #eliminar reserva del restaurante
             if (grupo.get_mesa_reservada() != None):
