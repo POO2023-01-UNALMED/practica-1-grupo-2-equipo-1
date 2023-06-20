@@ -105,39 +105,44 @@ def agregar_huesped(hotel:Hotel):
 def desalojar_huesped(hotel:Hotel):
     #se pide el id para saber que habitacion se va a desalojar
     id_habitacion = obtenerValores()[0]
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+    
+    try:
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
 
-    grupo = habitacion.get_grupo_huespedes()
+        grupo = habitacion.get_grupo_huespedes()
 
-    if (habitacion.isOcupado() == True):
-        #se calcula y se muestra la factura
-        frame_actual.output.insert(END,str(grupo)+
+        if (habitacion.isOcupado() == True):
+            #se calcula y se muestra la factura
+            frame_actual.output.insert(END,str(grupo)+
                                " El precio total de su factura es: "+str(grupo.get_factura().CalcularPrecioFactura()))
     
-        #eliminar reserva del restaurante
-        if (grupo.get_mesa_reservada() != None):
-            grupo.get_mesa_reservada().vaciarMesa()
-            grupo.set_mesa_reservada(None)
-            frame_actual.output.insert(END,"\nReserva de restaurante eliminada")
-        else : 
-            frame_actual.output.insert(END,"\nNo se reservó ningun restaurante")
+            #eliminar reserva del restaurante
+            if (grupo.get_mesa_reservada() != None):
+                grupo.get_mesa_reservada().vaciarMesa()
+                grupo.set_mesa_reservada(None)
+                frame_actual.output.insert(END,"\nReserva de restaurante eliminada")
+            else : 
+                frame_actual.output.insert(END,"\nNo se reservó ningun restaurante")
         
-        #eliminar transporte  
-        if (grupo.get_vehiculo_reservado() != None):
-            grupo.get_vehiculo_reservado().desocuparVehiculo()
-            grupo.get_vehiculo_reservado(None)
-            frame_actual.output.insert(END,"\nReserva de vehiculo eliminada")
+            #eliminar transporte  
+            if (grupo.get_vehiculo_reservado() != None):
+                grupo.get_vehiculo_reservado().desocuparVehiculo().get_vehiculo_reservado(None)
+                frame_actual.output.insert(END,"\nReserva de vehiculo eliminada")
 
-        else : 
-            frame_actual.output.insert(END,"\nNo se reservó ningun vehiculo")  
+            else : 
+                frame_actual.output.insert(END,"\nNo se reservó ningun vehiculo")  
 
 
-        habitacion.borrar_grupo()
-        HabDesocupada()
+            habitacion.borrar_grupo()
+            HabDesocupada()
         
     
-    else:
-        messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
+        else:
+            messagebox.showerror("Incorrecto","Esta habitacion ya se encuentra desocupada")
+
+    except ValueError as e:
+        messagebox.showerror("Error", e)#pasar letra en vez de numero
+        return 0 #Salirse
 
 
 def servicios_extra():
