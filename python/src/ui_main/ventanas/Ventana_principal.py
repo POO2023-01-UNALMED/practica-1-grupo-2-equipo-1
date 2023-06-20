@@ -153,7 +153,6 @@ def servicios_extra():
     comboBox.pack()
     def seleccionServicio():
         servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
-        print(servicio_seleccionado)
         grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
         ventana_secundaria.destroy()
 
