@@ -31,8 +31,14 @@ class Restaurante(Enum):
         print("no encontrado")
         return None
 
-    def __str__(self):
-        return self.nombre + ", precio: " + str(self.precio)
+    @staticmethod
+    def calcularPrecioRestaurantes(idsRestaurantes):
+        precioTotal = 0
+        for idRestaurante in idsRestaurantes:
+            restaurante = Restaurante.buscarPorId(idRestaurante)
+            if restaurante is not None:
+                precioTotal += restaurante.getPrecioResetaurante()
+        return precioTotal
 
     def inicializar(self):
         for i in range(1, 8):

@@ -7,12 +7,12 @@ class Mesa:
         self.dueños:GrupoHuespedes = None  # quienes tienen reservada esta mesa
         self.id = id
 
-    def asignarDueños(self, dueños:GrupoHuespedes=GrupoHuespedes() ):
+    def asignarDueños(self, dueños:GrupoHuespedes ):
         self.dueños = dueños
         dueños.setMesaReservada(self)
         self.ocupado = True
 
-    def vaciarMesa(self,dueños:GrupoHuespedes=GrupoHuespedes()):
+    def vaciarMesa(self,dueños:GrupoHuespedes):
         dueños.setMesaReservada(None)
         self.dueños = None
         self.ocupado = False

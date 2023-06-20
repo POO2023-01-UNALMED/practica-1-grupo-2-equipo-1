@@ -12,6 +12,7 @@ from gestor_aplicacion.personas.Huesped import Huesped
 from gestor_aplicacion.hoteles.Hotel import Hotel, Habitacion
 from ui_main.excepciones.excepciones import *
 from gestor_aplicacion.servicios_extra.Servicios_extra import ServiciosExtra
+from gestor_aplicacion.restaurantes.Restaurante import Restaurante
 
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
@@ -179,7 +180,36 @@ def servicios_extra(hotel: Hotel):
 
 
 def reservarRestaurante(hotel:Hotel):
-    return None
+    try:
+        id_habitacion = obtenerValores()[0]
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
+            raise habitacionDesocupada()
+        grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
+    except Exception as e:
+            messagebox.showerror("Error", "No hay gente en esta habitacion")
+            return 0 #salir de la funcionalidad
+        
+
+    ventana_emergente = Toplevel()
+    ventana_emergente.geometry("500x500")
+    ventana_emergente.title("Seleccione un Restaurante")
+
+    Label(ventana_emergente, text="Seleccione un Restaurante").pack()
+    #comboBox
+    opciones = [f"{r.idRestaurante}:{r.name}, {r.getprecioRestaurante}" for r in Restaurante]
+    comboBox = ttk.Combobox(master=ventana_emergente,values= opciones, textvariable="...")
+    comboBox.pack()
+    
+    def seleccionRestaurante():
+        restaurante_seleccionado = Restaurante.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
+        grupo.get_factura().FacturaRestaurante += restaurante_seleccionado.precioRestaurante
+        ventana_emergente.destroy()
+
+    boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command=seleccionRestaurante)
+    boton_combobox.pack()
+
+
 
 def generar_alojar_huesped():
     global frame_actual
@@ -187,6 +217,14 @@ def generar_alojar_huesped():
     frame_actual = frame_alojo
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=lambda: agregar_huesped(hotel))
+    
+def generar_reservaRestaurante():
+    global frame_actual
+    frame_actual.pack_forget()
+    frame_actual = frame_restaurante
+    frame_actual.pack()
+    frame_actual.boton_aceptar.config(command=lambda: reservarRestaurante(hotel))
+    
 
  
 def generar_desalojarHuesped():
