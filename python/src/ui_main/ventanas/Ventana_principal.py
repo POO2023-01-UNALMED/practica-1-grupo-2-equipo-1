@@ -276,12 +276,37 @@ def acercaDe():
 
 def verFactura(hotel:Hotel):
     id_habitacion = obtenerValores()[0]
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-    ventana_datos= Toplevel()
-    ventana_datos.geometry("200x150")
-    ventana_datos.title("Factura")
-    label = Label(ventana_datos, text=habitacion.factura())
-    label.pack()
+
+    try:
+
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if habitacion == None:
+            raise HabitacionNoExiste
+        if (habitacion.isOcupado()==True):
+            ventana_datos= Toplevel()
+            ventana_datos.geometry("200x150")
+            ventana_datos.title("Factura")
+            label = Label(ventana_datos, text=habitacion.factura())
+            label.pack()
+        elif (habitacion.isOcupado()==False):
+            raise habitacionDesocupada(habitacion)
+
+    except ValueError as e:
+        
+        messagebox.showerror("Error", e)#pasar letra en vez de numero
+        return 0 #Salirse
+    
+    except HabitacionNoExiste as e:
+
+        messagebox.showerror("Error", e)
+        return 0 #terminar funcionalidad
+    
+    except habitacionDesocupada as e:
+        messagebox.showerror("Incorrecto",e)
+        return 0
+    
+
+
 
 def HabDesocupada():
     descripcion = "Habitación desalojada satisfactoriamente"
