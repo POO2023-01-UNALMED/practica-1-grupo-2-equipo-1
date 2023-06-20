@@ -12,6 +12,10 @@ class habitacionOcupada(Error):
     def __init__(self, error):
         self._error = error
         super().__init__(f"La habitación ya se encuentra ocupada {error}")
+
+class habitacionDesocupada(Error):
+    def __init__(self):
+        super().__init__(f"No hay gente en la habitacion")
     
 class CamposFaltantesError(Error):
     def __init__(self, campos):

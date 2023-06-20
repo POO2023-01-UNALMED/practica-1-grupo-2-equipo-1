@@ -131,12 +131,16 @@ def desalojar_huesped(hotel:Hotel):
 
 
 def servicios_extra():
-    id_habitacion = obtenerValores()[0]
-    habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
-    if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
-        print("No hay gente")
-        return 0
-    grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
+    try:
+        id_habitacion = obtenerValores()[0]
+        habitacion:Habitacion = hotel.seleccionar_habitacion_porId(int(id_habitacion))
+        if (habitacion.isOcupado() == False): #Si esta desocupada que no siga
+            raise habitacionDesocupada()
+        grupo:GrupoHuespedes = habitacion.get_grupo_huespedes()
+    except Exception as e:
+            messagebox.showerror("Error", "No hay gente en esta habitacion")
+            return 0 #salir de la funcionalidad
+        
 
     ventana_secundaria = Toplevel()
     ventana_secundaria.geometry("500x500")
@@ -148,7 +152,6 @@ def servicios_extra():
     comboBox = ttk.Combobox(master=ventana_secundaria,values= opciones, textvariable="...")
     comboBox.pack()
     def seleccionServicio():
-        print(comboBox.get()[0])
         servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
         print(servicio_seleccionado)
         grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
@@ -273,3 +276,4 @@ def HabDesocupada():
 def HabOcupada(cabeza, IDhabitacion):
     descripcion = f"Se han alojado los huespedes con la cabeza de grupo {cabeza} en la habitación {IDhabitacion} correctamente"
     messagebox.showinfo("Mensaje", descripcion)
+
