@@ -29,3 +29,8 @@ class CamposFaltantesError(Error):
     
     def __str__(self):
         return f"Faltan campos por llenar"
+    
+class TipadoNoValido(Error):
+    def __init__(self):
+        super().__init__(f"Tipo de dato no aceptado")
+
