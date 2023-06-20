@@ -16,9 +16,11 @@ from gestor_aplicacion.restaurantes.Restaurante import Restaurante
 from gestor_aplicacion.transporte.Vehiculo import Vehiculo, Vehiculos
 from gestor_aplicacion.restaurantes.Mesa import Mesa
 
+
 frame_principal = Frame(ventana, width=1090, height=670)
 frame_principal.pack_propagate(False)
 frame_principal.grid_propagate(False)
+
 
 frame_alojo = FieldFrame(frame_principal,"Criterios", ["Nombre", "Id", "Cantidad", "Dias", "Habitacion"], "Datos" ,[""]*5, None)
 frame_desalojo = FieldFrame(frame_principal, "Criterios", ["Id de la Habitacion"], "Datos", [""], None)
@@ -28,9 +30,11 @@ frame_servExtra = FieldFrame(frame_principal, "Criterios", ["Id de la habitació
 frame_factura = FieldFrame(frame_principal, "Criterios", ["Id de la habitación"], "Datos", [""], None)
 #aqui iran los demas frames...
 
+
 #Lo que aparece la primera vez que se abre la ventana principal, despues se borra
 frame_actual = Frame(frame_principal) #viene por defecto
 frame_actual.pack()
+
 
 como_usar = Label(frame_actual,text="\n\nCOMO USAR LA APLICACION\n\n\n"
                   
@@ -56,7 +60,9 @@ como_usar = Label(frame_actual,text="\n\nCOMO USAR LA APLICACION\n\n\n"
                   , fg="black")
 
 
+
 como_usar.pack()
+
 
 def obtenerValores() -> list:
     l = []
@@ -75,6 +81,7 @@ def obtenerValores() -> list:
         return [None for c in frame_actual.criterios]
     
         
+
 #FUNCIONALIDAD ALOJAR HUESPEDES
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
@@ -105,6 +112,7 @@ def agregar_huesped(hotel:Hotel):
         messagebox.showerror("Incorrecto",e)
         return 0
   
+
 #DESALOJAR HUESPEDES    
 def desalojar_huesped(hotel:Hotel):
     #se pide el id para saber que habitacion se va a desalojar
@@ -148,6 +156,7 @@ def desalojar_huesped(hotel:Hotel):
         messagebox.showerror("Error", e)#pasar letra en vez de numero
         return 0 #Salirse
 
+
 #FUNCIONALIDAD SERVICIOS EXTRA
 def servicios_extra(hotel: Hotel):
     try:
@@ -180,6 +189,7 @@ def servicios_extra(hotel: Hotel):
     boton_combobox.pack()
 
     # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
+
 
 
 #FUNCIONALIDAD RESERVAR RESTAURANTES
@@ -218,6 +228,7 @@ def reservarRestaurante(hotel:Hotel):
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command=seleccionRestaurante)
     boton_combobox.pack()
 
+
     
 
 
@@ -251,6 +262,7 @@ def reservarTransporte(hotel: Hotel):
     boton_combobox = Button(master=ventana_emergente, text="Seleccionar", command= seleccionarVehiculo)
     boton_combobox.pack()
 
+
 def generar_alojar_huesped():
     global frame_actual
     frame_actual.pack_forget()
@@ -258,6 +270,7 @@ def generar_alojar_huesped():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=lambda: agregar_huesped(hotel))
     
+
 def generar_reservaRestaurante():
     global frame_actual
     frame_actual.pack_forget()
@@ -267,12 +280,14 @@ def generar_reservaRestaurante():
     
 
  
+
 def generar_desalojarHuesped():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_desalojo
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command=lambda: desalojar_huesped(hotel))
+
 
 def generar_transporte():
     global frame_actual
@@ -288,12 +303,14 @@ def generar_alimentacion():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command = lambda: reservarRestaurante(hotel))
 
+
 def generar_servExtra():
     global frame_actual
     frame_actual.pack_forget()
     frame_actual = frame_servExtra
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command = lambda: servicios_extra(hotel))
+
 
 def generar_factura():
     global frame_actual
@@ -302,9 +319,11 @@ def generar_factura():
     frame_actual.pack()
     frame_actual.boton_aceptar.config(command = lambda: verFactura(hotel))
 
+
 def comando_boton_aceptar():
     for i, nombre_criterio in enumerate(frame_actual.criterios):
         print(nombre_criterio + ": " + frame_actual.getValue(i))
+
 
 
 def inicializar():
@@ -337,6 +356,7 @@ def inicializar():
 
 
 
+
 def salir():
     from ui_main.ventanas.Ventana_inicio import frame_inicio, menu_inicio
     ventana.config(menu=tk.Menu())
@@ -344,13 +364,16 @@ def salir():
     frame_inicio.pack()
     ventana.config(menu=menu_inicio, height=30)
 
+
 def aplicacion(): 
     descripcion = "El sistema de The Debugg Inn permite hacer uso de funcionalidades como alojar y desalojar huespedes, reservar servicios extra para los clientes y generar una factura que refleje los gastos del huesped en su estancia"
     messagebox.showinfo("Descripción de la aplicación", descripcion)
 
+
 def acercaDe(): 
     descripcion = "Aplicación desarrollada por:\nAlejandro Feria\nAbraham David Miguel\nJuan Miguel Márquez\nSamuel Gutierrez\nStiven Julio Doval"
     messagebox.showinfo("Acerda de", descripcion)
+
 
 def verFactura(hotel:Hotel):
     id_habitacion = obtenerValores()[0]
@@ -386,11 +409,14 @@ def verFactura(hotel:Hotel):
 
 
 
+
 def HabDesocupada():
     descripcion = "Habitación desalojada satisfactoriamente"
     messagebox.showinfo("Mensaje", descripcion)
 
+
 def HabOcupada(cabeza, IDhabitacion):
     descripcion = f"Se han alojado los huespedes con la cabeza de grupo {cabeza} en la habitación {IDhabitacion} correctamente"
     messagebox.showinfo("Mensaje", descripcion)
+
 
