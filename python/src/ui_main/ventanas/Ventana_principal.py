@@ -72,8 +72,9 @@ def obtenerValores() -> list:
     except CamposFaltantesError as e:
         messagebox.showerror("Campos faltantes", str(e))
         return [None for c in frame_actual.criterios]
+    
         
-
+#FUNCIONALIDAD ALOJAR HUESPEDES
 def agregar_huesped(hotel:Hotel):
     nombre, id, cantidad, dias, id_habitacion = obtenerValores()
     if nombre == None:
@@ -146,7 +147,7 @@ def desalojar_huesped(hotel:Hotel):
         messagebox.showerror("Error", e)#pasar letra en vez de numero
         return 0 #Salirse
 
-
+#FUNCIONALIDAD SERVICIOS EXTRA
 def servicios_extra(hotel: Hotel):
     try:
         id_habitacion = obtenerValores()[0]
@@ -172,6 +173,7 @@ def servicios_extra(hotel: Hotel):
         servicio_seleccionado = ServiciosExtra.buscarPorId(comboBox.get()[0])  #devulve el primer caracter 1 2 3
         grupo.get_factura().FacturaServiciosExtra += servicio_seleccionado.precioServicio
         ventana_secundaria.destroy()
+        frame_actual.output.insert(END,"Has seleccionado el: "+str(servicio_seleccionado))
 
     boton_combobox = Button(master=ventana_secundaria, text="Seleccionar", command=seleccionServicio)
     boton_combobox.pack()
@@ -179,7 +181,7 @@ def servicios_extra(hotel: Hotel):
     # comboBox.bind("<<ComboboxSelected>>", seleccionServicio)
 
 
-
+#FUNCIONALIDAD RESERVAR RESTAURANTES
 def reservarRestaurante(hotel:Hotel):
     try:
         id_habitacion = obtenerValores()[0]
@@ -212,7 +214,7 @@ def reservarRestaurante(hotel:Hotel):
     
 
 
-
+#FUNCIONALIDAD RESERVAR TRANSPORTE
 def reservarTransporte(hotel: Hotel):
     try: 
         id_habitacion = obtenerValores()[0]
